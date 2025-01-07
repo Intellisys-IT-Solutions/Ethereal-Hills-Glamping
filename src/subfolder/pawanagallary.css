@@ -1,0 +1,135 @@
+/* General styling for the gallery */
+.modern-gallery {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+  }
+  
+  .modern-gallery h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .modern-gallery p {
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 2rem;
+  }
+  
+  /* Upload button */
+  .upload-container {
+    margin-bottom: 2rem;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  label {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  label:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Grid layout for images */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .gallery-img {
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .gallery-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .gallery-img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Additional styles for tall and wide images */
+  .gallery-img.tall {
+    grid-row: span 2;
+  }
+  
+  .gallery-img.wide {
+    grid-column: span 2;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .modern-gallery h1 {
+      font-size: 2rem;
+    }
+  
+    .modern-gallery p {
+      font-size: 1rem;
+    }
+  
+    .gallery-grid {
+      gap: 0.8rem; /* Slightly smaller gaps */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .modern-gallery {
+      padding: 1.5rem;
+    }
+  
+    .modern-gallery h1 {
+      font-size: 1.8rem;
+    }
+  
+    .modern-gallery p {
+      font-size: 0.9rem;
+    }
+  
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusts for smaller screens */
+      gap: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .modern-gallery h1 {
+      font-size: 1.5rem;
+    }
+  
+    .modern-gallery p {
+      font-size: 0.8rem;
+    }
+  
+    label {
+      padding: 0.6rem 1rem; /* Smaller upload button */
+      font-size: 0.9rem;
+    }
+  
+    .gallery-grid {
+      grid-template-columns: 1fr; /* Stacks images vertically */
+      gap: 0.5rem;
+    }
+  
+    .gallery-img {
+      border-radius: 5px; /* Slightly smaller border radius */
+    }
+  }
+  

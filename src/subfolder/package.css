@@ -1,0 +1,389 @@
+
+
+
+ /* body {
+
+  background: linear-gradient(90deg, hsl(217, 4%, 62%), #d5ed6dd5);
+
+
+} */
+
+.app2 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  /* background-color: lightgray */
+}
+
+.app2 h1{
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  /* font-family:  Brush Script MT; */
+}
+
+
+
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 2rem; Gap between cards */
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+  padding: 50px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 40px 0px 40px 0px;
+  overflow: hidden;
+  width: 350px;
+  height: 500px;
+  margin: 40px;
+  box-shadow: 15px 15px 10px gray;
+  flex-shrink: 0; /* Prevent card from shrinking */
+  
+}
+
+.card-image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+/* .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #007bff;
+} */
+.see-features{
+  background-color: transparent;
+  border-radius: 10px;
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+  border: none  ;
+}
+
+.card-content {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-price {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.add-to-cart {
+  background-color: #99775C;
+  color: white;
+  border: none;
+  padding: 20px 20px;
+  border-radius: 20px;
+  /* Curved button */
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.3s ease;
+  /* Smooth hover effect */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  /* text-align: center; */
+  /* Subtle shadow */
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+  color: #f8f9fa;
+  /* Slightly lighter text on hover */
+  transform: scale(1.1);
+  /* Slightly enlarges the button */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+  /* Enhanced shadow */
+}
+
+.package-details h1 {
+  text-align: center;
+  font-size: 50px;
+  font-family: sans-serif;
+}
+
+.gallery-container h1 {
+  font-size: 40px;
+  font-family: cursive;
+}
+
+.gallery-container {
+  width: 100%;
+  margin: auto;
+  font-family: cursive;
+}
+
+/* Added Popup */
+.pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.pop-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-pop {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.feature-card1 {
+  text-align: left;
+}
+
+.feature-card1 h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.feature-card1 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-card1 ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+
+/* Mobile Devices (portrait and landscape) */
+@media (max-width: 600px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-price {
+    font-size: 0.9rem;
+  }
+
+  .add-to-cart {
+    padding: 15px 15px;
+    font-size: 14px;
+    margin: auto;
+  }
+
+ 
+  .carousel-button {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+/* Tablets and small devices (600px to 900px) */
+@media (max-width: 900px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .card-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .card {
+    width: 45%;
+    height: 400px;
+    margin: 20px 0;
+  }
+
+  .carousel-button {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-price {
+    font-size: 1rem;
+  }
+
+  .add-to-cart {
+    padding: 18px 18px;
+    font-size: 15px;
+  }
+}
+
+/* Desktop and Larger Devices (above 900px) */
+@media (min-width: 900px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .card-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2rem;
+  }
+
+  .card {
+    width: 350px;
+    height: 500px;
+  }
+
+  .carousel-button {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-price {
+    font-size: 1rem;
+  }
+
+  .add-to-cart {
+    padding: 20px 20px;
+    font-size: 16px;
+  }
+}
+.book-now-btn1 {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  display: inline-block; /* Ensure it doesn't disappear in some layouts */
+}
+
+.book-now-btn:hover {
+  background-color: #0056b3;
+  color: #f8f9fa;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.book-now-btn a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile Devices (portrait and landscape) */
+@media (max-width: 600px) {
+  .book-now-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Tablets and small devices (600px to 900px) */
+@media (max-width: 900px) {
+  .book-now-btn {
+    padding: 12px 22px;
+    font-size: 15px;
+  }
+}
+
+/* Desktop and Larger Devices (above 900px) */
+@media (min-width: 900px) {
+  .book-now-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}

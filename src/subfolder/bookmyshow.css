@@ -1,0 +1,35 @@
+.app {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.seat-row {
+  margin-bottom: 20px;
+}
+
+.seats {
+  display: flex;
+  gap: 10px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  background-color: lightgray;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.seat.selected {
+  background-color: green;
+  color: white;
+}
+
+.notification {
+  margin-top: 20px;
+}
+
+.notification ul {
+  list-style: none;
+  padding: 0;
+}

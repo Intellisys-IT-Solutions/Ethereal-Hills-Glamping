@@ -1,0 +1,336 @@
+.book-container {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 20px; */
+  padding: 20px;
+}
+
+.form-container {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.seat-selection {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.seat-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.seat-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.seat-button.selected {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  flex: 1;
+}
+/* Styling for the logo container */
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px; /* Adds some space below the logo */
+}
+
+.logo {
+  width: 150px;  /* Adjust the size of the logo */
+  height: auto;
+}
+
+
+.form-group label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  background-color: transparent;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.submit-button {
+  width: 40%;
+  padding: 5px;
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 150px;
+}
+
+.submit-button:hover {
+  background-color: hwb(214 66% 6%);
+}
+
+
+/* --------------------------------------------- */
+
+
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+/* body{
+  background: linear-gradient(135deg, #c1a3c9, #d89caa);
+} */
+
+ 
+
+
+
+
+.tent-booking-container {
+ justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 30px; 
+  
+  
+}
+
+.curve {
+  position: relative;
+  display: grid;
+  place-items: start;
+  margin-left:2px;
+  width: 50px; 
+  height: 200px; 
+}
+
+.curve.top {
+  position: relative;
+  clip-path: ellipse(990% 560% at 900% 0%);
+  transform: rotate(270deg);
+  margin-left: 300px;
+  text-align: center;
+   width: 50px; 
+  
+}
+
+.curve.bottom {
+  clip-path: ellipse(500% 800% at 80% 0%);
+  transform: rotate(-90deg);
+  margin-top: -400px;
+  margin-left: 350px;
+
+}
+.tent-button2 {
+  position: absolute;
+  transform-origin: center bottom;
+  transform: rotate(calc(var(--index) * var(--angle-step)))
+  translateY(calc(var(--radius) * -2));
+  transition: transform 0.3s, background-color 0.3s;
+  width: 30px; 
+  /* height: 20px; */
+  border: none;
+  gap: 100px;
+  border-radius: 30%;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.tent-button {
+  position: absolute;
+  transform-origin: center bottom;
+  transform: rotate(calc(var(--index) * var(--angle-step)))
+  translateY(calc(var(--radius) * -1.7));
+  transition: transform 0.3s, background-color 0.3s;
+  gap: 0.2px;
+  width: min-content;
+  border: none;
+  border-radius: 30%;
+  background-color: #ccc;
+  cursor: pointer;
+  margin-left: -30px;
+}
+
+.tent-button.selected {
+  background-color: #4b844b;
+  color: white;
+}
+
+.tent-button:hover {
+  background-color: #ffa500;
+  color: white;
+}
+
+.tent-button2:hover {
+  background-color: #ffa500;
+  color: white;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .tent-booking-container {
+    margin-top: 320px; 
+    gap: 20px; 
+  }
+
+  .curve {
+    width: 900px; 
+    height: 200px; 
+  }
+
+  .tent-button {
+    width: 50px; 
+    height: 25px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .tent-booking-container {
+    margin-top: 200px; 
+    gap: 15px;
+  }
+
+  .curve {
+    width: 80px; 
+    height: 150px;
+  }
+
+
+
+  .tent-button {
+    width: 20px; 
+    height: 12px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .tent-booking-container {
+    margin-top: 100px; 
+    gap: 40px;
+  }
+
+  .curve {
+    width: 120px;
+    height: 350px; 
+  }
+
+  .tent-button {
+    width: 35px;
+    height: 25px;
+   
+  }
+} 
+
+
+.tent-curve-container{
+  width: 60%;
+}
+
+.tent-view {
+  margin-top:5px;
+  text-align: center;
+}
+
+.tent-view img {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .tent-booking-container {
+    margin-top: 320px;
+    gap: 20px;
+  }
+
+  .curve {
+    width: 80px;
+    height: 200px;
+  }
+
+  .tent-button {
+    width: 50px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tent-booking-container {
+    margin-top: 200px;
+    gap: 15px;
+  }
+
+  .curve {
+    width: 60px;
+    height: 150px;
+  }
+
+  .tent-button {
+    width: 20px;
+    height: 12px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tent-booking-container {
+    margin-top: 700px;
+    gap: 40px;
+  }
+
+  .curve {
+    width: 120px;
+    height: 350px;
+  }
+
+  .tent-button {
+    width: 35px;
+    height: 25px;
+  }
+}
+
+
+
+
+
+
+
+
+
+

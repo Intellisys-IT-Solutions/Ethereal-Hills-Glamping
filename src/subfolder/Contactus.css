@@ -1,0 +1,298 @@
+/* General Reset */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: url('../Assets/gallary6.jpg');
+  text-align: center;
+  line-height: 223px;
+  /* margin-top: 7rem; */
+  background-size: cover;
+  background-position: center;
+  height: 250vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.overlay{
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-nav {
+  margin-top: 50px;
+  display: flex;
+  gap: 15px;
+}
+
+.hero-nav a {
+  margin-top: 65rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.hero-nav a:hover {
+  color: #f0fcec;
+  text-decoration: underline;
+}
+
+/* Contact Info Section */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.info2{
+  font-size: 30px;
+  margin-top: -320px;
+  color:white ;
+}
+
+.contact-info h1{
+  margin-bottom: 4rem;
+  color: white;
+  font-size: 4rem;
+  text-shadow: 2px 2px black;
+}
+
+.contact-info h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #070707;
+}
+
+.contact-info ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  display: flex;
+  flex-flow: row;
+  flex: 1 1 calc(33.333% - 40px);
+  background-color: #fff;
+  width: 30rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+}
+
+.contact-info li strong {
+  display: flex;
+  flex-flow: row;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Contact Form Section */
+.contact-form {
+  background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contact-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  display: block;
+  /* font-size: 1rem; */
+  margin-bottom: 5px;
+  color: #020202;
+  width: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  width: 200px;
+  font-size: 1.2rem;
+  background-color: #1d4323;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #c4e8c6;
+}
+
+/* Footer Section */
+footer {
+  background-color: #f0fcec;
+  color: #060606;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.logo-mission p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  line-height: 1.6;
+  color: #767373;
+}
+
+.footer-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #85e17d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #4CAF50;
+  text-decoration: underline;
+}
+
+.contact p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #050505;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icons a img {
+  width: 24px;
+  height: 24px;
+}
+
+.map-brochure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map-brochure iframe {
+  width: 300px;
+  height: 200px;
+  border: none;
+}
+
+.brochure-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #3fe77d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.brochure-button:hover {
+  background-color: #34c668;
+}
+
+.footer-bottom {
+  background-color: #c0f8d4;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #100f0f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .map-brochure iframe {
+    width: 100%;
+  }
+
+  .contact-info li {
+    flex: 1 1 100%;
+  }
+}

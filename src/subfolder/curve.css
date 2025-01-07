@@ -1,0 +1,52 @@
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px; /* Space between images */
+  margin: 20px auto;
+  overflow-x: auto; /* Horizontal scrolling if necessary */
+  padding: 20px;
+}
+
+.image-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card img {
+  width: 200px; /* Adjust the width */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Unique styles for each image using IDs */
+#image-1 {
+ 
+  margin-top: 100px;
+}
+
+#image-2 {
+ 
+  margin-top: 80px;
+}
+
+#image-3 {
+  
+  margin-top: 60px;
+}
+
+#image-4 {
+  
+  margin-top: 40px;
+}
+
+#image-5 {
+ 
+  margin-top: 20px;
+}
+
+#image-6 {
+  
+  margin-top: 0px;
+}

@@ -1,0 +1,90 @@
+/* Footer Styles */
+.footer {
+    background-color: black;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    color: #fff;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+    /* color: silver; */
+  }
+  
+  .footer-logo {
+    width: 200px;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section p {
+    color: #fff;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-section ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-contacts{
+    color: white;
+  }
+  
+  .social-icons {
+    display: flex; /* Aligns icons horizontally */
+    justify-content: center; /* Centers icons horizontally */
+    align-items: center; /* Centers icons vertically */
+    gap: 1rem; /* Adds spacing between icons */
+  }
+  
+  .social-icons a {
+    display: inline-block; /* Ensures the anchor is treated as a block for alignment */
+    line-height: 0; /* Removes extra spacing around the image */
+  }
+  
+  .social-icons img {
+    width: 30px; /* Ensures uniform size */
+    height: 30px;
+    display: block; /* Removes any inline image spacing issues */
+  }
+  
+  .footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: black;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

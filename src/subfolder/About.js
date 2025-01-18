@@ -70,45 +70,7 @@ const Aboutus = () => {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="modern-gallery2">
-         <div>
-             <h1>Peace Of Mind</h1> 
-         </div>
-        <div className="gallery-grid">
-          {/* Left Section */}
-          <div className="gallery-left">
-            <div className="gallery-item">
-              <img src={gallary1} alt="Gallery Image 1" />
-            </div>
-            <div className="gallery-item">
-              <img src={gallery2} alt="Gallery Image 2" />
-            </div>
-            <div className="gallery-item">
-              <img src={gallary3} alt="Gallery Image 3" />
-            </div>
-            <div className="gallery-item">
-              <img src={gallary4} alt="Gallery Image 4" />
-            </div>
-          </div>
-
-          {/* Center Section */}
-          <div className="gallery-center">
-            <div className="gallery-item center-image">
-              <img src={gallary5} alt="Gallery Image 5" />
-            </div>
-          </div>
-
-          {/* Right Section */}
-          <div className="gallery-right">
-            <div className="gallery-item">
-              <img src={gallary6} alt="Gallery Image 6" />
-            </div>
-            <div className="gallery-item">
-              <img src={gallary7} alt="Gallery Image 7" />
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 };

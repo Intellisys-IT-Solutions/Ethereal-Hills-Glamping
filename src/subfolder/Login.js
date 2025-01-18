@@ -65,7 +65,7 @@ const Login = ({ setIsLoggedIn }) => {
         <form onSubmit={handleSubmit}>
           <h2>Log In</h2>
           <div className="form-group">
-            <label htmlFor="email">Contact/Email</label>
+            <label htmlFor="email">Contact / Email</label> <br />
             <input
               type="email"
               id="email"
@@ -77,7 +77,7 @@ const Login = ({ setIsLoggedIn }) => {
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password</label> <br />
             <input
               type="password"
               id="password"

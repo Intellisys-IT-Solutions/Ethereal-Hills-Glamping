@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./package.css";
 import img1 from "../Assets/img5.jpg";
 import img2 from "../Assets/tent1.jpg";
-import imgD1 from "../Assets/g1.jpeg";
+// import imgD1 from "../Assets/g1.jpeg";
+import imgD1 from "../Assets/dome (3).jpg";
 import Feature from "./Feature";
 
 const Package = () => {
@@ -32,7 +33,7 @@ const Package = () => {
             <img src={img2} alt="Tent Stay" className="card-image" />
           </div>
           <div className="card-content">
-            <h2 className="card-title">Tent Stay</h2>
+            <h2 className="card-title2">Tent Stay</h2>
             <p className="card-price">Starting From ₹1199 Per Person</p>
             <button
               className="add-to-cart"
@@ -52,27 +53,26 @@ const Package = () => {
             <img src={img1} alt="Glam Stay" className="card-image" />
           </div>
           <div className="card-content">
-            <h2 className="card-title">Glam Stay</h2>
+            <h2 className="card-title2">Cottage  Stay</h2>
             <p className="card-price">Starting From ₹1999 Per Person</p>
             <button
               className="add-to-cart"
-              onClick={() => handleBookNowClick("Glam Stay")}
+              onClick={() => handleBookNowClick("Cottage Stay")}
             >
               BOOK NOW
             </button>
-            <button className="see-features" onClick={() => openpop("Glam")}>
+            <button className="see-features" onClick={() => openpop("Cottage")}>
               See Features
             </button>
           </div>
         </div>
-
         {/* Dome Stay Card */}
         <div className="card">
           <div className="card-image-container">
             <img src={imgD1} alt="Dome Stay" className="card-image" />
           </div>
           <div className="card-content">
-            <h2 className="card-title">Dome Stay</h2>
+            <h2 className="card-title2">Dome Stay</h2>
             <p className="card-price">Starting From ₹2999 Per Person</p>
             <button
               className="add-to-cart"

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.css';
 import google from '../Assets/google.png';
+import facebook from '../Assets/logo (2).png';
 import img from '../Assets/camping.jpg'; // Replace with your image path
 
 const Signup = () => {
@@ -16,6 +17,8 @@ const Signup = () => {
     if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
     return newErrors;
   };
+
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,9 +43,15 @@ const Signup = () => {
         <form onSubmit={handleSubmit}>
           <h2>Sign Up</h2>
           
-          <button type="button" className="google-signup">
-            <img src={google} alt="" /> Sign Up with Google
+          <div className="signup-with">
+            <button type="button" className="facebook-signup">
+            <img src={facebook} alt="" /> Sign Up with Google
           </button>
+          <button type="button" className="google-signup">
+            <img src={google} alt="" /> Sign Up with Facebook
+          </button>
+          </div>
+
           <div className="form-group">
             <label htmlFor="email">Contact/Email</label>
             <input
@@ -81,7 +90,7 @@ const Signup = () => {
           </div>
           <button type="submit" className="signup-button">Sign Up</button>
 
-          <a onClick={() => navigate('/')} className="link-to-login-page">Already have an account? Go to Login Page</a>
+          <a onClick={() => navigate('/login')} className="link-to-login-page"> <span>Already have an account?</span> <br /><span>Go to Login Page</span></a>
         </form>
       </div>
     </div>

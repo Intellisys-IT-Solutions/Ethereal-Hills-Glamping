@@ -36,70 +36,76 @@ const ContactUs = () => {
 
   return (
     <div>
-      <section className="hb">
-        <div className="hero-section">
-          <nav className="hero-nav">
-            <a href="/">Home</a>
-            <a href="/create-account">Sign Up</a>
-          </nav>
+    <section className="hb">
+      <div id="hero-section-id" className="hero-section">
+        <nav className="hero-nav">
+          <div className="info2">
+            <h1>Contact Us</h1>
+          </div>
+          <a href="#">Home</a>
+          <a href="#">About Us</a>
+        </nav>
+      </div>
+    </section>
+    <div className="cont-bg">
+    <section className="contact-info">
+      <h2>Contact Info</h2>
+      <ul>
+        <li>
+          <strong>Email:</strong> buranagegit8080@gmail.com
+        </li>
+        <li>
+          <strong>Contact No:</strong> +91-8080175455
+        </li>
+        <li>
+          <strong>Address:</strong> Gera Imperim Rise, 328-B, Wipro Circle, Hinjawadi Phase II, Pune.
+        </li>
+      </ul>
+    </section>
+  
+    <section className="contact-form">
+      <h2>Feel Free to Contact Us</h2>
+      <form id="contactus-form" onSubmit={handleSubmit}>
+        <div className="f-group">
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+            required
+          />
+          {errors.name && <p className="error">{errors.name}</p>}
         </div>
-      </section>
-
-      <section className="contact-info">
-        <div className="info2">
-          <h1>Contact Us</h1>
+        <div className="f-group">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+            required
+          />
+          {errors.email && <p className="error">{errors.email}</p>}
         </div>
-        <h2>Contact Info</h2>
-        <ul>
-          <li><strong>Email:</strong> example@example.com</li>
-          <li><strong>Contact No:</strong> +123 456 7890</li>
-          <li><strong>Address:</strong> 123 Main Street, City, Country</li>
-        </ul>
-      </section>
-
-      <section className="contact-form">
-        <h2>Feel Free to Contact Us</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Your Name"
-              required
-            />
-            {errors.name && <p className="error">{errors.name}</p>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Your Email"
-              required
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message:</label>
-            <textarea
-              id="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Your Message"
-              required
-            ></textarea>
-            {errors.message && <p className="error">{errors.message}</p>}
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      </section>
-
-    </div>
+        <div className="f-group">
+          <label htmlFor="message">Message:</label>
+          <textarea
+            id="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Your Message"
+            required
+          ></textarea>
+          {errors.message && <p className="error">{errors.message}</p>}
+        </div>
+        <button  type="submit">Submit</button>
+      </form>
+    </section>
+  </div>
+  </div>
   );
 };
 

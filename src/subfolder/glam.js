@@ -9,24 +9,24 @@ import img4 from "../Assets/tent1.jpg";
 import img5 from "../Assets/dome (2).jpg";
 import img6 from "../Assets/g6.jpeg";
 import img7 from "../Assets/tent5.jpg";
-
+import img8 from "../Assets/book2.jpg";
 // Tent images
-import tent1 from "../Assets/tent1.jpg";
-import tent2 from "../Assets/tent5.jpg";
-import tent3 from "../Assets/tent1.jpg";
-import tent4 from "../Assets/tent5.jpg";
-import tent5 from "../Assets/tent1.jpg";
+import tent1 from "../Assets/book1.jpg";
+import tent2 from "../Assets/gg1.jpg";
+import tent3 from "../Assets/dome (4).jpg";
+import tent4 from "../Assets/gg4.jpg";
+import tent5 from "../Assets/book3.jpg";
 import tent6 from "../Assets/tent5.jpg";
 
 // Array of gallery items for Glam Stay images
 const galleryItems = [
   { image: img1, className: "" },
   { image: img2, className: "" },
-  { image: img6, className: "" },
+  { image: img7, className: "" },
   { image: img5, className: "" },
   { image: img3, className: "tall" },
   { image: img4, className: "wide" },
-  { image: img5, className: "" },
+  { image: img8, className: "" },
   { image: img6, className: "" },
 ];
 
@@ -42,10 +42,10 @@ const images = [
 
 function Gallery() {
   return (
-    <section id="gallery" className="modern-gallery">
+    <section id="gallery" className="modern">
       <h1>Gallery</h1>
       <p>Experience the beauty through our lens.</p>
-      <div className="gallery-grid">
+      <div className="grid">
         {/* Loop through galleryItems to display Glam Stay images */}
         {galleryItems.map((item, index) => (
           <div key={index} className={`galleryimg ${item.className}`}>

@@ -3,10 +3,6 @@ import "./book.css";
 import tentLogo from "../Assets/tent.png"; // Import your image for tent logo
 import domeLogo from "../Assets/tent.png"; // Import your image for dome logo
 import tentShow from "../Assets/tent-show.png";
-import tent from "../Assets/tent.jpg";
-import tent1 from "../Assets/tent1.jpg";
-import tent2 from "../Assets/tent2.jpg";
-
 
 function Book({ stayType }) {
   const [email, setEmail] = useState("");
@@ -16,7 +12,6 @@ function Book({ stayType }) {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [errors, setErrors] = useState({});
-  const [selectedTentRange, setSelectedTentRange] = useState("");
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [selectedTents, setSelectedTents] = useState([]);
 
@@ -26,12 +21,6 @@ function Book({ stayType }) {
         ? prevSelectedTents.filter((tent) => tent !== tentNumber)
         : [...prevSelectedTents, tentNumber]
     );
-  // };
-  if (tentNumber >= 1 && tentNumber <= 15) setSelectedTentRange("range1");
-    else if (tentNumber >= 16 && tentNumber <= 35) setSelectedTentRange("range2");
-    else if (tentNumber >= 36 && tentNumber <= 50) setSelectedTentRange("range3");
-    else if (tentNumber >= 51 && tentNumber <= 65) setSelectedTentRange("range4");
-    else if (tentNumber >= 66 && tentNumber <= 80) setSelectedTentRange("range5");
   };
 
   const validateForm = (e) => {
@@ -120,6 +109,16 @@ function Book({ stayType }) {
     return tentLogo; // Default to the tent logo if stayType is unknown
   };
 
+//   if (stayType === "Tent Stay") {
+//     setCurrentGallery(tentGallery);
+//   } else if (stayType === "Cottage Stay") {
+//     setCurrentGallery(glamGallery);
+//   } else if (stayType === "Dome Stay") {
+//     setCurrentGallery(domeGallery);
+//   }
+//   return tentLogo; // Show the gallery when a stay type is clicked
+// };
+
   return (
     <div className="book-container">
       <div className="form-container">
@@ -132,7 +131,8 @@ function Book({ stayType }) {
             <img src={getLogo()} alt={`${stayType} Logo`} className="logo" />
           </div>
           <div className="logo-header">
-          <h3>Book Now - {stayType}</h3>
+          <h3 className="book-now-heading">Book Now - {stayType}</h3>
+
           </div>
           </div>
 
@@ -301,15 +301,7 @@ function Book({ stayType }) {
                 {index + 41}
               </button>
             ))}
-          </div>
-              {/* Tent View Section */}
-        <div className="tent-view">
-         {selectedTentRange === "range1" && <img src = {tent} alt="Tent View 1" />}
-         {selectedTentRange === "range2" && <img src={tent1} alt="Tent View 2" />}
-         {selectedTentRange === "range3" && <img src={tent2} alt="Tent View 3" />}
-         {selectedTentRange === "range4" && <img src={tent} alt="Tent View 4" />}
-         {selectedTentRange === "range5" && <img src={tent1} alt="Tent View 5" />}
-         </div>
+          </div> 
         </div>
       </div>
     </div>

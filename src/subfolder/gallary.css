@@ -1,66 +1,58 @@
-#gallery {
+.gallery-wrapper {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
   text-align: center;
-  padding: 30px;
-}
-
-h1 {
-  font-size: 36px;
   color: #333;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 30px;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Allow smaller widths for flexibility */
-  /* grid-auto-rows: 200px; Set a base height for grid rows */
-  gap: 15px; /* Space between items */
-  max-width: 90%; /* Prevent overflow */
-  margin: 0 auto;
+  grid-template-columns: repeat(5, 1fr); /* 5 fixed columns */
+  gap: 15px;
 }
 
-.galleryimg {
+.gallery-item {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Maintain a consistent aspect ratio */
+  aspect-ratio: 10 / 9;
 }
 
-.galleryimg img {
+.gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image fills its container */
-  transition: transform 0.3s ease;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
 }
 
-.galleryimg img:hover {
-  transform: scale(1.1); /* Hover zoom-in effect */
+.gallery-item img:hover {
+  transform: scale(1.1);
 }
 
-/* Tall images span two rows */
-.galleryimg.tall {
-  grid-row: span 2;
+/* Responsive adjustments */
+
+/* For medium screens (less than 768px), display 3 images per row */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
 }
 
-/* Wide images span two columns */
-.galleryimg.wide {
-  grid-column: span 2;
-}
+/* For small screens (less than 480px), display 2 images per row */
+@media (max-width: 480px) {
+  .gallery-title {
+    font-size: 1.5rem;
+  }
 
-/* Body and layout settings */
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* overflow-x: hidden; Prevent horizontal scrolling */
-  font-family: Arial, sans-serif;
-}
-
-
-.modern-gallery3{
-  width: 100%;
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
 }

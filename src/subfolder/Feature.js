@@ -30,8 +30,8 @@ const cardsData = {
       { icon: faMusic, text: "Live Music" },
     ],
   },
-  Glam: {
-    title: "Glam Stay",
+  Cottage: {
+    title: "Cottage Stay",
     features: [
       { icon: faBed, text: "Cottage" },
       { icon: faDoorOpen, text: "Privacy Couple" },

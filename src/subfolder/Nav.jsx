@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../Assets/logo.png";
-import "../subfolder/Nav.css";      
+import "../subfolder/Nav.css";
 
 export default function Nav() {
   const [showMenu, setShowMenu] = useState(false);
@@ -17,15 +17,35 @@ export default function Nav() {
       {/* Desktop Menu */}
       <div className="desktopmenu">
         <button className="book-now-btn">
-          <Link to="/login" className="book-now-link">
+          <NavLink to="/login" className="book-now-link">
             Book Now
-          </Link>
+          </NavLink>
         </button>
 
-        <Link to="/" className="desktopmenuListitem">Home</Link>
-        <Link to="/contact" className="desktopmenuListitem">ContactUs</Link>
-        <Link to="/aboutus" className="desktopmenuListitem">AboutUs</Link>
-        <Link to="/glam" className="desktopmenuListitem">Gallery</Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "desktopmenuListitem active" : "desktopmenuListitem")}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? "desktopmenuListitem active" : "desktopmenuListitem")}
+        >
+          ContactUs
+        </NavLink>
+        <NavLink
+          to="/aboutus"
+          className={({ isActive }) => (isActive ? "desktopmenuListitem active" : "desktopmenuListitem")}
+        >
+          AboutUs
+        </NavLink>
+        <NavLink
+          to="/glam"
+          className={({ isActive }) => (isActive ? "desktopmenuListitem active" : "desktopmenuListitem")}
+        >
+          Gallery
+        </NavLink>
       </div>
 
       {/* Mobile Menu Toggle */}
@@ -36,12 +56,36 @@ export default function Nav() {
       {/* Mobile Menu */}
       {showMenu && (
         <div className="navMenu">
-          <Link to="/" className="mobilemenuListitem" onClick={() => setShowMenu(false)}>Home</Link>
-          <Link to="/contact" className="mobilemenuListitem" onClick={() => setShowMenu(false)}>Contact Us</Link>
-          <Link to="/create-account" className="mobilemenuListitem" onClick={() => setShowMenu(false)}>Sign Up</Link>
-          <Link to="/login" className="mobilemenuListitem" onClick={() => setShowMenu(false)}>Login</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "mobilemenuListitem active" : "mobilemenuListitem")}
+            onClick={() => setShowMenu(false)}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "mobilemenuListitem active" : "mobilemenuListitem")}
+            onClick={() => setShowMenu(false)}
+          >
+            Contact Us
+          </NavLink>
+          <NavLink
+            to="/create-account"
+            className={({ isActive }) => (isActive ? "mobilemenuListitem active" : "mobilemenuListitem")}
+            onClick={() => setShowMenu(false)}
+          >
+            Sign Up
+          </NavLink>
+          <NavLink
+            to="/login"
+            className={({ isActive }) => (isActive ? "mobilemenuListitem active" : "mobilemenuListitem")}
+            onClick={() => setShowMenu(false)}
+          >
+            Login
+          </NavLink>
         </div>
       )}
     </nav>
   );
-} 
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './subfolder/Login';
 import Nav from './subfolder/Nav';
@@ -16,6 +16,11 @@ import glamG from './subfolder/glamG';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const navbarHeight = document.querySelector(".navbar").offsetHeight;
+    document.body.style.paddingTop = `${navbarHeight}px`;
+  }, []);
 
   return (
     <Router>

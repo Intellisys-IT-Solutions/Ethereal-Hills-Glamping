@@ -1,17 +1,44 @@
+
 .book-container {
   display: flex;
   justify-content: space-between;
   /* gap: 20px; */
   padding: 20px;
+  /* background-image: linear-gradient(to bottom right, hsl(32, 79%, 69%), #cacab1); */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Assets/book5.jpg') no-repeat fixed center center/cover;
+}
+
+h1{
+  font-family: cursive;
 }
 
 .form-container {
   flex: 1;
-  border: 1px solid #ccc;
+  border: 2px  double #919191;
   padding: 20px;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  /* background-color: #99775C; */
+  background-image: linear-gradient(to bottom right, hwb(0 27% 69%), #ebebeb);
+  
 }
+
+.book-now-heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.tent {
+  color: green;
+}
+
+.glam {
+  color: purple;
+}
+
+
+/* .form-container .submit-button{
+  background-color: #f9f9f9;
+} */
 
 .seat-selection {
   flex: 1;
@@ -26,6 +53,7 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
+  /* background-image: url(../Assets/tent-show.png); */
 }
 
 .seat-button {
@@ -53,9 +81,18 @@
   flex: 1;
 }
 /* Styling for the logo container */
-.logo-container {
+/* .logo-container {
   text-align: center;
-  margin-bottom: 20px; /* Adds some space below the logo */
+  margin-bottom: 20px; 
+} */
+
+
+
+.logo-image-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .logo {
@@ -69,7 +106,7 @@
   margin-bottom: 5px;
   font-weight: bold;
   font-size: 14px;
-  color: #333;
+  color: hsl(0, 0%, 20%);
   background-color: transparent;
 }
 
@@ -81,13 +118,22 @@
   font-size: 14px;
 }
 
+.form-group input:active{
+  height: 30px;
+  border: 1px dashed gray;
+}
+/* .form-group input:hover{
+  background-color: transparent;
+} */
+
+
 .submit-button {
   width: 40%;
   padding: 5px;
-  background-color: transparent;
-  color: #333;
+  background-color: #99775C;
+  color: #ffffff;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   margin-left: 150px;
@@ -145,7 +191,7 @@
 }
 
 .curve.bottom {
-  clip-path: ellipse(500% 800% at 80% 0%);
+  clip-path: ellipse(500% 800% at 80% 100%);
   transform: rotate(-90deg);
   margin-top: -400px;
   margin-left: 350px;
@@ -155,12 +201,12 @@
   position: absolute;
   transform-origin: center bottom;
   transform: rotate(calc(var(--index) * var(--angle-step)))
-  translateY(calc(var(--radius) * -2));
+  translateY(calc(var(--radius) * -2.4));
   transition: transform 0.3s, background-color 0.3s;
-  width: 30px; 
-  /* height: 20px; */
+  /* width: 20px;  */
+  height: 20px;
   border: none;
-  gap: 100px;
+  gap: 0.2px;
   border-radius: 30%;
   background-color: #ccc;
   cursor: pointer;
@@ -170,7 +216,7 @@
   position: absolute;
   transform-origin: center bottom;
   transform: rotate(calc(var(--index) * var(--angle-step)))
-  translateY(calc(var(--radius) * -1.7));
+  translateY(calc(var(--radius) * -2));
   transition: transform 0.3s, background-color 0.3s;
   gap: 0.2px;
   width: min-content;
@@ -178,7 +224,6 @@
   border-radius: 30%;
   background-color: #ccc;
   cursor: pointer;
-  margin-left: -30px;
 }
 
 .tent-button.selected {
@@ -208,7 +253,7 @@
   }
 
   .curve {
-    width: 900px; 
+    width: 80px; 
     height: 200px; 
   }
 
@@ -226,7 +271,7 @@
   }
 
   .curve {
-    width: 80px; 
+    width: 60px; 
     height: 150px;
   }
 
@@ -241,7 +286,7 @@
 
 @media (min-width: 1200px) {
   .tent-booking-container {
-    margin-top: 100px; 
+    margin-top: 220px; 
     gap: 40px;
   }
 
@@ -261,70 +306,6 @@
 .tent-curve-container{
   width: 60%;
 }
-
-.tent-view {
-  margin-top:5px;
-  text-align: center;
-}
-
-.tent-view img {
-  width: 80%;
-  max-width: 500px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-  .tent-booking-container {
-    margin-top: 320px;
-    gap: 20px;
-  }
-
-  .curve {
-    width: 80px;
-    height: 200px;
-  }
-
-  .tent-button {
-    width: 50px;
-    height: 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  .tent-booking-container {
-    margin-top: 200px;
-    gap: 15px;
-  }
-
-  .curve {
-    width: 60px;
-    height: 150px;
-  }
-
-  .tent-button {
-    width: 20px;
-    height: 12px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .tent-booking-container {
-    margin-top: 700px;
-    gap: 40px;
-  }
-
-  .curve {
-    width: 120px;
-    height: 350px;
-  }
-
-  .tent-button {
-    width: 35px;
-    height: 25px;
-  }
-}
-
 
 
 

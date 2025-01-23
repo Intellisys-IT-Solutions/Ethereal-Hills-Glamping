@@ -59,7 +59,7 @@
       transition: transform 0.3s ease-in-out;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       height: 200px;
-      width: 100%;
+      width: auto;
     }
 
     .galleryimg img {
@@ -111,7 +111,7 @@
       gap: 50px;
       margin: 20px auto;
       flex-wrap: wrap;
-      margin-right: 1rem;
+      /* margin-right: 1rem; */
     }
 
     /* Image Card Styling */
@@ -345,17 +345,21 @@
         /* Remove row-specific layout */
         gap: 1rem;
 
-        margin-bottom: 2rem;
+        width: 90%;
 
+        margin-bottom: 2rem;
+        
       }
 
       .galleryimg {
-        width: 22rem;
-        margin: auto;
+        display: block;
+        width: 85vw;
+        margin-left: 20px;
         grid-row: auto;
         /* Adjust for smaller screens */
         grid-column: 1;
         /* Inline with other images */
+        
       }
 
       .vertical-image {
@@ -374,267 +378,269 @@
         grid-template-columns: 1fr;
         /* Stack images vertically */
       }
+
+      .gallery-container1{
+        gap: 20px;
+      }
+
     }
 
     /* General Navbar Styles */
-    .nav-navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: black;
-      height: 80px;
-      padding: 1rem 2rem;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1000;
-    }
-
-    #nav-logo {
-      height: 50px;
-      cursor: pointer;
-    }
-
-    .nav-main-nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    /* Desktop Menu Styles */
-    .nav-desktop-menu {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .nav-desktop-menu-list-item {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    .nav-desktop-menu-list-item:hover {
-      color: #ffeb3b;
-    }
-
-    .nav-desktop-book-now .nav-book-now-btn {
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      background: linear-gradient(to right, #6b5441 50%, #99775c 50%);
-      background-size: 200% 100%;
-      background-position: right bottom;
-      transition: all 0.5s ease-out;
-      position: relative;
-      /* Required for positioning pseudo-elements */
-    }
-
-    .nav-desktop-book-now .nav-book-now-btn:hover {
-      background-color: #ae7b51;
-      background-position: left bottom;
-      transform: scale(1);
-      padding: 0.8rem 2rem 0.8rem 0.7rem;
-    }
-
-    /* Add symbol on hover */
-    .nav-book-now-btn::after {
-      content: "➔";
-      color: white;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: 0;
-      transition: opacity 0.5s ease-out;
-      /* color: black; */
-    }
-
-    .nav-book-now-btn:hover::after {
-      opacity: 1;
-    }
-
-    .nav-book-now-link {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    /* Active Tab Styles */
-    .nav-active {
-      font-weight: bold;
-      color: #d9d418;
-    }
-
-    /* Mobile Menu Icon */
-    .nav-mobile-menu-icon {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Mobile Menu Styles */
-    .nav-mobile-menu {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      right: 0;
-      background-color: black;
-      width: 100%;
-      padding: 1rem 0;
-      display: none;
-    }
-
-    .nav-mobile-menu-list-item {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      text-align: center;
-      transition: background-color 0.3s;
-    }
-
-    .nav-mobilemenuListitem:hover {
-      background-color: black;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-
-      .nav-navbar {
+.nav-navbar {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 62px;
-        /* margin-right: 100px; */
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        height: 80px;
+        padding: 1rem 2rem;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        margin-bottom: 80px;
       }
 
+      #nav-logo {
+        height: 50px;
+        cursor: pointer;
+      }
+
+      .nav-main-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      /* Desktop Menu Styles */
       .nav-desktop-menu {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .nav-desktop-menu-list-item {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .nav-desktop-menu-list-item:hover {
+        color: #ffeb3b;
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn {
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        background: linear-gradient(to right, #6b5441 50%, #99775c 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.5s ease-out;
+        position: relative; /* Required for positioning pseudo-elements */
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn:hover {
+        background-color: #ae7b51;
+        background-position: left bottom;
+        transform: scale(1);
+        padding: 0.8rem 2rem 0.8rem 0.7rem;
+      }
+
+      /* Add symbol on hover */
+      .nav-book-now-btn::after {
+        content: "➔";
+        color: white;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        /* color: black; */
+      }
+
+      .nav-book-now-btn:hover::after {
+        opacity: 1;
+      }
+
+      .nav-book-now-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Active Tab Styles */
+      .nav-active {
+        font-weight: bold;
+        color: #d9d418;
+      }
+
+      /* Mobile Menu Icon */
+      .nav-mobile-menu-icon {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Mobile Menu Styles */
+      .nav-mobile-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        padding: 1rem 0;
         display: none;
       }
 
-      .nav-mobile-menu-icon {
-        display: block;
+      .nav-mobile-menu-list-item {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        transition: background-color 0.3s;
       }
-    }
 
-
-    /* Mobile menu: Show when active */
-    .nav-mobile-menu.active {
-      display: flex;
-    }
-
-    /* Mobile dropdown: Show when open */
-    .nav-mobile-dropdown-menu.open {
-      display: flex;
-    }
-
-
-    /* Dropdown Menu for Desktop */
-    .nav-gallery-dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-
-
-    .nav-dropdown-menu {
-
-      display: none;
-      /* Hidden by default */
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: black;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-      flex-direction: column;
-      width: 200px;
-
-      /* position: absolute;
-        top: 100%;
-        left: 0;
+      .nav-mobilemenuListitem:hover {
         background-color: black;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        width: 200px;
-        z-index: 100;
-        max-width: 100%;
-        box-sizing: border-box;
-        color: white; */
-    }
-
-    .nav-dropdown-item {
-      text-decoration: none;
-      color: white;
-      background-color: #000000;
-      font-size: 16px;
-      padding: 10px;
-    }
-
-    .nav-dropdown-item:hover {
-      background-color: #000000;
-    }
-
-    .nav-gallery-dropdown:hover .nav-dropdown-menu {
-      right: 0;
-      transform: translateX(-45%);
-      display: flex;
-      /* Display dropdown when hovered */
-    }
-
-    .nav-dropdown-menu {
-      max-width: 300px;
-    }
-
-    .nav-down-arrow {
-      margin-left: 5px;
-      font-size: 0.8rem;
-      transition: transform 0.3s;
-    }
-
-    .nav-gallery-dropdown:hover .nav-down-arrow {
-      transform: rotate(180deg);
-    }
-
-    /* Mobile Dropdown Styles */
-    .nav-mobile-dropdown-menu {
-      display: none;
-    }
-
-    .nav-mobile-dropdown-item {
-      padding: 1rem;
-      color: white;
-      text-decoration: none;
-    }
-
-    .nav-mobile-dropdown-item.nav-active {
-      background-color: #555;
-    }
-
-    .nav-gallery-dropdown {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media (max-width: 768px) {
-
-      .nav-mobile-dropdown-menu {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
       }
-    }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+
+        .nav-navbar{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .nav-desktop-menu {
+          display: none;
+        }
+
+        .nav-mobile-menu-icon {
+          display: block;
+        }
+
+        .nav-mobile-gallery-dropdown{
+          display: flex;
+          flex-direction: column;
+        }
+
+        .nav-mobile-dropdown-menu{
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+          font-size: 15px;
+          /* text-decoration: underline; */
+        }
+
+      }
+
+
+      /* Mobile menu: Show when active */
+.nav-mobile-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile dropdown: Show when open */
+.nav-mobile-dropdown-menu.open {
+  display: flex;
+  flex-direction: column;
+}
+
+
+      /* Dropdown Menu for Desktop */
+      .nav-gallery-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      
+
+      .nav-dropdown-menu {
+
+        display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: black;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  flex-direction: column;
+  width: 200px;
+      }
+
+      .nav-dropdown-item {
+        text-decoration: none;
+        color: white;
+        background-color: #000000;
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .nav-dropdown-item:hover {
+        background-color: #555;
+      }
+
+      .nav-gallery-dropdown:hover .nav-dropdown-menu {
+        right: 0;
+        transform: translateX(-45%);
+        display: flex; /* Display dropdown when hovered */
+      }
+
+      .nav-dropdown-menu {
+        max-width: 300px;
+      }
+
+      .nav-down-arrow {
+        margin-left: 5px;
+        font-size: 0.8rem;
+        transition: transform 0.3s;
+      }
+
+      .nav-gallery-dropdown:hover .nav-down-arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Mobile Dropdown Styles */
+      .nav-mobile-dropdown-menu {
+        display: none;
+      }
+
+      .nav-mobile-dropdown-item {
+        padding: 1rem;
+        color: white;
+        text-decoration: none;
+      }
+
+      .nav-mobile-dropdown-item.nav-active {
+        background-color: #555;
+      }
+
+      .nav-gallery-dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        .nav-mobile-dropdown-menu {
+          display: flex;
+        }
+      }
 
     .main-div-gal {
-      margin-top: 7rem;
+      margin-top: 10rem;
     }
 
     @media (max-width: 768px) {
@@ -664,7 +670,7 @@
     }
   </style>
 </head>
-<div>
+<body>
 
 
   <!-- NAVBAR------------------------------------------------------------------ -->
@@ -678,16 +684,16 @@
           <a href="Login.html" class="nav-book-now-link">Book Now</a>
         </button>
       </div>
-
       <div class="nav-desktop-menu">
         <a href="index.html" class="nav-desktop-menu-list-item">Home</a>
         <a href="Contact.html" class="nav-desktop-menu-list-item">Contact Us</a>
         <a href="Aboutus.html" class="nav-desktop-menu-list-item">About Us</a>
 
+        <!-- Desktop Dropdown -->
         <div class="nav-gallery-dropdown">
-          <a href="" class="nav-desktop-menu-list-item">
+          <span class="nav-desktop-menu-list-item nav-dropdown-toggle">
             Gallery <span class="nav-down-arrow">▼</span>
-          </a>
+          </span>
           <div class="nav-dropdown-menu">
             <a href="Tentgallary.html" class="nav-dropdown-item">Tent Gallery</a>
             <a href="glam.html" class="nav-dropdown-item">Glam Gallery</a>
@@ -696,17 +702,20 @@
       </div>
     </div>
 
+    <!-- Mobile Menu Icon -->
     <div class="nav-mobile-menu-icon">☰</div>
 
+    <!-- Mobile Menu -->
     <div class="nav-mobile-menu">
       <a href="index.html" class="nav-mobile-menu-list-item">Home</a>
       <a href="Contact.html" class="nav-mobile-menu-list-item">Contact Us</a>
-      <a href="Aboutus.html" class="nav-mobile-menu-list-item">About</a>
+      <a href="Aboutus.html" class="nav-mobile-menu-list-item">About Us</a>
 
+      <!-- Mobile Dropdown -->
       <div class="nav-mobile-gallery-dropdown">
-        <a href="" class="nav-mobile-menu-list-item">
+        <span class="nav-mobile-menu-list-item nav-dropdown-toggle">
           Gallery <span class="nav-down-arrow">▼</span>
-        </a>
+        </span>
         <div class="nav-mobile-dropdown-menu">
           <a href="Tentgallary.html" class="nav-mobile-dropdown-item">Tent Gallery</a>
           <a href="glam.html" class="nav-mobile-dropdown-item">Glam Gallery</a>
@@ -714,43 +723,45 @@
       </div>
     </div>
   </nav>
-
+  
 
   <script>
+   
 
 
+   document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
+  const mobileMenu = document.querySelector(".nav-mobile-menu");
+  const dropdowns = document.querySelectorAll(".nav-gallery-dropdown");
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
-      const mobileMenu = document.querySelector(".nav-mobile-menu");
-      const dropdowns = document.querySelectorAll(".nav-gallery-dropdown");
+  // Toggle mobile menu
+  mobileMenuIcon.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
 
-      // Toggle mobile menu
-      mobileMenuIcon.addEventListener("click", () => {
-        mobileMenu.classList.toggle("active");
-      });
+  // Handle dropdowns for mobile
+  dropdowns.forEach((dropdown) => {
+    const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
+    const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
+    
 
-      // Handle dropdowns for mobile
-      dropdowns.forEach((dropdown) => {
-        const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
-        const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
+    dropdownToggle.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default link behavior
+      dropdownMenu.classList.toggle("open");
 
-        dropdownToggle.addEventListener("click", (event) => {
-          event.preventDefault(); // Prevent default link behavior
-          dropdownMenu.classList.toggle("open");
-
-          // Optionally close other dropdowns when one opens
-          dropdowns.forEach((otherDropdown) => {
-            if (otherDropdown !== dropdown) {
-              const otherMenu = otherDropdown.querySelector(".nav-mobile-dropdown-menu");
-              otherMenu.classList.remove("open");
-            }
-          });
-        });
+      // Optionally close other dropdowns when one opens
+      dropdowns.forEach((otherDropdown) => {
+        if (otherDropdown !== dropdown) {
+          const otherMenu = otherDropdown.querySelector(".nav-mobile-dropdown-menu");
+          otherMenu.classList.remove("open");
+        }
       });
     });
+  });
+});
 
   </script>
+
 
   <div class="main-div-gal">
     <section id="gallery" class="modern">

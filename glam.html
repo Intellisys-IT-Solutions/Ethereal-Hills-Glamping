@@ -83,6 +83,7 @@
 
     .vertical-image {
       grid-row: span 2;
+      
       /* Spans two rows */
       grid-column: 5;
       /* Positioned in the fifth column */
@@ -367,6 +368,7 @@
         /* Adjust for smaller screens */
         grid-column: 1;
         /* Inline with other images */
+        margin-right: -20px;
       }
 
       .vertical-image img {
@@ -655,7 +657,11 @@
         /* ... existing rules ... */
         grid-column: 1;
         /* Align vertically */
+        margin-right: -20px;
       }
+
+
+
 
       /* Adjust for smaller screens */
       .vertical-image img {
@@ -666,6 +672,13 @@
       .gallery-row-2 {
         grid-template-columns: 1fr 1fr;
         /* Two columns */
+      } 
+    }
+
+    @media (max-width: 410px){
+      .vertical-image{
+        width: 20.98rem;
+        
       }
     }
   </style>
@@ -774,33 +787,33 @@
       <div class="gallery-layout">
         <!-- First row (4 images) -->
         <div class="galleryimg">
-          <img src="../Assets/gg3.jpg" alt="Gallery Item 1" />
+          <img src="assets/gg3.jpg" alt="Gallery Item 1" />
         </div>
         <div class="galleryimg">
-          <img src="../Assets/g2.jpeg" alt="Gallery Item 2" />
+          <img src="assets/g2.jpeg" alt="Gallery Item 2" />
         </div>
         <div class="galleryimg">
-          <img src="../Assets/glam.jpg" alt="Gallery Item 3" />
+          <img src="assets/glam.jpg" alt="Gallery Item 3" />
         </div>
         <div class="galleryimg">
-          <img src="../Assets/gg4.jpg" alt="Gallery Item 4" />
+          <img src="assets/gg4.jpg" alt="Gallery Item 4" />
         </div>
 
         <!-- Vertical Image -->
         <div class="vertical-image">
-          <img src="../Assets/dome (4).jpg" alt="Vertical Image" />
+          <img src="assets/dome (4).jpg" alt="Vertical Image" />
         </div>
 
         <!-- Second row (3 images spanning the width of 4 images) -->
         <div class="gallery-row-2">
           <div class="galleryimg">
-            <img src="../Assets/g6.jpeg" alt="Gallery Item 5" />
+            <img src="assets/g6.jpeg" alt="Gallery Item 5" />
           </div>
           <div class="galleryimg">
-            <img src="../Assets/glam.jpg" alt="Gallery Item 6" />
+            <img src="assets/glam.jpg" alt="Gallery Item 6" />
           </div>
           <div class="galleryimg">
-            <img src="../Assets/g7.jpeg" alt="Gallery Item 7" />
+            <img src="assets/g7.jpeg" alt="Gallery Item 7" />
           </div>
         </div>
       </div>
@@ -809,22 +822,22 @@
   <div class="gallery-container1">
     <!-- Image Cards -->
     <div id="image-1" class="image-card1">
-      <img src="../Assets/gg3.jpg" alt="Gallery 1" />
+      <img src="assets/gg3.jpg" alt="Gallery 1" />
     </div>
     <div id="image-2" class="image-card1">
-      <img src="../Assets/g2.jpeg" alt="Gallery 2" />
+      <img src="assets/g2.jpeg" alt="Gallery 2" />
     </div>
     <div id="image-3" class="image-card1">
-      <img src="../Assets/glam.jpg" alt="Gallery 3" />
+      <img src="assets/glam.jpg" alt="Gallery 3" />
     </div>
     <div id="image-4" class="image-card1">
-      <img src="../Assets/gg4.jpg" alt="Gallery 4" />
+      <img src="assets/gg4.jpg" alt="Gallery 4" />
     </div>
     <div id="image-5" class="image-card1">
-      <img src="../Assets/dome (4).jpg" alt="Gallery 5" />
+      <img src="assets/dome (4).jpg" alt="Gallery 5" />
     </div>
     <div id="image-6" class="image-card1">
-      <img src="../Assets/g6.jpeg" alt="Gallery 6" />
+      <img src="assets/g6.jpeg" alt="Gallery 6" />
     </div>
   </div>
 
@@ -832,7 +845,7 @@
     <div class="footr-footer-container">
       <!-- Logo and Mission -->
       <div class="footr-footer-section footr-logo-mission">
-        <img src="Assets/logo.png" alt="Logo" class="footr-footer-logo" />
+        <img src="assets/logo.png" alt="Logo" class="footr-footer-logo" />
         <p>
           Our mission is to inspire people to connect with nature and experience the joys of camping.
           We aim to provide a comprehensive camping experience by offering a wide range of camping gear
@@ -870,10 +883,10 @@
         </div>
         <div class="footr-social-icons">
           <a href="https://www.facebook.com/etherealhillsglamping">
-            <img src="Assets/facebook.png" alt="Facebook" />
+            <img src="assets/facebook.png" alt="Facebook" />
           </a>
           <a href="https://www.instagram.com/etherealhillsglamping/profilecard/?igsh=MWJrMzRzNThpbnRobw==">
-            <img src="Assets/insta.png" alt="Instagram" />
+            <img src="assets/insta.png" alt="Instagram" />
           </a>
         </div>
       </div>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <style>
+
+ /* General Styles */
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    .sign-mainn{
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/loginbg.jpg') no-repeat fixed center center/cover;
+    }
+
+    /* Signup Container */
+    .signup-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      /* gap: 50px; */
+      /* padding: 60px; */
+      /* background-color: #f9f9f9; */
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      
+    }
+
+    .signup-with {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .signup-image {
+      /* margin-top: 2rem; */
+      width: 50%;
+      height: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #999;
+      /* margin-top: 80px; */
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .signup-image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50px;
+    }
+
+    .signup-form {
+      /* margin-top: 3rem; */
+      width: 25%;
+      height: 90%;
+      /* margin-left: 80px; */
+      /* max-width: 400px; */
+      padding: 20px;
+      /* background-color: rgba(255, 255, 255, 0.1); */
+      border-radius: 10px;
+      /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgb(0, 0, 0);
+    }
+
+    .signup-form .form-group {
+      margin-bottom: 15px;
+      width: 100%;
+      /* line-height: 3em; */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 5px;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.85rem;
+      margin-top: -5px;
+    }
+
+    .signup-button {
+      width: 95%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+
+    .signup-button:hover {
+      background-color: #0056b3;
+    }
+
+    .google-signup {
+      width: 95%;
+      padding: 10px;
+      background-color: #ffffff;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .google-signup img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .google-signup:hover {
+      background-color: #f1f1f1;
+    }
+
+    .facebook-signup {
+      width: 95%;
+      padding: 10px;
+      background-color: #ffffff;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .facebook-signup img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .facebook-signup:hover {
+      background-color: #f1f1f1;
+    }
+
+    .go-to-login-container {
+      margin: 1em auto;
+      text-align: center;
+    }
+
+    .link-to-login-page {
+      margin: auto;
+      text-align: center;
+      color: rgb(255, 255, 255);
+    }
+
+    .link-to-login-page a {
+      text-decoration: underline;
+      color: #eef6ff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+
+      .sign-mainn{
+        padding: 0rem;
+      }
+      .signup-container {
+        /* flex-direction: column; */
+        width: 100vw;
+        /* height: 100vh; */
+        /* padding: 20px; */
+        border: none;
+        box-shadow: none;
+        height: fit-content;
+      }
+
+      .signup-image{
+        display: none;
+      }
+      .signup-form {
+        width: 100%;
+        /* margin: 0; */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .signup-container {
+        padding: 10px;
+        line-height: 3em;
+      }
+
+      input,
+      .signup-button,
+      .google-signup,
+      .facebook-signup {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .signup-form {
+        padding: 10px;
+      }
+
+      .signup-image img {
+        display: none;
+        border-radius: 10px;
+      }
+    }
+
+     /* Navbar Styles */
+ .navbar {
+      background-color: #000000;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar img {
+      height: 50px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .desktopbooknow {
+      margin-right: 30px;
+    }
+
+    .book-now-btn {
+      background-color: #5cb85c;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-left: 53rem;
+      background: linear-gradient(to right, #d6ad8b 50%, #99775C 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+      transition: all 0.5s ease-out;
+    }
+
+    .book-now-link {
+      text-decoration: none;
+      color: white;
+    }
+
+    .book-now-btn:hover {
+  background-color: #ae7b51;
+  background-position: left bottom;
+  transform: scale(1.1);
+  
+  padding: 0.8rem 2rem 0.8rem 0.7rem;
+}
+
+
+.book-now-btn::after {
+  content: "➔"; 
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  
+}
+
+.book-now-btn:hover::after {
+  opacity: 1;
+  
+
+}
+
+    .desktopmenu {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-right: 5rem;
+    }
+
+    .desktopmenu-navbar{
+      display: flex;
+      flex-direction: row;
+      margin-right: 80px;
+    }
+
+    .desktopmenuListitem {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+
+    .desktopmenuListitem:hover {
+      background-color: #575757;
+      border-radius: 5px;
+    }
+
+    .gallery-dropdown {
+      position: relative;
+    }
+    
+    .gallery-dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #333;
+      border-radius: 5px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      min-width: 150px;
+      z-index: 100;
+      margin-right: -20rem;
+    }
+
+    .dropdown-item {
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-item:hover {
+      background-color: #575757;
+    }
+
+    .mobile-menu-icon {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      margin-left: 20rem;
+    }
+
+    .navMenu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 5px;
+      z-index: 100;
+      width: 200px;
+    }
+
+    .mobilemenuListitem {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .mobilemenuListitem:hover {
+      background-color: #575757;
+    }
+
+  </style>
+</head>
+<body>
+
+ 
+
+  <div class="sign-mainn">
+    <div class="signup-container">
+      <div class="signup-image">
+        <img src="assets/camping.jpg" alt="Camping">
+      </div>
+      <div class="signup-form">
+        <form id="signup-form">
+          <h2>Sign Up</h2>
+          
+          <div class="signup-with">
+            <button type="button" class="facebook-signup">
+              <img src="assets/logo (2).png" alt=""> Sign Up with Facebook
+            </button>
+            <button type="button" class="google-signup">
+              <img src="assets/google.png" alt=""> Sign Up with Google
+            </button>
+          </div>
+  
+          <hr />
+  
+          <div class="form-group">
+            <label for="email">Contact/Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+            />
+            <span id="email-error" class="error"></span>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+            <span id="password-error" class="error"></span>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Re-enter Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Re-enter your password"
+            />
+            <span id="confirmPassword-error" class="error"></span>
+          </div>
+          <button type="submit" class="signup-button">Sign Up</button>
+  
+          <div class="go-to-login-container">
+            <a href="Login.html" class="link-to-login-page"> 
+              <span>Already have an account?</span> <br /><span>Go to Login Page</span>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script>
+    const form = document.getElementById("signup-form");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const emailError = document.getElementById("email-error");
+      const passwordError = document.getElementById("password-error");
+      const confirmPasswordError = document.getElementById("confirmPassword-error");
+
+      emailError.textContent = "";
+      passwordError.textContent = "";
+      confirmPasswordError.textContent = "";
+
+      let hasError = false;
+
+      if (!email) {
+        emailError.textContent = "Email is required";
+        hasError = true;
+      }
+
+      if (!password) {
+        passwordError.textContent = "Password is required";
+        hasError = true;
+      }
+
+      if (password !== confirmPassword) {
+        confirmPasswordError.textContent = "Passwords do not match";
+        hasError = true;
+      }
+
+      if (!hasError) {
+        // Simulate saving to Firestore or backend
+        alert("Signup successful!");
+        window.location.href = "Login.html";
+      }
+    });
+  </script> -->
+
+<script>
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA1NpNJhL6250_l0CTo7qoIk5N_idKWwio",
+    authDomain: "pawana-4ff91.firebaseapp.com",
+    projectId: "pawana-4ff91",
+    storageBucket: "pawana-4ff91.firebasestorage.app",
+    messagingSenderId: "687329671670",
+    appId: "1:687329671670:web:111c0794f64c2930b5afd7",
+    measurementId: "G-BVE6S7FGQF"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const dbRef = firebase.database().ref("users");
+
+  // Handle form submission
+  const form = document.getElementById("signup-form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const emailError = document.getElementById("email-error");
+    const passwordError = document.getElementById("password-error");
+    const confirmPasswordError = document.getElementById("confirmPassword-error");
+
+    // Reset errors
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    confirmPasswordError.textContent = "";
+
+    let hasError = false;
+
+    // Validate email
+    if (!email) {
+      emailError.textContent = "Email is required";
+      hasError = true;
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      emailError.textContent = "Invalid email format";
+      hasError = true;
+    }
+
+    // Validate password
+    if (!password) {
+      passwordError.textContent = "Password is required";
+      hasError = true;
+    } else if (password.length < 6) {
+      passwordError.textContent = "Password must be at least 6 characters long";
+      hasError = true;
+    }
+
+    // Validate confirm password
+    if (password !== confirmPassword) {
+      confirmPasswordError.textContent = "Passwords do not match";
+      hasError = true;
+    }
+
+    // Save to Firebase if no errors
+    if (!hasError) {
+      const userData = {
+        email,
+        password, // It's not secure to store plain-text passwords; use Firebase Authentication for proper handling
+        createdAt: new Date().toISOString()
+      };
+
+      try {
+        await dbRef.push(userData);
+        alert("Signup successful!");
+        form.reset();
+        window.location.href = "Login.html";
+      } catch (error) {
+        alert("Error saving data to Firebase: " + error.message);
+      }
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

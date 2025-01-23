@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
+  <style>
+
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    /* General Navbar Styles */
+.nav-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        height: 80px;
+        padding: 1rem 2rem;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+      }
+
+      #nav-logo {
+        height: 50px;
+        cursor: pointer;
+      }
+
+      .nav-main-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      /* Desktop Menu Styles */
+      .nav-desktop-menu {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .nav-desktop-menu-list-item {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+
+      .nav-desktop-menu-list-item:hover {
+        color: #ffeb3b;
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn {
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        background: linear-gradient(to right, #6b5441 50%, #99775c 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.5s ease-out;
+        position: relative; /* Required for positioning pseudo-elements */
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn:hover {
+        background-color: #ae7b51;
+        background-position: left bottom;
+        transform: scale(1);
+        padding: 0.8rem 2rem 0.8rem 0.7rem;
+      }
+
+      /* Add symbol on hover */
+      .nav-book-now-btn::after {
+        content: "➔";
+        color: white;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        /* color: black; */
+      }
+
+      .nav-book-now-btn:hover::after {
+        opacity: 1;
+      }
+
+      .nav-book-now-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Active Tab Styles */
+      .nav-active {
+        font-weight: bold;
+        color: #d9d418;
+      }
+
+      /* Mobile Menu Icon */
+      .nav-mobile-menu-icon {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Mobile Menu Styles */
+      .nav-mobile-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        padding: 1rem 0;
+        display: none;
+      }
+
+      .nav-mobile-menu-list-item {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        transition: background-color 0.3s;
+      }
+
+      .nav-mobilemenuListitem:hover {
+        background-color: black;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+
+        .nav-navbar{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .nav-desktop-menu {
+          display: none;
+        }
+
+        .nav-mobile-menu-icon {
+          display: block;
+        }
+      }
+
+
+      /* Mobile menu: Show when active */
+.nav-mobile-menu.active {
+  display: flex;
+}
+
+/* Mobile dropdown: Show when open */
+.nav-mobile-dropdown-menu.open {
+  display: flex;
+}
+
+
+      /* Dropdown Menu for Desktop */
+      .nav-gallery-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      
+
+      .nav-dropdown-menu {
+
+        display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: black;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  flex-direction: column;
+  width: 200px;
+
+        /* position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: black;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        z-index: 100;
+        max-width: 100%;
+        box-sizing: border-box;
+        color: white; */
+      }
+
+      .nav-dropdown-item {
+        text-decoration: none;
+        color: white;
+        background-color: #000000;
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .nav-dropdown-item:hover {
+        background-color: #000000;
+      }
+
+      .nav-gallery-dropdown:hover .nav-dropdown-menu {
+        right: 0;
+        transform: translateX(-45%);
+        display: flex; /* Display dropdown when hovered */
+      }
+
+      .nav-dropdown-menu {
+        max-width: 300px;
+      }
+
+      .nav-down-arrow {
+        margin-left: 5px;
+        font-size: 0.8rem;
+        transition: transform 0.3s;
+      }
+
+      .nav-gallery-dropdown:hover .nav-down-arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Mobile Dropdown Styles */
+      .nav-mobile-dropdown-menu {
+        display: none;
+      }
+
+      .nav-mobile-dropdown-item {
+        padding: 1rem;
+        color: white;
+        text-decoration: none;
+      }
+
+      .nav-mobile-dropdown-item.nav-active {
+        background-color: #555;
+      }
+
+      .nav-gallery-dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        .nav-mobile-dropdown-menu {
+          display: flex;
+        }
+      }
+
+
+
+
+    
+
+   
+
+    /* General styles for the book container */
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('assets/book5.jpg') no-repeat fixed center center/cover;
+  min-height: 100vh;
+  margin-top: 2rem;
+}
+
+.form-container,
+.select-seat-container {
+  border: 2px double #919191;
+  border-radius: 8px;
+  background: linear-gradient(to bottom right, hwb(0 27% 69%), #ebebeb);
+  width: 100%;
+  max-width: 450px;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+
+.select-seat-container {
+  max-width: 600px;
+  padding: 2rem;
+  border: 2px double #919191;
+  border-radius: 8px;
+  background: linear-gradient(to bottom right, hwb(0 27% 69%), #ebebeb);
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  box-sizing: border-box;
+  
+}
+
+.book-now-heading {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.logo-image-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  flex: 1;
+  width: 80%;
+  margin: auto;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.error-message{
+  color: #971e1e;
+}
+
+.book-container .submit-button {
+  width: 80%;
+  padding: 10px;
+  background-color: #99775C;
+  color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px auto;
+  text-align: center;
+  margin-left: 40px;
+}
+
+.submit-button:hover {
+  background-color: #79523c;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 10px;
+}
+
+.grid-button {
+  width: 100%;
+  height: 50px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.grid-button.selected {
+  background-color: #4caf50;
+  color: white;
+}
+
+.grid-button:hover {
+  background-color: #ffa500;
+  color: white;
+}
+
+
+/* Gallery Styling */
+.gallery-wrapper {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.gallery-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 fixed columns */
+  gap: 15px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Maintain a consistent aspect ratio */
+  aspect-ratio: 10 / 9;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+
+/* For medium screens (less than 768px), display 3 images per row */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+}
+
+/* For small screens (less than 480px), display 2 images per row */
+@media (max-width: 480px) {
+  .gallery-title {
+    font-size: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+
+
+
+    /* Popup styles */
+.popup-overlay-x {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content-x {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-all-payment {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  margin: auto;
+}
+
+.qr-code-image {
+  width: 20em;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.send-screenshot {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.close-popup-button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  width: 20%;
+  margin: auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-popup-button:hover {
+  background: #ff0000;
+}
+
+.bank-acc th,
+.bank-acc td {
+  border: 0.1px solid black;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .book-container {
+    flex-direction: column;
+  }
+
+  .form-container,
+  .select-seat-container {
+    width: 90%;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .popup-content-x {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .qr-code-image {
+    max-width: 200px;
+  }
+
+  .bank-acc th,
+  .bank-acc td {
+    font-size: 12px;
+  }
+
+  .close-popup-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container,
+  .select-seat-container {
+    width: 100%;
+    height: 100%;
+    /* padding: 0em; */
+  }
+
+  
+
+  .grid-button {
+    font-size: 12px;
+    height: 40px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    margin-left: 10%;
+  }
+
+  .popup-content-x {
+    width: 100%;
+    height: 100%;
+    padding: 0.8rem;
+    overflow: scroll;
+    
+  }
+
+  .popup-all-payment {
+    flex-direction: column;
+    height: 300px;
+    gap: 2rem;
+  }
+
+  .qr-code-image {
+    width: 190px;
+    margin: auto;
+  }
+
+  .close-popup-button {
+    font-size: 12px;
+    padding: 6px 12px;
+    width: 30%;
+    text-align: center;
+  }
+
+  .bank-acc th,
+  .bank-acc td {
+    font-size: 12px;
+    padding: 2px;
+    height: 2em;
+  }
+}
+
+/* Footer Styles */
+.footr-footer {
+  background-color: black;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footr-footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  color: #fff;
+}
+
+.footr-footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footr-footer-logo {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.footr-footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footr-footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footr-footer-section p {
+  color: #fff;
+}
+
+.footr-footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footr-footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footr-footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footr-footer-contacts {
+  color: white;
+}
+
+.footr-social-icons {
+  display: flex; /* Aligns icons horizontally */
+  justify-content: center; /* Centers icons horizontally */
+  align-items: center; /* Centers icons vertically */
+  gap: 1rem; /* Adds spacing between icons */
+}
+
+.footr-social-icons a {
+  display: inline-block; /* Ensures the anchor is treated as a block for alignment */
+  line-height: 0; /* Removes extra spacing around the image */
+}
+
+.footr-social-icons img {
+  width: 30px; /* Ensures uniform size */
+  height: 30px;
+  display: block; /* Removes any inline image spacing issues */
+}
+
+.footr-footer-bottom {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: black;
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  /* Adjust footer container to stack items vertically */
+  .footr-footer-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  /* Adjust footer sections for better alignment and spacing on mobile */
+  .footr-footer-section {
+      text-align: center;
+      min-width: 100%;
+      padding: 10px;
+  }
+
+  /* Adjust social icons size */
+  .footr-social-icons img {
+      width: 25px;
+      height: 25px;
+  }
+
+  /* Adjust footer logo size */
+  .footr-footer-logo {
+      width: 150px;
+  }
+
+  /* Smaller font size for footer bottom text */
+  .footr-footer-bottom {
+      font-size: 0.8rem;
+      padding: 10px 0;
+  }
+}
+
+/* Mobile Small Screen Adjustments (up to 480px) */
+@media (max-width: 480px) {
+  .footr-footer-section h3 {
+      font-size: 1rem;
+  }
+
+  .footr-footer-section p {
+      font-size: 0.9rem;
+  }
+
+  .footr-footer-logo {
+      width: 120px;
+  }
+
+  .footr-social-icons img {
+      width: 20px;
+      height: 20px;
+  }
+
+  .footr-footer-bottom {
+      font-size: 0.7rem;
+  }
+}
+
+
+
+     
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR------------------------------------------------------------------ -->
+  
+  <nav class="nav-navbar">
+    <img src="assets/logo.png" alt="Logo" id="nav-logo" />
+  
+    <div class="nav-main-nav">
+      <div class="nav-desktop-book-now">
+        <button class="nav-book-now-btn">
+          <a href="Login.html" class="nav-book-now-link">Book Now</a>
+        </button>
+      </div>
+  
+      <div class="nav-desktop-menu">
+        <a href="index.html" class="nav-desktop-menu-list-item">Home</a>
+        <a href="Contact.html" class="nav-desktop-menu-list-item"
+          >Contact Us</a
+        >
+        <a href="Aboutus.html" class="nav-desktop-menu-list-item">About Us</a>
+  
+        <div class="nav-gallery-dropdown">
+          <a href="" class="nav-desktop-menu-list-item">
+            Gallery <span class="nav-down-arrow">▼</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="Tentgallary.html" class="nav-dropdown-item">Tent Gallery</a>
+            <a href="glam.html" class="nav-dropdown-item">Glam Gallery</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="nav-mobile-menu-icon">☰</div>
+  
+    <div class="nav-mobile-menu">
+      <a href="index.html" class="nav-mobile-menu-list-item">Home</a>
+      <a href="Contact.html" class="nav-mobile-menu-list-item">Contact Us</a>
+      <a href="Aboutus.html" class="nav-mobile-menu-list-item">About</a>
+  
+      <div class="nav-mobile-gallery-dropdown">
+        <a href="" class="nav-mobile-menu-list-item">
+          Gallery <span class="nav-down-arrow">▼</span>
+        </a>
+        <div class="nav-mobile-dropdown-menu">
+          <a href="Tentgallary.html" class="nav-mobile-dropdown-item">Tent Gallery</a>
+          <a href="glam.html" class="nav-mobile-dropdown-item">Glam Gallery</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  
+  <script>
+   
+  
+  
+   document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
+  const mobileMenu = document.querySelector(".nav-mobile-menu");
+  const dropdowns = document.querySelectorAll(".nav-gallery-dropdown");
+  
+  // Toggle mobile menu
+  mobileMenuIcon.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+  
+  // Handle dropdowns for mobile
+  dropdowns.forEach((dropdown) => {
+    const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
+    const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
+  
+    dropdownToggle.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default link behavior
+      dropdownMenu.classList.toggle("open");
+  
+      // Optionally close other dropdowns when one opens
+      dropdowns.forEach((otherDropdown) => {
+        if (otherDropdown !== dropdown) {
+          const otherMenu = otherDropdown.querySelector(".nav-mobile-dropdown-menu");
+          otherMenu.classList.remove("open");
+        }
+      });
+    });
+  });
+  });
+  
+  </script>
+  
+  
+  
+    <div class="book-container">
+      <!-- Form Section -->
+      <div class="form-container">
+        <form id="bookingForm">
+          <div class="logo-image-header">
+            <div class="logo-container">
+              <img src="assets/tent.png" alt="Stay Type Logo" class="logo" id="stayLogo">
+            </div>
+            <div class="logo-header">
+              <h3 class="book-now-heading" id="stayTypeTitle">Book Now - Tent Glam</h3>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-input">
+              <p class="error-message" id="firstNameError"></p>
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-input">
+              <p class="error-message" id="lastNameError"></p>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" name="email" id="email" placeholder="example@domain.com" class="form-input">
+              <p class="error-message" id="emailError"></p>
+            </div>
+  
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" name="phone" id="phone" placeholder="1234567890" class="form-input">
+              <p class="error-message" id="phoneError"></p>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group">
+              <label>Male</label>
+              <input type="number" name="numberOfMales" id="numberOfMales" placeholder="Number of Males" class="form-input">
+            </div>
+            <div class="form-group">
+              <label>Female</label>
+              <input type="number" name="numberOfFemales" id="numberOfFemales" placeholder="Number of Females" class="form-input">
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkIn" class="form-label">Check-In</label>
+              <input type="date" name="checkIn" id="checkIn" class="form-input">
+              <p class="error-message" id="checkInError"></p>
+            </div>
+  
+            <div class="form-group">
+              <label for="checkOut" class="form-label">Check-Out</label>
+              <input type="date" name="checkOut" id="checkOut" class="form-input">
+              <p class="error-message" id="checkOutError"></p>
+            </div>
+          </div>
+  
+          <div class="form-row">
+            <div class="form-group">
+              <label for="seatNumber" class="form-label">Selected Seats</label>
+              <input type="text" name="seatNumber" id="seatNumber" class="form-input" readonly>
+              <p class="error-message" id="selectedSeatsError"></p>
+            </div>
+          </div>
+  
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
+      </div>
+  
+      <!-- Button Section (Seat Grid) -->
+      <div class="select-seat-container">
+        <h3>Select Seat</h3>
+        <div class="grid-container" id="seatGrid"></div>
+      </div>
+    </div>
+  
+    <div class="gallery-wrapper">
+      <h2 class="gallery-title" id="gallery-title">Tent Stay Gallery</h2> <!-- Title defined here -->
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/img5.jpg" alt="Gallery 1" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/tt2.jpg" alt="Gallery 2" class="gallery-image">
+        </div>
+        <div class="gallery-item highlight">
+          <img src="assets/tent3.jpg" alt="Gallery 3" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/tent4.jpg" alt="Gallery 4" class="gallery-image">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/tent5.jpg" alt="Gallery 5" class="gallery-image">
+        </div>
+      </div>
+    </div>
+  
+    <div class="popup-overlay-x" id="popupOverlay" style="display: none;">
+      <div class="popup-content-x">
+        <div class="popup-headingg">
+          <h2>Payment Instructions</h2>
+        </div>
+        <div class="popup-all-payment">
+          <div class="upi">
+            <img src="assets/QR2.jpg" alt="QR Code" class="qr-code-image">
+          </div>
+          <div class="bank-acc">
+            <table class="acc-details">
+              <tr>
+                <th>Account holder name:</th>
+                <td>Narendra Atmaling Gore</td>
+              </tr>
+              <tr>
+                <th>Bank:</th>
+                <td>Bank of Baroda</td>
+              </tr>
+              <tr>
+                <th>A/c No:</th>
+                <td>04518100000979</td>
+              </tr>
+              <tr>
+                <th>IFSC Code:</th>
+                <td>BARB0SHIPOO</td>
+              </tr>
+              <tr>
+                <th>Branch:</th>
+                <td>Shivaji Nagar</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+  
+        <div class="send-screenshot">
+          <div class="pop-1">
+            <p>Please make the payment and send a screenshot to WhatsApp number: <br><strong>+91 8452136887</strong></p>
+          </div>
+          <div class="pop-2">
+            <button class="close-popup-button" id="closePopup">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+     <!-- Footer Section -->
+     <footer class="footr-footer">
+      <div class="footr-footer-container">
+        <!-- Logo and Mission -->
+        <div class="footr-footer-section footr-logo-mission">
+          <img src="Assets/logo.png" alt="Logo" class="footr-footer-logo" />
+          <p>
+            Our mission is to inspire people to connect with nature and experience the joys of camping. 
+            We aim to provide a comprehensive camping experience by offering a wide range of camping gear 
+            and accessories, along with expert advice and resources to help campers plan and prepare for their trips.
+          </p>
+        </div>
+  
+        <!-- Quick Links -->
+        <div class="footr-footer-section footr-quick-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html" class="footr-desktopmenuListitem">Home</a></li>
+            <li><a href="Aboutus.html" class="footr-desktopmenuListitem">About Us</a></li>
+            <li><a href="Tentgallary.html" class="footr-dropdown-item">Glam Gallery</a></li>
+            <li><a href="Contact.html" class="footr-desktopmenuListitem">Contact Us</a></li>
+            <li><a href="" class="footr-desktopmenuListitem">Privacy Policy</a></li>
+          </ul>
+        
+        </div>
+  
+        <!-- Contact Section -->
+        <div class="footr-footer-section footr-contact">
+          <div class="footr-footer-contacts">
+            <h3>Contact</h3>
+            <p>
+              <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake, 
+              Lonawala Pune-Maharashtra-412108.
+            </p>
+            <p>
+              <strong>Mobile No:</strong> +91-7720008787
+            </p>
+            <p>
+              <strong>Email:</strong> etherealhillsglamping@gmail.com contact@etherealhillsglamping.com
+            </p>
+          </div>
+          <div class="footr-social-icons">
+            <a href="https://www.facebook.com/etherealhillsglamping">
+              <img src="Assets/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/etherealhillsglamping/profilecard/?igsh=MWJrMzRzNThpbnRobw==">
+              <img src="Assets/insta.png" alt="Instagram" />
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="footr-footer-bottom">
+        Copyright © 2024. All Rights Reserved.
+      </div>
+    </footer>
+  
+    <script>
+      // Dropdown toggle logic (if needed in the future)
+      const dropdownItems = document.querySelectorAll('.footr-dropdown-item');
+  
+      dropdownItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const isActive = item.classList.contains('footr-active');
+          dropdownItems.forEach(i => i.classList.remove('footr-active'));
+          if (!isActive) {
+            item.classList.add('footr-active');
+          }
+        });
+      });
+    </script>
+  
+  
+  
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA1NpNJhL6250_l0CTo7qoIk5N_idKWwio",
+      authDomain: "pawana-4ff91.firebaseapp.com",
+      projectId: "pawana-4ff91",
+      storageBucket: "pawana-4ff91.firebasestorage.app",
+      messagingSenderId: "687329671670",
+      appId: "1:687329671670:web:111c0794f64c2930b5afd7",
+      measurementId: "G-BVE6S7FGQF"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const dbRef = firebase.database().ref("bookings");
+
+    // State variables for seat selection
+    let selectedTents = [];
+
+    // Handle seat selection
+    function handleSeatSelect(seatNumber, button) {
+      const index = selectedTents.indexOf(seatNumber);
+      if (index > -1) {
+        selectedTents.splice(index, 1);
+        button.classList.remove('selected');
+      } else {
+        selectedTents.push(seatNumber);
+        button.classList.add('selected');
+      }
+      document.getElementById('seatNumber').value = selectedTents.join(', ');
+    }
+
+    // Create grid of seats
+    function createSeatGrid() {
+      const gridContainer = document.getElementById('seatGrid');
+      for (let i = 1; i <= 80; i++) {
+        const button = document.createElement('button');
+        button.className = 'grid-button';
+        button.textContent = i;
+        button.onclick = () => handleSeatSelect(i, button);
+        gridContainer.appendChild(button);
+      }
+    }
+
+    // Validate form and send data to Firebase
+    function validateForm(e) {
+      e.preventDefault();
+
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const checkIn = document.getElementById('checkIn').value;
+      const checkOut = document.getElementById('checkOut').value;
+      const selectedSeats = selectedTents.join(', ');
+
+      // Validate fields
+      const errors = {};
+      if (!firstName) errors.firstName = "First Name is required.";
+      if (!lastName) errors.lastName = "Last Name is required.";
+      if (!email) errors.email = "Email is required.";
+      if (!phone) errors.phone = "Phone is required.";
+      if (!checkIn) errors.checkIn = "Check-In date is required.";
+      if (!checkOut) errors.checkOut = "Check-Out date is required.";
+      if (!selectedSeats) errors.selectedSeats = "Please select at least one seat.";
+
+      // Show errors
+      document.getElementById('firstNameError').textContent = errors.firstName || '';
+      document.getElementById('lastNameError').textContent = errors.lastName || '';
+      document.getElementById('emailError').textContent = errors.email || '';
+      document.getElementById('phoneError').textContent = errors.phone || '';
+      document.getElementById('checkInError').textContent = errors.checkIn || '';
+      document.getElementById('checkOutError').textContent = errors.checkOut || '';
+      document.getElementById('selectedSeatsError').textContent = errors.selectedSeats || '';
+
+      // If no errors, submit form
+      if (Object.keys(errors).length === 0) {
+        // Prepare data for Firebase
+        const bookingData = {
+          firstName,
+          lastName,
+          email,
+          phone,
+          checkIn,
+          checkOut,
+          selectedSeats,
+          createdAt: new Date().toISOString(),
+        };
+
+        // Log the selected seats to verify the correct data
+        console.log("Selected Seats:", selectedTents);
+
+        // Save data to Firebase
+        dbRef.push(bookingData)
+          .then(() => {
+            alert("Booking submitted successfully!");
+            document.getElementById('popupOverlay').style.display = 'flex';
+          })
+          .catch((error) => {
+            alert("Error submitting booking: " + error.message);
+          });
+      }
+    }
+
+    // Initialize form submission
+    document.getElementById('bookingForm').onsubmit = validateForm;
+
+    // Close popup
+    document.getElementById('closePopup').onclick = () => {
+      document.getElementById('popupOverlay').style.display = 'none';
+    };
+
+    // Initialize page
+    window.onload = () => {
+      createSeatGrid();
+    };
+  </script>
+</body>
+</html>
+
+  
+  
+
+
+
+
+  </body>
+  </html>

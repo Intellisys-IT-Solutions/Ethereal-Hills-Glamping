@@ -1,0 +1,2340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Ethereal Hills Glamping</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    h1, p {
+      margin: 0;
+    }
+
+    
+/* navbar edit----------------------------------------------------------------------- */
+
+
+
+
+    /* Hero Section */
+    .hero-section {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      line-height: 1.2rem;
+      /* transition: background-image 0s ease-in-out; */
+      transition: background-image 1s ease-in-out;
+      position: relative;
+      clip-path: ellipse(100% 80% at 50% 20%);
+      margin-top: 110px;
+      
+    }
+
+    .hero-content p {
+      font-size: 2rem;
+      font-family: cursive;
+      color: white;
+    }
+
+    .hero-content h1 {
+      margin-top: 2rem;
+      font-size: 5rem;
+      font-family: cursive;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px black;
+      color: white;
+      font-weight: 1000;
+    }
+
+    .hero-content h1 span {
+      font-size: 3rem;
+    }
+
+    .dots-container {
+      font-size: 20px;
+      position: absolute;
+      bottom: 2em;
+      left: auto;
+      display: flex;
+      justify-content: center;
+      /* margin-top: -20px; */
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background-color: rgb(255, 255, 255);
+      cursor: pointer;
+      /* transition: background-color 0.3s; */
+    }
+
+    .dot.active {
+      background-color: rgb(71, 68, 68);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      transform: scale(1.5);
+    }
+
+    /* Footer Styles */
+.footr-footer {
+  background-color: black;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footr-footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  color: #fff;
+}
+
+.footr-footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footr-footer-logo {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.footr-footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footr-footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footr-footer-section p {
+  color: #fff;
+}
+
+.footr-footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footr-footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footr-footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footr-footer-contacts {
+  color: white;
+}
+
+.footr-social-icons {
+  display: flex; /* Aligns icons horizontally */
+  justify-content: center; /* Centers icons horizontally */
+  align-items: center; /* Centers icons vertically */
+  gap: 1rem; /* Adds spacing between icons */
+}
+
+.footr-social-icons a {
+  display: inline-block; /* Ensures the anchor is treated as a block for alignment */
+  line-height: 0; /* Removes extra spacing around the image */
+}
+
+.footr-social-icons img {
+  width: 30px; /* Ensures uniform size */
+  height: 30px;
+  display: block; /* Removes any inline image spacing issues */
+}
+
+.footr-footer-bottom {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: black;
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  /* Adjust footer container to stack items vertically */
+  .footr-footer-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  /* Adjust footer sections for better alignment and spacing on mobile */
+  .footr-footer-section {
+      text-align: center;
+      min-width: 100%;
+      padding: 10px;
+  }
+
+  /* Adjust social icons size */
+  .footr-social-icons img {
+      width: 25px;
+      height: 25px;
+  }
+
+  /* Adjust footer logo size */
+  .footr-footer-logo {
+      width: 150px;
+  }
+
+  /* Smaller font size for footer bottom text */
+  .footr-footer-bottom {
+      font-size: 0.8rem;
+      padding: 10px 0;
+  }
+}
+
+/* Mobile Small Screen Adjustments (up to 480px) */
+@media (max-width: 480px) {
+  .footr-footer-section h3 {
+      font-size: 1rem;
+  }
+
+  .footr-footer-section p {
+      font-size: 0.9rem;
+  }
+
+  .footr-footer-logo {
+      width: 120px;
+  }
+
+  .footr-social-icons img {
+      width: 20px;
+      height: 20px;
+  }
+
+  .footr-footer-bottom {
+      font-size: 0.7rem;
+  }
+}
+
+
+    /* Welcome Page Styles */
+    .welcome-page-container {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+      padding: 20px;
+      color: #2c3e50;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-page-header {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2ecc71;
+    }
+
+    .welcome-page-header h1 {
+      color: #2c3e50;
+      margin: 0;
+      font-size: 5em;
+      font-family: Brush Script MT;
+      text-shadow: 2px 2px lightgray;
+    }
+
+    .welcome-page-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      line-height: 1.6;
+      gap: 20px;
+    }
+
+    .img-container {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .para-container p {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      color: black;
+    }
+
+    .welcome-page-image {
+      width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+      .desktopmenu {
+        display: none;
+      }
+      .desktopmenuListitem{
+        font-size: 7px;
+        margin: none;
+        padding: none;
+      }
+
+      .mobile-menu-icon {
+        display: block;
+      }
+
+      .navMenu {
+        display: block;
+        
+      }
+
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Welcome Page Styles */
+    .welcome-page-container {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+      padding: 20px;
+      color: #2c3e50;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-page-header {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2ecc71;
+    }
+
+    .welcome-page-header h1 {
+      color: #2c3e50;
+      margin: 0;
+      font-size: 5em;
+      font-family: Brush Script MT;
+      text-shadow: 2px 2px lightgray;
+    }
+
+    .welcome-page-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      line-height: 1.6;
+      gap: 20px;
+    }
+
+    .img-container {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .para-container p {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      color: black;
+    }
+
+    .welcome-page-image {
+      width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+      .desktopmenu-navbar,
+    .desktopbooknow {
+      display: none;
+    }
+    
+
+      .desktopmenu {
+        display: none;
+      }
+
+      .mobile-menu-icon {
+        display: block;
+      }
+
+      .navMenu {
+        display: block;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .navbar {
+      padding: 10px 20px;
+    }
+    .navbar img {
+      height: 40px;
+    }
+
+    .mobile-menu-icon {
+      font-size: 25px;
+    }
+    .navMenu {
+      width: 180px;
+    }
+
+    .mobilemenuListitem {
+      font-size: 14px;
+    }
+      .welcome-page-header h1 {
+        font-size: 2em;
+      }
+
+      .welcome-page-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .para-container {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .welcome-page-header h1 {
+        font-size: 1.8em;
+      }
+
+      .welcome-page-content {
+        line-height: 1.4;
+      }
+
+      .para-container {
+        margin-top: 10px;
+      }
+    }
+
+
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/back.jpg') no-repeat fixed center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+    }
+    .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+
+ 
+
+    /* Feature container */
+    .feature-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 items per row by default */
+      gap: 150px; /* Consistent spacing between items */
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto; /* Center container */
+      box-sizing: border-box;
+    }
+
+    /* Feature item */
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Feature image */
+    .feature-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    /* Feature text */
+    .feature p {
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 1024px) {
+      .feature-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on medium screens */
+        gap: 15px;
+      }
+
+      .feature-img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .feature p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        height: 70vh;
+      }
+      .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensures content is above the background image */
+    color: #fff; /* Ensure text is visible on the image */
+    padding: 20px 20px; /* Add padding to prevent content from touching the edges */
+  }
+     
+
+ .hero-content h1 span{
+  font-size: 1rem;
+ }
+  
+  .dots-container {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s;
+    box-shadow: 0.2px 0.2px rgb(121, 121, 121);
+  }
+  .dot.active {
+    opacity: 1;
+    transform: scale(1.2);
+      background-color: rgb(105, 100, 100);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+  .hero-section {
+    width: 100%;
+    height: 60vh; /* Full viewport height */
+    background-size: cover; /* Stretch image to fill both width and height */
+    background-position: center; /* Keep the focus on the center of the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    margin-top: 110px;
+  }
+
+      .feature-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+        gap: 10px;
+      }
+
+      .feature-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .feature p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .feature-container {
+        grid-template-columns: repeat(2, 1fr); /* Ensure 2 items per row on very small screens */
+        gap: 8px;
+      }
+
+      .feature-img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .feature p {
+        font-size: 0.85rem;
+      }
+      
+    }
+/* card container style */
+.card-container2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      box-sizing: border-box;
+    }
+
+    /* Card style */
+    .card2 {
+      border: 1px solid #ccc;
+      padding: 50px;  /* Increased padding */
+      width: 350px;
+      border-radius: 10px;
+      text-align: center;
+      background-color: rgba(228, 226, 226, 0.671);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hover effect on card */
+    .card2:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Title styling */
+    .card2 h3 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      color: #333;
+      font-weight: 600;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    /* Styling for list items */
+    .card2 ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .card2 li {
+      margin: 15px 0;
+      font-size: 16px;
+      color: #555;
+      font-weight: 400;
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 1200px) {
+      .card2-container2 {
+        justify-content: center;
+      }
+
+      .card2 {
+        width: 220px;
+      }
+    }
+
+     @media screen and (max-width: 768px) {
+    .desktopmenu-navbar,
+    .desktopbooknow {
+      display: none;
+    }
+
+    .mobile-menu-icon {
+      display: block;
+    }
+
+    .navMenu {
+      display: none; /* Initially hidden */
+    }
+  }
+
+
+    @media (max-width: 480px) {
+      .card2-container2 {
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .card2 {
+        width: 90%;
+        margin: 15px 0;
+        padding: 20px;
+      }
+
+      .card2 h3 {
+        font-size: 20px;
+      }
+
+      .card2 li {
+        font-size: 16px;
+      }
+    }
+
+    .app2 {
+            padding: 20px;
+        }
+
+        .app2  .heading {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+
+        .app2  .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .app2  .card {
+  border: 1px solid #ccc;
+  border-radius: 40px 0px 40px 0px;
+  overflow: hidden;
+  width: 350px;
+  height: 500px;
+  margin: 20px;
+  box-shadow: 15px 15px 10px gray;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app2 .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+.app2 .see-features{
+  background-color: transparent;
+  border: none;
+  margin-top: 10px;
+}
+.app2 .card-image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.app2 .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app2 .card-content {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.app2 .card-title2 {color: black;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.app2 .card-price {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.app2 .add-to-cart {
+  background-color: #99775C;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.app2 .add-to-cart:hover {
+  background-color: #e9d7c0;
+}
+
+
+
+/* Book Now Button */
+.app2 .book-now-btn {
+  background-color: #99775C;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(to right, #d6ad8b 50%, #99775C 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+  position: relative; /* Required for positioning pseudo-elements */
+}
+
+.app2 .book-now-btn:hover {
+  background-color: #ae7b51;
+  background-position: left bottom;
+  transform: scale(1.1);
+  
+  padding: 0.8rem 2rem 0.8rem 0.7rem;
+}
+
+/* Add symbol on hover */
+.app2 .book-now-btn::after {
+  content: "➔"; 
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  /* color: black; */
+}
+
+.app2 .book-now-btn:hover::after {
+  opacity: 1;
+  
+
+}
+
+.app2 .book-now-btn a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Popup Styles */
+.app2 .pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.app2 .pop-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.app2 .close-pop {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 500;
+}
+
+.section-heading{
+    text-align: center;
+  }
+
+.app2 .disabled-button{
+  background-color: #c5bfbb;
+}
+
+/* Responsive Design */
+@media (max-width: 728px) {
+  .app2 .card {
+    width: 45%;
+    height: 400px;
+  }
+
+  .app2 .add-to-cart {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  .app2 .book-now-btn {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+  .app2 .card {
+    width: 90%;
+    height: 70vh;
+    margin: 10px 0;
+  }
+
+  .hero-content h1 {
+	font-size: 2.5rem;
+  margin-top: 1rem;
+}
+}
+
+@media (max-width: 480px) {
+  .app2 .card {
+    width: 90%;
+    height: 55vh;
+    margin: 10px 0;
+  }
+
+  .section-heading{
+    text-align: center;
+  }
+  
+  .app2 .card-container{
+    gap: 1.5rem;
+  }
+
+  .app2 .add-to-cart {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .app2 .book-now-btn {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .app2 .card-image-container {
+	width: 100%;
+	height: 47%;
+	overflow: hidden;
+}
+.hero-content h1 {
+	font-size: 2.5rem;
+  margin-top: 1rem;
+}
+}
+
+/* General Facility Page Styles */
+.facility-page {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  /* padding: 2rem; */
+}
+
+
+
+/* Facilities Section */
+.facility-section {
+  padding: 5rem;
+  margin-bottom: 5rem;
+}
+
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+  /* padding-left: 70px; */
+}
+
+.facility-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  /* max-width: 350px; */
+  height: 500px;
+  margin: auto;
+}
+
+
+.facility-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.facility-info {
+  padding: 1rem;
+}
+
+.facility-title {
+  font-size: 1.5rem;
+  color: #004d40;
+  margin-bottom: 0.5rem;
+}
+
+.facility-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+
+/* Schedule Section */
+.schedule-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.schedule-section h1 {
+  /* margin-top: 100px;
+  margin-bottom: 100px; */
+  width: 100%;
+
+}
+
+.schedule-image {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Counter Section */
+.counter-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.counter-section h1 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.counter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.counter-card {
+  padding: 1rem;
+  text-align: center;
+  max-width: 200px;
+  border: none;
+}
+
+.counter-value {
+  font-size: 2rem;
+  color: #004d40;
+}
+
+.counter-label {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Reviews Section */
+.reviews-section {
+  text-align: center;
+  /* padding: 2rem; */
+  background-color: #f9f9f9;
+}
+
+.section-heading {
+  width: 100%;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: #333;
+  padding: 2rem;
+}
+
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding: 50px;
+  background-color: rgb(245, 238, 228);
+}
+
+.review-box {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  height: 300px;
+  text-align: left;
+}
+
+.review-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.review-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.review-stars {
+  font-size: 1.2rem;
+  color: #ffc107;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .facility-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    
+  }
+
+  .facility-card {
+    max-width: 100%;
+  }
+
+  .counter-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reviews-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .facility-section {
+	padding: 3rem;
+	margin-bottom: 5rem;
+}
+  .facility-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* padding-left: 10px; */
+  }
+
+  .facility-card {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .counter-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .review-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 15rem;
+    margin: auto;
+    text-align: center;
+    /* margin-left: -42px; */
+  }
+
+  .counter-card {
+  padding: 0rem;
+  text-align: center;
+  max-width: 200px;
+  border: none;
+}
+}
+
+@media (max-width: 480px) {
+  .section-heading {
+    font-size: 1.5rem;
+    padding: 0;
+  }
+
+  .facility-title {
+    font-size: 1.2rem;
+  }
+
+  .facility-description {
+    font-size: 0.9rem;
+  }
+
+  .counter-value {
+    font-size: 1.5rem;
+  }
+
+  .counter-label {
+    font-size: 0.9rem;
+  }
+
+  .review-name {
+    font-size: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.9rem;
+  }
+
+  .review-stars {
+    font-size: 1rem;
+  }
+  .review-box {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    text-align: center;
+    /* margin-left: -42px; */
+  }
+
+  .facility-section {
+	padding: 1rem;
+}
+.facility-grid {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin-bottom: 1rem;
+  gap: 1rem;
+  /* height: 60vh; */
+    /* padding-left: 10px; */
+  }
+
+  .facility-card {
+    max-width: 100%;
+    margin: auto;
+    height: 400px;
+  }
+
+  .facility-card-image{
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+  object-position: top;
+  overflow: hidden;
+}
+
+.facility-info{
+  padding: 20px;
+  align-content: center;
+  align-items: center;
+}
+
+.facility-title{
+  font-size: 15px;
+}
+
+.facility-description{
+  font-size: 11px;
+}
+
+
+
+.slideshow-container {
+	position: relative;
+	width: 100%;
+	/* max-width: 350px; */
+	height: 300px;
+	overflow: hidden;
+	border-radius: 10px 0px 0px 0px;
+}
+  .counter-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
+  
+}
+
+@media (max-width: 360px) {
+  .section-heading {
+    font-size: 1.5rem;
+    padding: 0;
+  }
+
+  .facility-title {
+    font-size: 1.2rem;
+  }
+
+  .facility-description {
+    font-size: 0.9rem;
+  }
+
+  .counter-value {
+    font-size: 1.5rem;
+  }
+
+  .counter-label {
+    font-size: 0.9rem;
+  }
+
+  .review-name {
+    font-size: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.9rem;
+  }
+
+  .review-stars {
+    font-size: 1rem;
+  }
+  .review-box {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    text-align: center;
+    /* margin-left: -42px; */
+  }
+
+  .facility-section {
+	padding: 1rem;
+}
+.facility-grid {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  margin-bottom: 1rem;
+  /* gap: 1rem; */
+  /* height: 60vh; */
+    /* padding-left: 10px; */
+  }
+
+  .facility-card {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .facility-title{
+  font-size: 15px;
+}
+
+.facility-description{
+  font-size: 11px;
+}
+
+  .counter-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
+
+  
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  /* max-width: 350px; */
+  height: 65%;
+  overflow: hidden;
+  border-radius: 10px 0px 0px 0px;
+}
+
+.slideshow-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+
+
+.slideshow-slide.show {
+  display: block;
+  animation: fadeIn 2s ease-in-out;
+}
+
+
+
+
+/* .book-now-btn {
+  background-color: #99775C;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(to right, #d6ad8b 50%, #99775C 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+  position: relative; 
+}
+
+.book-now-btn:hover {
+  background-color: #ae7b51;
+  background-position: left bottom;
+  transform: scale(1.1);
+  
+  padding: 0.8rem 2rem 0.8rem 0.7rem;
+}
+
+
+.book-now-btn::after {
+  content: "➔"; 
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  
+}
+
+.book-now-btn:hover::after {
+  opacity: 1;
+  
+
+}
+
+.book-now-btn a {
+  color: white;
+  text-decoration: none;
+} */
+
+
+/* General Navbar Styles */
+.nav-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        height: 80px;
+        padding: 1rem 2rem;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        margin-bottom: 80px;
+      }
+
+      #nav-logo {
+        height: 50px;
+        cursor: pointer;
+      }
+
+      .nav-main-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      /* Desktop Menu Styles */
+      .nav-desktop-menu {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .nav-desktop-menu-list-item {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .nav-desktop-menu-list-item:hover {
+        color: #ffeb3b;
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn {
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        background: linear-gradient(to right, #6b5441 50%, #99775c 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.5s ease-out;
+        position: relative; /* Required for positioning pseudo-elements */
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn:hover {
+        background-color: #ae7b51;
+        background-position: left bottom;
+        transform: scale(1);
+        padding: 0.8rem 2rem 0.8rem 0.7rem;
+      }
+
+      /* Add symbol on hover */
+      .nav-book-now-btn::after {
+        content: "➔";
+        color: white;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        /* color: black; */
+      }
+
+      .nav-book-now-btn:hover::after {
+        opacity: 1;
+      }
+
+      .nav-book-now-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Active Tab Styles */
+      .nav-active {
+        font-weight: bold;
+        color: #d9d418;
+      }
+
+      /* Mobile Menu Icon */
+      .nav-mobile-menu-icon {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Mobile Menu Styles */
+      .nav-mobile-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        padding: 1rem 0;
+        display: none;
+      }
+
+      .nav-mobile-menu-list-item {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        transition: background-color 0.3s;
+      }
+
+      .nav-mobilemenuListitem:hover {
+        background-color: black;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+
+        .nav-navbar{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .nav-desktop-menu {
+          display: none;
+        }
+
+        .nav-mobile-menu-icon {
+          display: block;
+        }
+
+        .nav-mobile-gallery-dropdown{
+          display: flex;
+          flex-direction: column;
+        }
+
+        .nav-mobile-dropdown-menu{
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+          font-size: 15px;
+          /* text-decoration: underline; */
+        }
+
+      }
+
+
+      /* Mobile menu: Show when active */
+.nav-mobile-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile dropdown: Show when open */
+.nav-mobile-dropdown-menu.open {
+  display: flex;
+  flex-direction: column;
+}
+
+
+      /* Dropdown Menu for Desktop */
+      .nav-gallery-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      
+
+      .nav-dropdown-menu {
+
+        display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: black;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  flex-direction: column;
+  width: 200px;
+      }
+
+      .nav-dropdown-item {
+        text-decoration: none;
+        color: white;
+        background-color: #000000;
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .nav-dropdown-item:hover {
+        background-color: #555;
+      }
+
+      .nav-gallery-dropdown:hover .nav-dropdown-menu {
+        right: 0;
+        transform: translateX(-45%);
+        display: flex; /* Display dropdown when hovered */
+      }
+
+      .nav-dropdown-menu {
+        max-width: 300px;
+      }
+
+      .nav-down-arrow {
+        margin-left: 5px;
+        font-size: 0.8rem;
+        transition: transform 0.3s;
+      }
+
+      .nav-gallery-dropdown:hover .nav-down-arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Mobile Dropdown Styles */
+      .nav-mobile-dropdown-menu {
+        display: none;
+      }
+
+      .nav-mobile-dropdown-item {
+        padding: 1rem;
+        color: white;
+        text-decoration: none;
+      }
+
+      .nav-mobile-dropdown-item.nav-active {
+        background-color: #555;
+      }
+
+      .nav-gallery-dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        .nav-mobile-dropdown-menu {
+          display: flex;
+        }
+      }
+
+
+
+
+      
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR------------------------------------------------------------------ -->
+
+  <nav class="nav-navbar">
+    <img src="assets/logo.png" alt="Logo" id="nav-logo" />
+
+    <div class="nav-main-nav">
+      <div class="nav-desktop-book-now">
+        <button class="nav-book-now-btn">
+          <a href="Login.html" class="nav-book-now-link">Book Now</a>
+        </button>
+      </div>
+      <div class="nav-desktop-menu">
+        <a href="index.html" class="nav-desktop-menu-list-item">Home</a>
+        <a href="Contact.html" class="nav-desktop-menu-list-item">Contact Us</a>
+        <a href="Aboutus.html" class="nav-desktop-menu-list-item">About Us</a>
+
+        <!-- Desktop Dropdown -->
+        <div class="nav-gallery-dropdown">
+          <span class="nav-desktop-menu-list-item nav-dropdown-toggle">
+            Gallery <span class="nav-down-arrow">▼</span>
+          </span>
+          <div class="nav-dropdown-menu">
+            <a href="Tentgallary.html" class="nav-dropdown-item">Tent Gallery</a>
+            <a href="glam.html" class="nav-dropdown-item">Glam Gallery</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Icon -->
+    <div class="nav-mobile-menu-icon">☰</div>
+
+    <!-- Mobile Menu -->
+    <div class="nav-mobile-menu">
+      <a href="index.html" class="nav-mobile-menu-list-item">Home</a>
+      <a href="Contact.html" class="nav-mobile-menu-list-item">Contact Us</a>
+      <a href="Aboutus.html" class="nav-mobile-menu-list-item">About Us</a>
+
+      <!-- Mobile Dropdown -->
+      <div class="nav-mobile-gallery-dropdown">
+        <span class="nav-mobile-menu-list-item nav-dropdown-toggle">
+          Gallery <span class="nav-down-arrow">▼</span>
+        </span>
+        <div class="nav-mobile-dropdown-menu">
+          <a href="Tentgallary.html" class="nav-mobile-dropdown-item">Tent Gallery</a>
+          <a href="glam.html" class="nav-mobile-dropdown-item">Glam Gallery</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  <script>
+   
+
+
+   document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
+  const mobileMenu = document.querySelector(".nav-mobile-menu");
+  const dropdowns = document.querySelectorAll(".nav-gallery-dropdown");
+
+  // Toggle mobile menu
+  mobileMenuIcon.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+
+  // Handle dropdowns for mobile
+  dropdowns.forEach((dropdown) => {
+    const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
+    const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
+    
+
+    dropdownToggle.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default link behavior
+      dropdownMenu.classList.toggle("open");
+
+      // Optionally close other dropdowns when one opens
+      dropdowns.forEach((otherDropdown) => {
+        if (otherDropdown !== dropdown) {
+          const otherMenu = otherDropdown.querySelector(".nav-mobile-dropdown-menu");
+          otherMenu.classList.remove("open");
+        }
+      });
+    });
+  });
+});
+
+  </script>
+
+  <!-- Hero Section (Image Slider) -->
+  <div class="home-page-whole">
+    <div class="hero-section">
+      <div class="hero-content">
+        <p>Welcome To</p>
+        <h1>
+          Ethereal Hills<br /> <span>Camping & Glamping</span>
+        </h1>
+      </div>
+      <div class="dots-container">
+        <div class="dot active" onclick="handleDotClick(0)" aria-label="Slide 1" title="Slide 1"></div>
+        <div class="dot" onclick="handleDotClick(1)" aria-label="Slide 2" title="Slide 2"></div>
+        <div class="dot" onclick="handleDotClick(2)" aria-label="Slide 3" title="Slide 3"></div>
+      </div>
+    </div>
+  
+    <script>
+      const images = ["assets/pawana1.jpg", "assets/pawana2.jpg", "assets/pac2.jpg"];
+      let currentIndex = 2;
+  
+      function preloadImages() {
+        images.forEach((image) => {
+          const img = new Image();
+          img.src = image;
+        });
+      }
+  
+      function setBackgroundImage() {
+        const heroSection = document.querySelector(".hero-section");
+        heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
+        const dots = document.querySelectorAll(".dot");
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentIndex);
+        });
+      }
+  
+      preloadImages();
+      setBackgroundImage();
+  
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        setBackgroundImage();
+      }, 4000);
+  
+      function handleDotClick(index) {
+        currentIndex = index;
+        setBackgroundImage();
+      }
+    </script>
+  </div>
+  
+  
+    <!-- Welcome Page Section -->
+    <div class="welcome-page-container">
+      <header class="welcome-page-header">
+        <h1>Welcome to Camp Explorer</h1>
+      </header>
+  
+      <div class="welcome-page-content">
+        <div class="img-container">
+          <img src="assets/AsideImage.webp" alt="Beautiful campsite" class="welcome-page-image" />
+        </div>
+        <div class="para-container">
+          <p>
+            Today everyone is working day and night to earn money, so everyone is living a stressful life. So if you are looking for different tourist destinations to relieve your stress, then you are on the right website. Because we have specially arranged camping for you at Pawna Lake near Lonavala between Pune and Mumbai. Pawna Lake Camping is 120 km from Mumbai and about 65 km from Pune. You can reach Pawna Camping by your own car. If you do not have a car, you can reach Lonavala by train. From there we can arrange a car for you at an additional cost.
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="app">
+      <div class="hero">
+        <div class="feature-container">
+          <div class="feature">
+            <img src="assets/camp.jpg" alt="Lakeside Location" class="feature-img" />
+            <p>Lakeside Location</p>
+          </div>
+          <div class="feature">
+            <img src="assets/Dj.jpg" alt="Peaceful Campsite" class="feature-img" />
+            <p>Live Dj/Music</p>
+          </div>
+          <div class="feature">
+            <img src="assets/view.jpg" alt="Very Close to Lake" class="feature-img" />
+            <p>Very Close to Lake</p>
+          </div>
+          <div class="feature">
+            <img src="assets/bbq.jpg" alt="BBQ Included" class="feature-img" />
+            <p>BBQ Included</p>
+          </div>
+          <div class="feature">
+            <img src="assets/toilet.jpg" alt="Western Toilets Available" class="feature-img" />
+            <p>Western Toilets Available</p>
+          </div>
+          <div class="feature">
+            <img src="assets/dome (4).jpg" alt="Around 50km From Pune" class="feature-img" />
+            <p>Around 50km From Pune</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <!-- Package container -->
+  
+    <div class="app2">
+      <h1 class="heading">Our Packages</h1>
+      <div class="card-container">
+          <!-- Tent Stay Card -->
+          <div class="card">
+              <div class="card-image-container">
+                  <img src="assets/tent1.jpg" alt="Tent Stay" class="card-image">
+              </div>
+              <div class="card-content">
+                  <h2 class="card-title2">Tent Stay</h2>
+                  <p class="card-price">Starting From ₹1199 Per Person</p>
+                  <button class="add-to-cart" onclick="window.location.href='Book.html?stayType=Tent Stay'">
+                      BOOK NOW
+                  </button>
+                  <button class="see-features" onclick="openpop('Tent')">
+                      See Features
+                  </button>
+              </div>
+          </div>
+  
+          <!-- Cottage Stay Card -->
+          <div class="card">
+              <div class="card-image-container">
+                  <img src="assets/img5.jpg" alt="Cottage Stay" class="card-image">
+              </div>
+              <div class="card-content">
+                  <h2 class="card-title2">Cottage Stay</h2>
+                  <p class="card-price">Starting From ₹1999 Per Person</p>
+                  <button class="add-to-cart disabled-button" disabled>
+                      Coming Soon
+                  </button>
+                  <button class="see-features" onclick="openpop('Cottage')">
+                      See Features
+                  </button>
+              </div>
+          </div>
+  
+          <!-- Dome Stay Card -->
+          <div class="card">
+              <div class="card-image-container">
+                  <img src="assets/dome (3).jpg" alt="Dome Stay" class="card-image">
+              </div>
+              <div class="card-content">
+                  <h2 class="card-title2">Dome Stay</h2>
+                  <p class="card-price">Starting From ₹2999 Per Person</p>
+                  <button class="add-to-cart disabled-button" disabled>
+                      Coming Soon
+                  </button>
+                  <button class="see-features" onclick="openpop('Dome')">
+                      See Features
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  
+  
+  </div>
+  
+  <!-- Feature Cards, Initially Hidden -->
+  <div class="card-container2">
+      <!-- Tent Stay Features, Initially Hidden -->
+      <div class="card2" id="Tent" style="display:none;">
+          <h3>Tent Stay</h3>
+          <ul>
+              <li><i class="fas fa-drumstick-bite"></i> BBQ</li>
+              <li><i class="fas fa-coffee"></i> Snacks</li>
+              <li><i class="fas fa-coffee"></i> Morning Breakfast</li>
+              <li><i class="fas fa-gamepad"></i> Gaming: Cricket, Carrom</li>
+              <li><i class="fas fa-compact-disc"></i> DJ Floor</li>
+              <li><i class="fas fa-music"></i> Live Music</li>
+          </ul>
+      </div>
+  
+      <!-- Cottage Stay Features, Initially Hidden -->
+      <div class="card2" id="Cottage" style="display:none;">
+          <h3>Cottage Stay</h3>
+          <ul>
+              <li><i class="fas fa-bed"></i> Cottage</li>
+              <li><i class="fas fa-door-open"></i> Privacy Couple</li>
+              <li><i class="fas fa-swimming-pool"></i> Pool Swimming</li>
+              <li><i class="fas fa-utensils"></i> Door Step Food</li>
+              <li><i class="fas fa-compact-disc"></i> DJ Floor</li>
+              <li><i class="fas fa-music"></i> Live Music</li>
+          </ul>
+      </div>
+  
+      <!-- Dome Stay Features, Initially Hidden -->
+      <div class="card2" id="Dome" style="display:none;">
+          <h3>Dome Stay</h3>
+          <ul>
+              <li><i class="fas fa-peace"></i> High Class Treatment</li>
+              <li><i class="fas fa-coffee"></i> Snacks</li>
+              <li><i class="fas fa-peace"></i> Peaceful View</li>
+              <li><i class="fas fa-couch"></i> AC/Non-AC</li>
+              <li><i class="fas fa-chair"></i> Bed, Sofa, Chair, Attached Bathroom</li>
+              <li><i class="fas fa-utensils"></i> Candle Light Dinner</li>
+          </ul>
+      </div>
+  </div>
+
+
+ 
+  
+  
+  
+  <div class="facility-page">
+    <section class="facility-section">
+      <h1 class="section-heading">Facilities at Pawana Lake Camping</h1>
+      <div class="facility-grid">
+        <div class="facility-card">
+          <div class="facility-card-image">
+            <img src="assets/tent.jpg" alt="Spacious Tents" class="facility-image" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Spacious Tents</h2>
+            <p class="facility-description">Comfortable tents with cozy bedding to enjoy a restful night.</p>
+          </div>
+        </div>
+        <div class="facility-card">
+          <div class="facility-card-image">
+            <img src="assets/bonfire.jpg" alt="Bonfire Experience" class="facility-image" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Bonfire Experience</h2>
+            <p class="facility-description">Relax by the bonfire under the starry sky, perfect for group bonding.</p>
+          </div>
+        </div>
+        <div class="facility-card">
+          <div class="facility-card-image">
+            <img src="assets/food.jpg" alt="Delicious Meals" class="facility-image" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Delicious Meals</h2>
+            <p class="facility-description">Savor delicious meals with a mix of local and traditional flavors.</p>
+          </div>
+        </div>
+        <div class="facility-card">
+          <div class="facility-card-image">
+            <img src="assets/Dj.jpg" alt="Live DJ/Musics" class="facility-image" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Live DJ/Musics</h2>
+            <p class="facility-description">Enjoy a DJ Floar and Live music show.</p>
+          </div>
+        </div>
+        <div class="facility-card">
+          <div class="facility-card-image">
+            <img src="assets/Swimming.jpg" alt="Swimming Pool" class="facility-image" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Swimming Pool</h2>
+            <p class="facility-description">The larger and Speaceful Swimming Pool.</p>
+          </div>
+        </div>
+        <div class="facility-card">
+          <div class="slideshow-container">
+            <img src="assets/Games1.jpg" alt="Games" class="facility-image slideshow-slide" />
+            <img src="assets/Games2.jpg" alt="Games" class="facility-image slideshow-slide" />
+            <img src="assets/Games3.jpg" alt="Games" class="facility-image slideshow-slide" />
+            <img src="assets/Games4.jpg" alt="Games" class="facility-image slideshow-slide" />
+            <img src="assets/Games5.jpg" alt="Games" class="facility-image slideshow-slide" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Games</h2>
+            <p class="facility-description">Enjoy all types of games: Cricket, Badminton, Archery, Carrom, Football, Chess.</p>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  
+    <section class="schedule-section">
+      <h1 class="section-heading">Our Schedule Map</h1>
+      <img src="assets/schedule-map.jpg" alt="Schedule Map" class="schedule-image" />
+    </section>
+  
+    <section class="counter-section">
+      <h1 class="section-heading">Our Experience</h1>
+      <div class="counter-container">
+        <div class="counter-card">
+          <h2 class="counter-value">40000+</h2>
+          <p class="counter-label">Satisfied Customers</p>
+        </div>
+        <div class="counter-card">
+          <h2 class="counter-value">400+</h2>
+          <p class="counter-label">Google Reviews</p>
+        </div>
+        <div class="counter-card">
+          <h2 class="counter-value">5+</h2>
+          <p class="counter-label">Years of Experience</p>
+        </div>
+        <div class="counter-card">
+          <h2 class="counter-value">100000+</h2>
+          <p class="counter-label">Followers</p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="reviews-section">
+      <div class="reviews-container">
+        <h1 class="section-heading">What Our Guests Say</h1>
+          <!-- Review 1 -->
+          <div class="review-box">
+              <h3 class="review-name">Incredible Experience!</h3>
+              <p class="review-text">
+                  "Camping at Pawna Lake was a surreal experience! The calm waters,
+                  stunning sunsets, and the serenity of the location made it
+                  unforgettable. Perfect for a weekend getaway."
+              </p>
+              <div class="review-stars">★★★★★</div>
+          </div>
+          <!-- Review 2 -->
+          <div class="review-box">
+              <h3 class="review-name">Peaceful and Relaxing</h3>
+              <p class="review-text">
+                  "If you're looking to escape the hustle of city life, Pawna Lake is the
+                  place to be. The tents were clean, the food was delicious, and the
+                  bonfire added a cozy vibe."
+              </p>
+              <div class="review-stars">★★★★★</div>
+          </div>
+          <!-- Review 3 -->
+          <div class="review-box">
+              <h3 class="review-name">Memorable Night Under the Stars</h3>
+              <p class="review-text">
+                  "Sleeping under the open sky and waking up to the lake's view was
+                  magical. The staff was friendly, and the entire setup was
+                  well-organized. Highly recommend!"
+              </p>
+              <div class="review-stars">★★★★★</div>
+          </div>
+          <!-- Review 4 -->
+          <div class="review-box">
+              <h3 class="review-name">Perfect for Families</h3>
+              <p class="review-text">
+                  "We visited with our kids, and everyone had a blast! The activities
+                  were fun, the surroundings were safe, and the staff ensured we had
+                  everything we needed. Would love to visit again!"
+              </p>
+              <div class="review-stars">★★★★★</div>
+          </div>
+          <!-- Review 5 -->
+          <div class="review-box">
+              <h3 class="review-name">Amazing Weekend Retreat</h3>
+              <p class="review-text">
+                  "The combination of nature and comfort was perfect. The view of the
+                  lake at sunrise was breathtaking, and the camping experience exceeded
+                  all our expectations. Highly recommended for couples and groups!"
+              </p>
+              <div class="review-stars">★★★★★</div>
+          </div>
+          <!-- Review 6 -->
+          <div class="review-box">
+              <h3 class="review-name">Unforgettable Adventure</h3>
+              <p class="review-text">
+                  "From kayaking on the lake to enjoying delicious meals by the bonfire,
+                  every moment was incredible. The peaceful atmosphere and stunning
+                  views were the highlight of our trip."
+              </p>
+              <div class="review-stars">★★★★★</div>
+          </div>
+      </div>
+  </section>
+  </div>
+
+
+
+
+  <!-- Footer Section -->
+  <footer class="footr-footer">
+    <div class="footr-footer-container">
+      <!-- Logo and Mission -->
+      <div class="footr-footer-section footr-logo-mission">
+        <img src="assets/logo.png" alt="Logo" class="footr-footer-logo" />
+        <p>
+          Our mission is to inspire people to connect with nature and experience the joys of camping. 
+          We aim to provide a comprehensive camping experience by offering a wide range of camping gear 
+          and accessories, along with expert advice and resources to help campers plan and prepare for their trips.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footr-footer-section footr-quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html" class="footr-desktopmenuListitem">Home</a></li>
+          <li><a href="Aboutus.html" class="footr-desktopmenuListitem">About Us</a></li>
+          <li><a href="Tentgallary.html" class="footr-dropdown-item">Glam Gallery</a></li>
+          <li><a href="Contact.html" class="footr-desktopmenuListitem">Contact Us</a></li>
+          <li><a href="" class="footr-desktopmenuListitem">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="footr-footer-section footr-contact">
+        <div class="footr-footer-contacts">
+          <h3>Contact</h3>
+          <p>
+            <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake, 
+            Lonawala Pune-Maharashtra-412108.
+          </p>
+          <p>
+            <strong>Mobile No:</strong> +91-7720008787
+          </p>
+          <p>
+            <strong>Email:</strong> etherealhillsglamping@gmail.com contact@etherealhillsglamping.com
+          </p>
+        </div>
+        <div class="footr-social-icons">
+          <a href="https://www.facebook.com/etherealhillsglamping">
+            <img src="assets/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/etherealhillsglamping/profilecard/?igsh=MWJrMzRzNThpbnRobw==">
+            <img src="assets/insta.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footr-footer-bottom">
+      Copyright © 2024. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Dropdown toggle logic (if needed in the future)
+    const dropdownItems = document.querySelectorAll('.footr-dropdown-item');
+
+    dropdownItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const isActive = item.classList.contains('footr-active');
+        dropdownItems.forEach(i => i.classList.remove('footr-active'));
+        if (!isActive) {
+          item.classList.add('footr-active');
+        }
+      });
+    });
+  </script>
+  <script>
+
+
+    function handleBookNowClick(stayType) {
+        // Handle booking logic here
+        window.location.href = `/package-details?stayType=${stayType}`;
+    }
+
+    function openpop(type) {
+        document.getElementById('popup-container').style.display = 'flex';
+        // Load the features dynamically based on the stayType
+        const featureContent = document.getElementById('feature-content');
+        featureContent.innerHTML = `<h3>Features of ${type} Stay</h3><p>Here are the features for ${type}.</p>`;
+    }
+
+    function closepop() {
+        document.getElementById('popup-container').style.display = 'none';
+    }
+
+
+// Function to open the popup and display the respective features
+function openpop(stayType) {
+    const featureContent = document.getElementById('feature-content');
+    
+    // Hide all feature cards initially
+    const allFeatureCards = document.querySelectorAll('.card2');
+    allFeatureCards.forEach(card => card.style.display = 'none');
+
+    // Display the specific feature card based on stayType
+    const selectedFeatureCard = document.getElementById(stayType);
+    selectedFeatureCard.style.display = 'block';
+
+    // Inject the content of the selected feature card into the popup
+    featureContent.innerHTML = selectedFeatureCard.innerHTML;
+
+    // Show the popup
+    document.getElementById('popup-container').style.display = 'flex';
+}
+
+// Function to close the popup
+function closepop() {
+    document.getElementById('popup-container').style.display = 'none';
+}
+
+// Optional: Handle booking action
+function handleBookNowClick(stayType) {
+    alert('Booking for ' + stayType + ' is now open.');
+}
+
+
+// JavaScript for auto slideshow
+let slideIndex = 0;
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slideshow-slide");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("show");
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  slides[slideIndex - 1].classList.add("show");
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+
+// Start the slideshow when the page loads
+document.addEventListener("DOMContentLoaded", showSlides);
+
+
+    const facilities = [
+      { id: 1, title: "Spacious Tents", description: "Comfortable tents with cozy bedding to enjoy a restful night.", image: "tent.jpg" },
+      { id: 2, title: "Bonfire Experience", description: "Relax by the bonfire under the starry sky, perfect for group bonding.", image: "bonfire.jpg" },
+      { id: 3, title: "Delicious Meals", description: "Savor delicious meals with a mix of local and traditional flavors.", image: "food.jpg" },
+      { id: 4, title: "Live DJ/Musics", description: "Enjoy a DJ Floor and Live music show.", image: "Dj.jpg" },
+      { id: 5, title: "Swimming Pool", description: "The larger and peaceful Swimming Pool.", image: "Swimming.jpg" },
+      { id: 6, title: "Games", description: "Enjoy all types of games: Cricket, Badminton, Archery, Carrom, Football, Chess.", images: ["Games1.jpg", "Games2.jpg", "Games3.jpg", "Games4.jpg", "Games5.jpg"] },
+    ];
+
+    const facilityGrid = document.getElementById("facilityGrid");
+    const reviewsContainer = document.getElementById("reviewsContainer");
+
+    // Populate Facilities
+    facilities.forEach((facility) => {
+      const facilityCard = document.createElement("div");
+      facilityCard.className = "facility-card";
+      facilityCard.innerHTML = `
+        <img src="${facility.image || facility.images[0]}" alt="${facility.title}" class="facility-image">
+        <div class="facility-info">
+          <h2 class="facility-title">${facility.title}</h2>
+          <p class="facility-description">${facility.description}</p>
+        </div>
+      `;
+      facilityGrid.appendChild(facilityCard);
+    });
+
+    // Counter Animation
+    const counters = { customers: 0, reviews: 0, years: 0, followers: 0 };
+    const targetValues = { customers: 40000, reviews: 400, years: 5, followers: 100000 };
+    const incrementValues = { customers: 100, reviews: 2, years: 0.05, followers: 250 };
+
+    const updateCounters = () => {
+      let completed = true;
+      for (let key in counters) {
+        if (counters[key] < targetValues[key]) {
+          counters[key] += incrementValues[key];
+          completed = false;
+        }
+        document.getElementById(key).innerText = `${Math.min(Math.ceil(counters[key]), targetValues[key])}+`;
+      }
+      if (!completed) setTimeout(updateCounters, 50);
+    };
+    updateCounters();
+  
+
+
+</script>
+
+</body>
+</html>

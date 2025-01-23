@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.login-mainn{
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/loginbg.jpg') no-repeat fixed center center/cover;
+    }
+
+/* Login Container */
+.login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  /* padding: 85px; */
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/loginbg.jpg') no-repeat fixed center center/cover;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-image {
+  /* margin-top: 2rem; */
+  position: relative;
+  width: 50%;
+  height: 80%;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 50px;
+}
+
+.login-image img.active {
+  opacity: 1;
+}
+
+.login-image img.inactive {
+  opacity: 0;
+}
+
+.login-form {
+  /* margin-left: 8px; */
+  /* margin-top: 2rem; */
+  width: 30%;
+  height: 80%;
+  /* padding-right: 100px; */
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  border-radius: 42px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  /* line-height: 3rem; */
+}
+
+.form1{
+  width: 20rem;
+  height: 80%;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #333;
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 90%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -5px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: auto;
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 0.9rem;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    /* flex-direction: column;
+    align-items: center; */
+    height: 100vh;
+    /* overflow: hidden; */
+    /* align-items: center; */
+    /* padding: 20px; */
+  }
+
+  .login-image {
+    display: none;
+    /* width: 100%;
+    height: 100%; */
+    /* margin-bottom: 20px; */
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    /* height: 100%; */
+    /* margin: 0; */
+    /* padding: 20px; */
+
+    line-height: 2rem;
+    box-shadow: none;
+  }
+
+  .form1{
+    margin: auto;
+    width: 90%;
+    /* display: flexbox; */
+    /* height: 80%; */
+  }
+
+  input {
+    width: 100%; /* Full width for input fields */
+    margin: auto;
+  }
+
+  .login-button {
+    width: 95%; /* Full width for button */
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem; /* Smaller heading font size */
+  }
+
+  .login-form {
+    border-radius: 20px; /* Adjust border radius for small screens */
+    padding: 15px;
+  }
+
+  .links {
+    flex-direction: column; /* Stack links vertically */
+    align-items: center;
+  }
+
+  .links a {
+    margin-bottom: 10px; /* Add spacing between links */
+  }
+}
+
+
+     /* Navbar Styles */
+ .navbar {
+      background-color: #000000;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar img {
+      height: 50px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .desktopbooknow {
+      margin-right: 30px;
+    }
+
+    .book-now-btn {
+      background-color: #5cb85c;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-left: 53rem;
+      background: linear-gradient(to right, #d6ad8b 50%, #99775C 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+      transition: all 0.5s ease-out;
+    }
+
+    .book-now-link {
+      text-decoration: none;
+      color: white;
+    }
+
+    .book-now-btn:hover {
+  background-color: #ae7b51;
+  background-position: left bottom;
+  transform: scale(1.1);
+  
+  padding: 0.8rem 2rem 0.8rem 0.7rem;
+}
+
+
+.book-now-btn::after {
+  content: "➔"; 
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  
+}
+
+.book-now-btn:hover::after {
+  opacity: 1;
+  
+
+}
+
+    .desktopmenu {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-right: 5rem;
+    }
+
+    .desktopmenu-navbar{
+      display: flex;
+      flex-direction: row;
+      margin-right: 80px;
+    }
+
+    .desktopmenuListitem {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+
+    .desktopmenuListitem:hover {
+      background-color: #575757;
+      border-radius: 5px;
+    }
+
+    .gallery-dropdown {
+      position: relative;
+    }
+    
+    .gallery-dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #333;
+      border-radius: 5px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      min-width: 150px;
+      z-index: 100;
+      margin-right: -20rem;
+    }
+
+    .dropdown-item {
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-item:hover {
+      background-color: #575757;
+    }
+
+    .mobile-menu-icon {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      margin-left: 20rem;
+    }
+
+    .navMenu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 5px;
+      z-index: 100;
+      width: 200px;
+    }
+
+    .mobilemenuListitem {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .mobilemenuListitem:hover {
+      background-color: #575757;
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+  
+  <div class="login-mainn">
+    <div class="login-container">
+      <!-- Slideshow for images -->
+      <div class="login-image">
+        <img src="assets/camping.jpg" alt="Slide 1" class="active">
+        <!-- <img src="assets/camping2.jpg" alt="Slide 2" class="active">
+        <img src="assets/night.jpg" alt="Slide 3" class="active"> -->
+      </div>
+  
+      <!-- Login form -->
+      <div class="login-form">
+        <div class="form1">
+        <form id="login-form">
+          <h2>Log In</h2>
+          <div class="form-group">
+            <label for="email">Contact / Email</label> <br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+            />
+            <span id="email-error" class="error"></span>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label> <br />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+            <span id="password-error" class="error"></span>
+          </div>
+          <div class="links">
+            <a href="#">Forgot password?</a>
+            <a href="Signup.html" class="create-account-link">Sign-Up</a>
+          </div>
+          <button type="submit" class="login-button">Log In</button>
+        </form>
+      </div>
+    </div>
+  
+    
+    </div>
+  </div>
+  
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA1NpNJhL6250_l0CTo7qoIk5N_idKWwio",
+      authDomain: "pawana-4ff91.firebaseapp.com",
+      projectId: "pawana-4ff91",
+      storageBucket: "pawana-4ff91.firebasestorage.app",
+      messagingSenderId: "687329671670",
+      appId: "1:687329671670:web:111c0794f64c2930b5afd7",
+      measurementId: "G-BVE6S7FGQF",
+    };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const dbRef = firebase.database().ref("users");
+  
+    // Form submission functionality
+    const form = document.getElementById("login-form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const emailError = document.getElementById("email-error");
+      const passwordError = document.getElementById("password-error");
+  
+      emailError.textContent = "";
+      passwordError.textContent = "";
+  
+      if (!email) {
+        emailError.textContent = "Email is required";
+        return;
+      }
+  
+      if (!password) {
+        passwordError.textContent = "Password is required";
+        return;
+      }
+  
+      try {
+        // Fetch all users from Firebase
+        const snapshot = await dbRef.once("value");
+        const users = snapshot.val();
+  
+        if (!users) {
+          emailError.textContent = "No users found in the database.";
+          return;
+        }
+  
+        let emailExists = false;
+        let passwordMatches = false;
+  
+        // Check for email and password match
+        for (const userId in users) {
+          const user = users[userId];
+          if (user.email === email) {
+            emailExists = true;
+            if (user.password === password) {
+              passwordMatches = true;
+              break;
+            }
+          }
+        }
+  
+        if (!emailExists) {
+          emailError.textContent = "Invalid email!";
+        } else if (!passwordMatches) {
+          passwordError.textContent = "Invalid password!";
+        } else {
+          // Clear any existing error messages
+          emailError.textContent = "";
+          passwordError.textContent = "";
+  
+          alert("Login successful!");
+  
+          // Store login status in localStorage
+          localStorage.setItem("isLoggedIn", "true");
+  
+          // Navigate to homed.html after successful login
+          window.location.href = "homed.html";
+        }
+      } catch (error) {
+        emailError.textContent = "An error occurred: " + error.message;
+      }
+    });
+  </script>
+  
+  
+  
+
+
+
+</body>
+</html>

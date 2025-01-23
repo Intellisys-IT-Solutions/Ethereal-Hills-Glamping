@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Pawna Lake Camping</title>
+  <style>
+
+ /* General Styles */
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+
+
+ /* General Navbar Styles */
+.nav-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        height: 80px;
+        padding: 1rem 2rem;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        margin-bottom: 80px;
+      }
+
+      #nav-logo {
+        height: 50px;
+        cursor: pointer;
+      }
+
+      .nav-main-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      /* Desktop Menu Styles */
+      .nav-desktop-menu {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .nav-desktop-menu-list-item {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .nav-desktop-menu-list-item:hover {
+        color: #ffeb3b;
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn {
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        background: linear-gradient(to right, #6b5441 50%, #99775c 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.5s ease-out;
+        position: relative; /* Required for positioning pseudo-elements */
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn:hover {
+        background-color: #ae7b51;
+        background-position: left bottom;
+        transform: scale(1);
+        padding: 0.8rem 2rem 0.8rem 0.7rem;
+      }
+
+      /* Add symbol on hover */
+      .nav-book-now-btn::after {
+        content: "➔";
+        color: white;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+        /* color: black; */
+      }
+
+      .nav-book-now-btn:hover::after {
+        opacity: 1;
+      }
+
+      .nav-book-now-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Active Tab Styles */
+      .nav-active {
+        font-weight: bold;
+        color: #d9d418;
+      }
+
+      /* Mobile Menu Icon */
+      .nav-mobile-menu-icon {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Mobile Menu Styles */
+      .nav-mobile-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        padding: 1rem 0;
+        display: none;
+      }
+
+      .nav-mobile-menu-list-item {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        transition: background-color 0.3s;
+      }
+
+      .nav-mobilemenuListitem:hover {
+        background-color: black;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+
+        .nav-navbar{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .nav-desktop-menu {
+          display: none;
+        }
+
+        .nav-mobile-menu-icon {
+          display: block;
+        }
+
+        .nav-mobile-gallery-dropdown{
+          display: flex;
+          flex-direction: column;
+        }
+
+        .nav-mobile-dropdown-menu{
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+          font-size: 15px;
+          /* text-decoration: underline; */
+        }
+
+      }
+
+
+      /* Mobile menu: Show when active */
+.nav-mobile-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile dropdown: Show when open */
+.nav-mobile-dropdown-menu.open {
+  display: flex;
+  flex-direction: column;
+}
+
+
+      /* Dropdown Menu for Desktop */
+      .nav-gallery-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      
+
+      .nav-dropdown-menu {
+
+        display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: black;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  flex-direction: column;
+  width: 200px;
+      }
+
+      .nav-dropdown-item {
+        text-decoration: none;
+        color: white;
+        background-color: #000000;
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .nav-dropdown-item:hover {
+        background-color: #555;
+      }
+
+      .nav-gallery-dropdown:hover .nav-dropdown-menu {
+        right: 0;
+        transform: translateX(-45%);
+        display: flex; /* Display dropdown when hovered */
+      }
+
+      .nav-dropdown-menu {
+        max-width: 300px;
+      }
+
+      .nav-down-arrow {
+        margin-left: 5px;
+        font-size: 0.8rem;
+        transition: transform 0.3s;
+      }
+
+      .nav-gallery-dropdown:hover .nav-down-arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Mobile Dropdown Styles */
+      .nav-mobile-dropdown-menu {
+        display: none;
+      }
+
+      .nav-mobile-dropdown-item {
+        padding: 1rem;
+        color: white;
+        text-decoration: none;
+      }
+
+      .nav-mobile-dropdown-item.nav-active {
+        background-color: #555;
+      }
+
+      .nav-gallery-dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        .nav-mobile-dropdown-menu {
+          display: flex;
+        }
+      }
+
+
+      
+
+
+    
+
+    /* About Us Section */
+    .about-us {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      margin-top: 5.5rem;
+    }
+
+    /* Overlay Section */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #213d4e;
+    }
+
+    .button-container {
+      margin-top: 10px;
+      justify-content: center;
+    }
+
+    .nav-button {
+      padding: 5px 10px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      color: black;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    .nav-button:hover {
+      background-color: #f3f6f1;
+    }
+
+    /* Wave Section */
+    .wave-section {
+      position: relative;
+      background-image: url('assets/galmmi.jpg');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 80vh;
+      clip-path: ellipse(100% 70% at 50% 20%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .wave-section h1 {
+      color: #171616;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      padding: 0 20px;
+    }
+
+    .wave-section a {
+      color: #ddd;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin: 0;
+      padding: 10px;
+    }
+
+    /* About Content Section */
+  /* About Content Section */
+.about-content {
+  padding: 30px 10%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 20px;
+}
+
+.about-text {
+  flex: 1;
+  padding: 15px;
+}
+
+.about-text h2 {
+  color: black;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #0e0101;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Our Mission Section */
+.our-mission {
+  text-align: center;
+  padding: 20px;
+}
+
+.our-mission h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.our-mission p {
+  font-size: 1rem;
+  color: #0e0101;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Gallery Section */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments for Mobile View */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 20px 5%;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-text h2 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 0.9rem;
+  }
+
+  .about-image img {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+
+  .our-mission h2 {
+    font-size: 1.8rem;
+  }
+
+  .our-mission p {
+    font-size: 0.9rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    padding: 15px 5%;
+  }
+
+  .about-text h2 {
+    font-size: 20px;
+  }
+
+  .about-text p {
+    font-size: 0.8rem;
+  }
+
+  .about-image img {
+    max-width: 100%;
+    margin-top: 15px;
+  }
+
+  .our-mission h2 {
+    font-size: 1.6rem;
+  }
+
+  .our-mission p {
+    font-size: 0.8rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .overlay h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .button-container {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .wave-section h1 {
+        font-size: 2rem;
+        padding: 0 15px;
+      }
+
+      .about-content {
+        padding: 20px 5%;
+      }
+
+      .about-text h2 {
+        font-size: 24px;
+      }
+
+      .about-text p {
+        font-size: 0.9rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .overlay h1 {
+        font-size: 2rem;
+      }
+
+      .nav-button {
+        font-size: 14px;
+      }
+
+      .wave-section h1 {
+        font-size: 1.8rem;
+        padding: 0 10px;
+      }
+
+      .about-content {
+        padding: 15px 5%;
+      }
+
+      .about-text h2 {
+        font-size: 20px;
+      }
+
+      .about-text p {
+        font-size: 0.8rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+/* Footer Styles */
+.footr-footer {
+  background-color: black;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footr-footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  color: #fff;
+}
+
+.footr-footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footr-footer-logo {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.footr-footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footr-footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footr-footer-section p {
+  color: #fff;
+}
+
+.footr-footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footr-footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footr-footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footr-footer-contacts {
+  color: white;
+}
+
+.footr-social-icons {
+  display: flex; /* Aligns icons horizontally */
+  justify-content: center; /* Centers icons horizontally */
+  align-items: center; /* Centers icons vertically */
+  gap: 1rem; /* Adds spacing between icons */
+}
+
+.footr-social-icons a {
+  display: inline-block; /* Ensures the anchor is treated as a block for alignment */
+  line-height: 0; /* Removes extra spacing around the image */
+}
+
+.footr-social-icons img {
+  width: 30px; /* Ensures uniform size */
+  height: 30px;
+  display: block; /* Removes any inline image spacing issues */
+}
+
+.footr-footer-bottom {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: black;
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  /* Adjust footer container to stack items vertically */
+  .footr-footer-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  /* Adjust footer sections for better alignment and spacing on mobile */
+  .footr-footer-section {
+      text-align: center;
+      min-width: 100%;
+      padding: 10px;
+  }
+
+  /* Adjust social icons size */
+  .footr-social-icons img {
+      width: 25px;
+      height: 25px;
+  }
+
+  /* Adjust footer logo size */
+  .footr-footer-logo {
+      width: 150px;
+  }
+
+  /* Smaller font size for footer bottom text */
+  .footr-footer-bottom {
+      font-size: 0.8rem;
+      padding: 10px 0;
+  }
+}
+
+/* Mobile Small Screen Adjustments (up to 480px) */
+@media (max-width: 480px) {
+  .footr-footer-section h3 {
+      font-size: 1rem;
+  }
+
+  .footr-footer-section p {
+      font-size: 0.9rem;
+  }
+
+  .footr-footer-logo {
+      width: 120px;
+  }
+
+  .footr-social-icons img {
+      width: 20px;
+      height: 20px;
+  }
+
+  .footr-footer-bottom {
+      font-size: 0.7rem;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR------------------------------------------------------------------ -->
+
+  <nav class="nav-navbar">
+    <img src="assets/logo.png" alt="Logo" id="nav-logo" />
+
+    <div class="nav-main-nav">
+      <div class="nav-desktop-book-now">
+        <button class="nav-book-now-btn">
+          <a href="Login.html" class="nav-book-now-link">Book Now</a>
+        </button>
+      </div>
+
+      <div class="nav-desktop-menu">
+        <a href="index.html" class="nav-desktop-menu-list-item">Home</a>
+        <a href="Contact.html" class="nav-desktop-menu-list-item"
+          >Contact Us</a
+        >
+        <a href="Aboutus.html" class="nav-desktop-menu-list-item">About Us</a>
+
+        <div class="nav-gallery-dropdown">
+          <a href="" class="nav-desktop-menu-list-item">
+            Gallery <span class="nav-down-arrow">▼</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="Tentgallary.html" class="nav-dropdown-item">Tent Gallery</a>
+            <a href="glam.html" class="nav-dropdown-item">Glam Gallery</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-mobile-menu-icon">☰</div>
+
+    <div class="nav-mobile-menu">
+      <a href="index.html" class="nav-mobile-menu-list-item">Home</a>
+      <a href="Contact.html" class="nav-mobile-menu-list-item">Contact Us</a>
+      <a href="Aboutus.html" class="nav-mobile-menu-list-item">About</a>
+
+      <div class="nav-mobile-gallery-dropdown">
+        <a href="" class="nav-mobile-menu-list-item">
+          Gallery <span class="nav-down-arrow">▼</span>
+        </a>
+        <div class="nav-mobile-dropdown-menu">
+          <a href="Tentgallary.html" class="nav-mobile-dropdown-item">Tent Gallery</a>
+          <a href="glam.html" class="nav-mobile-dropdown-item">Glam Gallery</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  <script>
+   
+
+
+   document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
+  const mobileMenu = document.querySelector(".nav-mobile-menu");
+  const dropdowns = document.querySelectorAll(".nav-gallery-dropdown");
+
+  // Toggle mobile menu
+  mobileMenuIcon.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+
+  // Handle dropdowns for mobile
+  dropdowns.forEach((dropdown) => {
+    const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
+    const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
+
+    dropdownToggle.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default link behavior
+      dropdownMenu.classList.toggle("open");
+
+      // Optionally close other dropdowns when one opens
+      dropdowns.forEach((otherDropdown) => {
+        if (otherDropdown !== dropdown) {
+          const otherMenu = otherDropdown.querySelector(".nav-mobile-dropdown-menu");
+          otherMenu.classList.remove("open");
+        }
+      });
+    });
+  });
+});
+
+  </script>
+    
+      <!-- Home Page Content -->
+      <!-- <section class="home-content">
+        <h1>Welcome to Ethereal Hills Glamping</h1>
+        <p>Your perfect nature retreat.</p>
+        <a href="Aboutus.html" class="cta-btn">Learn More</a>
+      </section> -->
+    
+
+
+
+  <div class="main-div-contact">
+    <!-- About Us Section -->
+    <section class="about-us">
+      <div class="wave-section">
+        <div class="overlay">
+          <h1>About Us</h1>
+          <div class="button-container">
+            <button onclick="window.location.href='home.html'" class="nav-button">Home</button>
+            <button onclick="window.location.href='Contact.html'" class="nav-button">Contact Us</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-content">
+      <div class="container">
+        <div class="about-text">
+          <h2>Our Story</h2>
+          <p>Welcome to Pawna Lake Camping, where comfort meets nature, our mission has been to provide a serene and luxurious retreat for travelers seeking solace amidst stunning landscapes.</p>
+          <p>At Pawna Lake Camping, we combine premium accommodations with breathtaking views and exceptional hospitality. Whether you're here for an adventurous escape or a tranquil getaway, we ensure your stay is unforgettable.</p>
+        </div>
+        <div class="about-image">
+          <img src="assets/aboutbg.jpg" alt="About Pawna Lake Camping" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="our-mission">
+      <div class="container2">
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide our guests with an authentic outdoor <br />experience, promoting sustainability and environmental consciousness. <br />We are dedicated to preserving the natural beauty of the lake and the <br />surrounding area while providing a safe, enjoyable, <br />and comfortable stay for all our visitors.</p>
+      </div>
+    </section>
+
+
+    <footer class="footr-footer">
+      <div class="footr-footer-container">
+        <!-- Logo and Mission -->
+        <div class="footr-footer-section footr-logo-mission">
+          <img src="assets/logo.png" alt="Logo" class="footr-footer-logo" />
+          <p>
+            Our mission is to inspire people to connect with nature and experience the joys of camping. 
+            We aim to provide a comprehensive camping experience by offering a wide range of camping gear 
+            and accessories, along with expert advice and resources to help campers plan and prepare for their trips.
+          </p>
+        </div>
+  
+        <!-- Quick Links -->
+        <div class="footr-footer-section footr-quick-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html" class="footr-desktopmenuListitem">Home</a></li>
+            <li><a href="Aboutus.html" class="footr-desktopmenuListitem">About Us</a></li>
+            <li><a href="Tentgallary.html" class="footr-dropdown-item">Glam Gallery</a></li>
+            <li><a href="Contact.html" class="footr-desktopmenuListitem">Contact Us</a></li>
+            <li><a href="" class="footr-desktopmenuListitem">Privacy Policy</a></li>
+          </ul>
+        </div>
+  
+        <!-- Contact Section -->
+        <div class="footr-footer-section footr-contact">
+          <div class="footr-footer-contacts">
+            <h3>Contact</h3>
+            <p>
+              <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake, 
+              Lonawala Pune-Maharashtra-412108.
+            </p>
+            <p>
+              <strong>Mobile No:</strong> +91-7720008787
+            </p>
+            <p>
+              <strong>Email:</strong> etherealhillsglamping@gmail.com contact@etherealhillsglamping.com
+            </p>
+          </div>
+          <div class="footr-social-icons">
+            <a href="https://www.facebook.com/etherealhillsglamping">
+              <img src="assets/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/etherealhillsglamping/profilecard/?igsh=MWJrMzRzNThpbnRobw==">
+              <img src="assets/insta.png" alt="Instagram" />
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="footr-footer-bottom">
+        Copyright © 2024. All Rights Reserved.
+      </div>
+    </footer>
+  
+    <script>
+      // Dropdown toggle logic (if needed in the future)
+      const dropdownItems = document.querySelectorAll('.footr-dropdown-item');
+  
+      dropdownItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const isActive = item.classList.contains('footr-active');
+          dropdownItems.forEach(i => i.classList.remove('footr-active'));
+          if (!isActive) {
+            item.classList.add('footr-active');
+          }
+        });
+      });
+    </script>
+
+  </div>
+</body>
+</html>

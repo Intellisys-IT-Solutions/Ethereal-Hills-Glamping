@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery</title>
-    <style>
-     
-      /* General Styles */
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <style>
+    /* General Styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -14,314 +14,378 @@
       background-color: #f8f8f8;
     }
 
-      .heading-glam {
+    .heading-glam {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+
+    .modern {
+      text-align: center;
+      /* padding: 2rem; */
+      color: #fff;
+      font-family: Arial, sans-serif;
+      width: 95%;
+      margin: auto;
+      /* background: #f0f0f0; */
+
+    }
+
+    .modern h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: black;
+    }
+
+    .modern p {
+      font-size: 1.2rem;
+      color: #939393;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-layout {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) 1fr;
+      /* 4 columns for images, 1 for the vertical image */
+      grid-template-rows: auto auto;
+      /* Two rows */
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .galleryimg {
+      overflow: hidden;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      height: 200px;
+      width: auto;
+    }
+
+    .galleryimg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .galleryimg:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-row-2 {
+      grid-column: span 4;
+      /* Spans the width of 4 columns */
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* Divides into 3 equal sections */
+      gap: 1rem;
+    }
+
+    .vertical-image {
+      grid-row: span 2;
+      /* Spans two rows */
+      grid-column: 5;
+      /* Positioned in the fifth column */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .vertical-image img {
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .vertical-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-container1 {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px;
+      margin: 20px auto;
+      flex-wrap: wrap;
+      /* margin-right: 1rem; */
+    }
+
+    /* Image Card Styling */
+    .image-card1 {
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 180px;
+      height: 180px;
+    }
+
+    .image-card1 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-card1:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer Styles */
+    .footr-footer {
+      background-color: black;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footr-footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      color: #fff;
+    }
+
+    .footr-footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footr-footer-logo {
+      width: 200px;
+      margin-bottom: 1rem;
+    }
+
+    .footr-footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footr-footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footr-footer-section p {
+      color: #fff;
+    }
+
+    .footr-footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footr-footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footr-footer-section ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .footr-footer-contacts {
+      color: white;
+    }
+
+    .footr-social-icons {
+      display: flex;
+      /* Aligns icons horizontally */
+      justify-content: center;
+      /* Centers icons horizontally */
+      align-items: center;
+      /* Centers icons vertically */
+      gap: 1rem;
+      /* Adds spacing between icons */
+    }
+
+    .footr-social-icons a {
+      display: inline-block;
+      /* Ensures the anchor is treated as a block for alignment */
+      line-height: 0;
+      /* Removes extra spacing around the image */
+    }
+
+    .footr-social-icons img {
+      width: 30px;
+      /* Ensures uniform size */
+      height: 30px;
+      display: block;
+      /* Removes any inline image spacing issues */
+    }
+
+    .footr-footer-bottom {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #fff;
+      background-color: black;
+    }
+
+    /* Mobile Specific Styles */
+    @media (max-width: 768px) {
+
+      /* Adjust footer container to stack items vertically */
+      .footr-footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      /* Adjust footer sections for better alignment and spacing on mobile */
+      .footr-footer-section {
         text-align: center;
-        margin-bottom: 50px;
-      }
-     
-
-      .modern {
-        text-align: center;
-        /* padding: 2rem; */
-        color: #fff;
-        font-family: Arial, sans-serif;
-        width: 95%;
-        margin: auto;
-        /* background: #f0f0f0; */
-       
+        min-width: 100%;
+        padding: 10px;
       }
 
-      .modern h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-        color: black;
+      /* Adjust social icons size */
+      .footr-social-icons img {
+        width: 25px;
+        height: 25px;
       }
 
-      .modern p {
-        font-size: 1.2rem;
-        color: #939393;
-        margin-bottom: 2rem;
+      /* Adjust footer logo size */
+      .footr-footer-logo {
+        width: 150px;
+      }
+
+      /* Smaller font size for footer bottom text */
+      .footr-footer-bottom {
+        font-size: 0.8rem;
+        padding: 10px 0;
+      }
+    }
+
+    /* Mobile Small Screen Adjustments (up to 480px) */
+    @media (max-width: 480px) {
+      .footr-footer-section h3 {
+        font-size: 1rem;
+      }
+
+      .footr-footer-section p {
+        font-size: 0.9rem;
+      }
+
+      .footr-footer-logo {
+        width: 120px;
+      }
+
+      .footr-social-icons img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .footr-footer-bottom {
+        font-size: 0.7rem;
+      }
+    }
+
+
+    /* Spacing adjustments for individual images */
+    #image-1 {
+      margin-top: 12rem;
+    }
+
+    #image-2 {
+      margin-top: 10rem;
+    }
+
+    #image-3 {
+      margin-top: 8rem;
+    }
+
+    #image-4 {
+      margin-top: 6rem;
+    }
+
+    #image-5 {
+      margin-top: 4rem;
+    }
+
+    #image-6 {
+      margin-top: 2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+
+
+      #image-1 {
+        margin-top: 2rem;
+      }
+
+      #image-2 {
+        margin-top: 2rem;
+      }
+
+      #image-3 {
+        margin-top: 2rem;
+      }
+
+      #image-4 {
+        margin-top: 2rem;
+      }
+
+      #image-5 {
+        margin-top: 2rem;
+      }
+
+      #image-6 {
+        margin-top: 2rem;
       }
 
       .gallery-layout {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr) 1fr; /* 4 columns for images, 1 for the vertical image */
-        grid-template-rows: auto auto; /* Two rows */
+        grid-template-columns: 2fr;
+        /* Stack all images vertically */
+        grid-template-rows: auto;
+        /* Remove row-specific layout */
         gap: 1rem;
+
+        width: 90%;
+
         margin-bottom: 2rem;
+        
       }
 
       .galleryimg {
-        overflow: hidden;
-        border-radius: 8px;
-        transition: transform 0.3s ease-in-out;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        height: 200px;
-        width: 100%;
-      }
-
-      .galleryimg img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .galleryimg:hover {
-        transform: scale(1.05);
-      }
-
-      .gallery-row-2 {
-        grid-column: span 4; /* Spans the width of 4 columns */
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Divides into 3 equal sections */
-        gap: 1rem;
+        display: block;
+        width: 85vw;
+        margin-left: 20px;
+        grid-row: auto;
+        /* Adjust for smaller screens */
+        grid-column: 1;
+        /* Inline with other images */
+        
       }
 
       .vertical-image {
-        grid-row: span 2; /* Spans two rows */
-        grid-column: 5; /* Positioned in the fifth column */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        grid-row: auto;
+        /* Adjust for smaller screens */
+        grid-column: 1;
+        /* Inline with other images */
       }
 
       .vertical-image img {
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: 300px;
+        /* Adjust height for smaller screens */
       }
 
-      .vertical-image img:hover {
-        transform: scale(1.05);
-      }
-      .gallery-container1 {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 50px;
-  margin: 20px auto;
-  flex-wrap: wrap;
-  margin-right: 1rem;
-}
-
-/* Image Card Styling */
-.image-card1 {
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 180px;
-  height: 180px;
-}
-
-.image-card1 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.image-card1:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer Styles */
-.footr-footer {
-  background-color: black;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-}
-
-.footr-footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
-  color: #fff;
-}
-
-.footr-footer-section {
-  flex: 1;
-  min-width: 200px;
-}
-
-.footr-footer-logo {
-  width: 200px;
-  margin-bottom: 1rem;
-}
-
-.footr-footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.footr-footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footr-footer-section p {
-  color: #fff;
-}
-
-.footr-footer-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footr-footer-section ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footr-footer-section ul li a:hover {
-  text-decoration: underline;
-}
-
-.footr-footer-contacts {
-  color: white;
-}
-
-.footr-social-icons {
-  display: flex; /* Aligns icons horizontally */
-  justify-content: center; /* Centers icons horizontally */
-  align-items: center; /* Centers icons vertically */
-  gap: 1rem; /* Adds spacing between icons */
-}
-
-.footr-social-icons a {
-  display: inline-block; /* Ensures the anchor is treated as a block for alignment */
-  line-height: 0; /* Removes extra spacing around the image */
-}
-
-.footr-social-icons img {
-  width: 30px; /* Ensures uniform size */
-  height: 30px;
-  display: block; /* Removes any inline image spacing issues */
-}
-
-.footr-footer-bottom {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #fff;
-  background-color: black;
-}
-
-/* Mobile Specific Styles */
-@media (max-width: 768px) {
-  /* Adjust footer container to stack items vertically */
-  .footr-footer-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-  }
-
-  /* Adjust footer sections for better alignment and spacing on mobile */
-  .footr-footer-section {
-      text-align: center;
-      min-width: 100%;
-      padding: 10px;
-  }
-
-  /* Adjust social icons size */
-  .footr-social-icons img {
-      width: 25px;
-      height: 25px;
-  }
-
-  /* Adjust footer logo size */
-  .footr-footer-logo {
-      width: 150px;
-  }
-
-  /* Smaller font size for footer bottom text */
-  .footr-footer-bottom {
-      font-size: 0.8rem;
-      padding: 10px 0;
-  }
-}
-
-/* Mobile Small Screen Adjustments (up to 480px) */
-@media (max-width: 480px) {
-  .footr-footer-section h3 {
-      font-size: 1rem;
-  }
-
-  .footr-footer-section p {
-      font-size: 0.9rem;
-  }
-
-  .footr-footer-logo {
-      width: 120px;
-  }
-
-  .footr-social-icons img {
-      width: 20px;
-      height: 20px;
-  }
-
-  .footr-footer-bottom {
-      font-size: 0.7rem;
-  }
-}
-
-
-/* Spacing adjustments for individual images */
-#image-1 {
-  margin-top: 12rem;
-}
-#image-2 {
-  margin-top: 10rem;
-}
-#image-3 {
-  margin-top: 8rem;
-}
-#image-4 {
-  margin-top: 6rem;
-}
-#image-5 {
-  margin-top: 4rem;
-}
-#image-6 {
-  margin-top: 2rem;
-}
-   
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .gallery-layout {
-          grid-template-columns: 1fr; /* Stack all images vertically */
-          grid-template-rows: auto; /* Remove row-specific layout */
-          gap: 1rem;
-   
-          margin-bottom: 2rem;
-
-        }
-
-        .galleryimg{
-          width: 22rem;
-          margin: auto;
-           grid-row: auto; /* Adjust for smaller screens */
-          grid-column: 1; /* Inline with other images */
-        }
-
-        .vertical-image {
-          grid-row: auto; /* Adjust for smaller screens */
-          grid-column: 1; /* Inline with other images */
-        }
-
-        .vertical-image img {
-          height: 300px; /* Adjust height for smaller screens */
-        }
-
-        .gallery-row-2 {
-          grid-template-columns: 1fr; /* Stack images vertically */
-        }
+      .gallery-row-2 {
+        grid-template-columns: 1fr;
+        /* Stack images vertically */
       }
 
-       /* General Navbar Styles */
+      .gallery-container1{
+        gap: 20px;
+      }
+
+    }
+
+    /* General Navbar Styles */
 .nav-navbar {
         display: flex;
         justify-content: space-between;
@@ -336,6 +400,7 @@
         right: 0;
         left: 0;
         z-index: 1000;
+        margin-bottom: 80px;
       }
 
       #nav-logo {
@@ -360,6 +425,7 @@
         color: #fff;
         text-decoration: none;
         font-size: 1rem;
+        cursor: pointer;
         transition: color 0.3s;
       }
 
@@ -453,9 +519,7 @@
         .nav-navbar{
           display: flex;
           flex-direction: row;
-          justify-content: center;
-          gap: 62px;
-          /* margin-right: 100px; */
+          justify-content: space-between;
         }
 
         .nav-desktop-menu {
@@ -465,17 +529,33 @@
         .nav-mobile-menu-icon {
           display: block;
         }
+
+        .nav-mobile-gallery-dropdown{
+          display: flex;
+          flex-direction: column;
+        }
+
+        .nav-mobile-dropdown-menu{
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+          font-size: 15px;
+          /* text-decoration: underline; */
+        }
+
       }
 
 
       /* Mobile menu: Show when active */
 .nav-mobile-menu.active {
   display: flex;
+  flex-direction: column;
 }
 
 /* Mobile dropdown: Show when open */
 .nav-mobile-dropdown-menu.open {
   display: flex;
+  flex-direction: column;
 }
 
 
@@ -485,7 +565,7 @@
         display: inline-block;
       }
 
-     
+      
 
       .nav-dropdown-menu {
 
@@ -498,19 +578,6 @@
   z-index: 100;
   flex-direction: column;
   width: 200px;
-
-        /* position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: black;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        width: 200px;
-        z-index: 100;
-        max-width: 100%;
-        box-sizing: border-box;
-        color: white; */
       }
 
       .nav-dropdown-item {
@@ -522,7 +589,7 @@
       }
 
       .nav-dropdown-item:hover {
-        background-color: #000000;
+        background-color: #555;
       }
 
       .nav-gallery-dropdown:hover .nav-dropdown-menu {
@@ -567,46 +634,46 @@
       }
 
       @media (max-width: 768px) {
-       
         .nav-mobile-dropdown-menu {
-display: flex;
-flex-direction: column;
-margin: auto;
-}
+          display: flex;
+        }
       }
 
-    .main-div-gal{
-        margin-top: 7rem;
+    .main-div-gal {
+      margin-top: 10rem;
     }
 
     @media (max-width: 768px) {
-    /* ... existing media query rules ... */
+      /* ... existing media query rules ... */
 
-    .gallery-layout {
-        grid-template-columns: repeat(2, 1fr); /* Two columns for images */
-    }
+      .gallery-layout {
+        grid-template-columns: repeat(2, 1fr);
+        /* Two columns for images */
+      }
 
-    .vertical-image {
+      .vertical-image {
         /* ... existing rules ... */
-        grid-column: 1; /* Align vertically */
+        grid-column: 1;
+        /* Align vertically */
+      }
+
+      /* Adjust for smaller screens */
+      .vertical-image img {
+        height: 250px;
+        /* Adjust height for smaller screens */
+      }
+
+      .gallery-row-2 {
+        grid-template-columns: 1fr 1fr;
+        /* Two columns */
+      }
     }
-
-    /* Adjust for smaller screens */
-    .vertical-image img {
-        height: 250px; /* Adjust height for smaller screens */
-    }
-
-    .gallery-row-2 {
-        grid-template-columns: 1fr 1fr; /* Two columns */
-    }
-}
-
-    </style>
-  </head>
-  <div>
+  </style>
+</head>
+<body>
 
 
-    <!-- NAVBAR------------------------------------------------------------------ -->
+  <!-- NAVBAR------------------------------------------------------------------ -->
 
   <nav class="nav-navbar">
     <img src="assets/logo.png" alt="Logo" id="nav-logo" />
@@ -617,18 +684,16 @@ margin: auto;
           <a href="Login.html" class="nav-book-now-link">Book Now</a>
         </button>
       </div>
-
       <div class="nav-desktop-menu">
         <a href="index.html" class="nav-desktop-menu-list-item">Home</a>
-        <a href="Contact.html" class="nav-desktop-menu-list-item"
-          >Contact Us</a
-        >
+        <a href="Contact.html" class="nav-desktop-menu-list-item">Contact Us</a>
         <a href="Aboutus.html" class="nav-desktop-menu-list-item">About Us</a>
 
+        <!-- Desktop Dropdown -->
         <div class="nav-gallery-dropdown">
-          <a href="" class="nav-desktop-menu-list-item">
+          <span class="nav-desktop-menu-list-item nav-dropdown-toggle">
             Gallery <span class="nav-down-arrow">▼</span>
-          </a>
+          </span>
           <div class="nav-dropdown-menu">
             <a href="Tentgallary.html" class="nav-dropdown-item">Tent Gallery</a>
             <a href="glam.html" class="nav-dropdown-item">Glam Gallery</a>
@@ -637,17 +702,20 @@ margin: auto;
       </div>
     </div>
 
+    <!-- Mobile Menu Icon -->
     <div class="nav-mobile-menu-icon">☰</div>
 
+    <!-- Mobile Menu -->
     <div class="nav-mobile-menu">
       <a href="index.html" class="nav-mobile-menu-list-item">Home</a>
       <a href="Contact.html" class="nav-mobile-menu-list-item">Contact Us</a>
-      <a href="Aboutus.html" class="nav-mobile-menu-list-item">About</a>
+      <a href="Aboutus.html" class="nav-mobile-menu-list-item">About Us</a>
 
+      <!-- Mobile Dropdown -->
       <div class="nav-mobile-gallery-dropdown">
-        <a href="" class="nav-mobile-menu-list-item">
+        <span class="nav-mobile-menu-list-item nav-dropdown-toggle">
           Gallery <span class="nav-down-arrow">▼</span>
-        </a>
+        </span>
         <div class="nav-mobile-dropdown-menu">
           <a href="Tentgallary.html" class="nav-mobile-dropdown-item">Tent Gallery</a>
           <a href="glam.html" class="nav-mobile-dropdown-item">Glam Gallery</a>
@@ -655,7 +723,7 @@ margin: auto;
       </div>
     </div>
   </nav>
- 
+  
 
   <script>
    
@@ -675,6 +743,7 @@ margin: auto;
   dropdowns.forEach((dropdown) => {
     const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
     const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
+    
 
     dropdownToggle.addEventListener("click", (event) => {
       event.preventDefault(); // Prevent default link behavior
@@ -693,140 +762,142 @@ margin: auto;
 
   </script>
 
-    <div class="main-div-gal">
-      <section id="gallery" class="modern">
-        <div class="heading-glam">
-          <h1>Gallery</h1>
-          <p>Experience the beauty through our lens.</p>
+
+  <div class="main-div-gal">
+    <section id="gallery" class="modern">
+      <div class="heading-glam">
+        <h1>Gallery</h1>
+        <p>Experience the beauty through our lens.</p>
+      </div>
+
+      <!-- Gallery Layout -->
+      <div class="gallery-layout">
+        <!-- First row (4 images) -->
+        <div class="galleryimg">
+          <img src="../Assets/gg3.jpg" alt="Gallery Item 1" />
+        </div>
+        <div class="galleryimg">
+          <img src="../Assets/g2.jpeg" alt="Gallery Item 2" />
+        </div>
+        <div class="galleryimg">
+          <img src="../Assets/glam.jpg" alt="Gallery Item 3" />
+        </div>
+        <div class="galleryimg">
+          <img src="../Assets/gg4.jpg" alt="Gallery Item 4" />
         </div>
 
-        <!-- Gallery Layout -->
-        <div class="gallery-layout">
-          <!-- First row (4 images) -->
-          <div class="galleryimg">
-            <img src="assets/gg3.jpg" alt="Gallery Item 1" />
-          </div>
-          <div class="galleryimg">
-            <img src="assets/g2.jpeg" alt="Gallery Item 2" />
-          </div>
-          <div class="galleryimg">
-            <img src="assets/glam.jpg" alt="Gallery Item 3" />
-          </div>
-          <div class="galleryimg">
-            <img src="assets/gg4.jpg" alt="Gallery Item 4" />
-          </div>
+        <!-- Vertical Image -->
+        <div class="vertical-image">
+          <img src="../Assets/dome (4).jpg" alt="Vertical Image" />
+        </div>
 
-          <!-- Vertical Image -->
-          <div class="vertical-image">
-            <img src="assets/dome (4).jpg" alt="Vertical Image" />
+        <!-- Second row (3 images spanning the width of 4 images) -->
+        <div class="gallery-row-2">
+          <div class="galleryimg">
+            <img src="../Assets/g6.jpeg" alt="Gallery Item 5" />
           </div>
-
-          <!-- Second row (3 images spanning the width of 4 images) -->
-          <div class="gallery-row-2">
-            <div class="galleryimg">
-              <img src="assets/g6.jpeg" alt="Gallery Item 5" />
-            </div>
-            <div class="galleryimg">
-              <img src="assets/glam.jpg" alt="Gallery Item 6" />
-            </div>
-            <div class="galleryimg">
-              <img src="assets/g7.jpeg" alt="Gallery Item 7" />
-            </div>
+          <div class="galleryimg">
+            <img src="../Assets/glam.jpg" alt="Gallery Item 6" />
+          </div>
+          <div class="galleryimg">
+            <img src="../Assets/g7.jpeg" alt="Gallery Item 7" />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  </div>
+  <div class="gallery-container1">
+    <!-- Image Cards -->
+    <div id="image-1" class="image-card1">
+      <img src="../Assets/gg3.jpg" alt="Gallery 1" />
     </div>
-    <div class="gallery-container1">
-        <!-- Image Cards -->
-        <div id="image-1" class="image-card1">
-          <img src="assets/gg3.jpg" alt="Gallery 1" />
-        </div>
-        <div id="image-2" class="image-card1">
-          <img src="assets/g2.jpeg" alt="Gallery 2" />
-        </div>
-        <div id="image-3" class="image-card1">
-          <img src="assets/glam.jpg" alt="Gallery 3" />
-        </div>
-        <div id="image-4" class="image-card1">
-          <img src="assets/gg4.jpg" alt="Gallery 4" />
-        </div>
-        <div id="image-5" class="image-card1">
-          <img src="assets/dome (4).jpg" alt="Gallery 5" />
-        </div>
-        <div id="image-6" class="image-card1">
-          <img src="assets/g6.jpeg" alt="Gallery 6" />
-        </div>
+    <div id="image-2" class="image-card1">
+      <img src="../Assets/g2.jpeg" alt="Gallery 2" />
     </div>
+    <div id="image-3" class="image-card1">
+      <img src="../Assets/glam.jpg" alt="Gallery 3" />
+    </div>
+    <div id="image-4" class="image-card1">
+      <img src="../Assets/gg4.jpg" alt="Gallery 4" />
+    </div>
+    <div id="image-5" class="image-card1">
+      <img src="../Assets/dome (4).jpg" alt="Gallery 5" />
+    </div>
+    <div id="image-6" class="image-card1">
+      <img src="../Assets/g6.jpeg" alt="Gallery 6" />
+    </div>
+  </div>
 
-    <footer class="footr-footer">
-      <div class="footr-footer-container">
-        <!-- Logo and Mission -->
-        <div class="footr-footer-section footr-logo-mission">
-          <img src="assets/logo.png" alt="Logo" class="footr-footer-logo" />
+  <footer class="footr-footer">
+    <div class="footr-footer-container">
+      <!-- Logo and Mission -->
+      <div class="footr-footer-section footr-logo-mission">
+        <img src="Assets/logo.png" alt="Logo" class="footr-footer-logo" />
+        <p>
+          Our mission is to inspire people to connect with nature and experience the joys of camping.
+          We aim to provide a comprehensive camping experience by offering a wide range of camping gear
+          and accessories, along with expert advice and resources to help campers plan and prepare for their trips.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footr-footer-section footr-quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html" class="footr-desktopmenuListitem">Home</a></li>
+          <li><a href="Aboutus.html" class="footr-desktopmenuListitem">About Us</a></li>
+          <li><a href="Tentgallary.html" class="footr-dropdown-item">Glam Gallery</a></li>
+          <li><a href="Contact.html" class="footr-desktopmenuListitem">Contact Us</a></li>
+          <li><a href="" class="footr-desktopmenuListitem">Privacy Policy</a></li>
+        </ul>
+
+      </div>
+
+      <!-- Contact Section -->
+      <div class="footr-footer-section footr-contact">
+        <div class="footr-footer-contacts">
+          <h3>Contact</h3>
           <p>
-            Our mission is to inspire people to connect with nature and experience the joys of camping.
-            We aim to provide a comprehensive camping experience by offering a wide range of camping gear
-            and accessories, along with expert advice and resources to help campers plan and prepare for their trips.
+            <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake,
+            Lonawala Pune-Maharashtra-412108.
+          </p>
+          <p>
+            <strong>Mobile No:</strong> +91-7720008787
+          </p>
+          <p>
+            <strong>Email:</strong> etherealhillsglamping@gmail.com contact@etherealhillsglamping.com
           </p>
         </div>
- 
-        <!-- Quick Links -->
-        <div class="footr-footer-section footr-quick-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html" class="footr-desktopmenuListitem">Home</a></li>
-            <li><a href="Aboutus.html" class="footr-desktopmenuListitem">About Us</a></li>
-            <li><a href="Tentgallary.html" class="footr-dropdown-item">Glam Gallery</a></li>
-            <li><a href="Contact.html" class="footr-desktopmenuListitem">Contact Us</a></li>
-            <li><a href="" class="footr-desktopmenuListitem">Privacy Policy</a></li>
-          </ul>
-         
-        </div>
- 
-        <!-- Contact Section -->
-        <div class="footr-footer-section footr-contact">
-          <div class="footr-footer-contacts">
-            <h3>Contact</h3>
-            <p>
-              <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake,
-              Lonawala Pune-Maharashtra-412108.
-            </p>
-            <p>
-              <strong>Mobile No:</strong> +91-7720008787
-            </p>
-            <p>
-              <strong>Email:</strong> etherealhillsglamping@gmail.com contact@etherealhillsglamping.com
-            </p>
-          </div>
-          <div class="footr-social-icons">
-            <a href="https://www.facebook.com/etherealhillsglamping">
-              <img src="assets/facebook.png" alt="Facebook" />
-            </a>
-            <a href="https://www.instagram.com/etherealhillsglamping/profilecard/?igsh=MWJrMzRzNThpbnRobw==">
-              <img src="assets/insta.png" alt="Instagram" />
-            </a>
-          </div>
+        <div class="footr-social-icons">
+          <a href="https://www.facebook.com/etherealhillsglamping">
+            <img src="Assets/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/etherealhillsglamping/profilecard/?igsh=MWJrMzRzNThpbnRobw==">
+            <img src="Assets/insta.png" alt="Instagram" />
+          </a>
         </div>
       </div>
- 
-      <div class="footr-footer-bottom">
-        Copyright © 2024. All Rights Reserved.
-      </div>
-    </footer>
- 
-    <script>
-      // Dropdown toggle logic (if needed in the future)
-      const dropdownItems = document.querySelectorAll('.footr-dropdown-item');
- 
-      dropdownItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const isActive = item.classList.contains('footr-active');
-          dropdownItems.forEach(i => i.classList.remove('footr-active'));
-          if (!isActive) {
-            item.classList.add('footr-active');
-          }
-        });
+    </div>
+
+    <div class="footr-footer-bottom">
+      Copyright © 2024. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Dropdown toggle logic (if needed in the future)
+    const dropdownItems = document.querySelectorAll('.footr-dropdown-item');
+
+    dropdownItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const isActive = item.classList.contains('footr-active');
+        dropdownItems.forEach(i => i.classList.remove('footr-active'));
+        if (!isActive) {
+          item.classList.add('footr-active');
+        }
       });
-    </script>
+    });
+  </script>
   </body>
+
 </html>

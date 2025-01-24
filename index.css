@@ -1,0 +1,1671 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+h1,
+p {
+    margin: 0;
+}
+
+
+/* navbar edit----------------------------------------------------------------------- */
+
+
+
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2rem;
+    /* transition: background-image 0s ease-in-out; */
+    transition: background-image 5s none;
+    position: relative;
+    clip-path: ellipse(100% 80% at 50% 20%);
+    margin-top: 110px;
+
+}
+
+.hero-content p {
+    font-size: 2rem;
+    font-family: cursive;
+    color: white;
+}
+
+.hero-content h1 {
+    margin-top: 2rem;
+    font-size: 5rem;
+    font-family: cursive;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px black;
+    color: white;
+    font-weight: 1000;
+}
+
+.hero-content h1 span {
+    font-size: 3rem;
+}
+
+.dots-container {
+    font-size: 20px;
+    position: absolute;
+    bottom: 2em;
+    left: auto;
+    display: flex;
+    justify-content: center;
+    /* margin-top: -20px; */
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    /* transition: background-color 0.3s; */
+}
+
+.dot.active {
+    background-color: rgb(71, 68, 68);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(1.5);
+}
+
+/* Footer Styles */
+.footr-footer {
+    background-color: black;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footr-footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    color: #fff;
+}
+
+.footr-footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footr-footer-logo {
+    width: 200px;
+    margin-bottom: 1rem;
+}
+
+.footr-footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.footr-footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footr-footer-section p {
+    color: #fff;
+}
+
+.footr-footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footr-footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footr-footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footr-footer-contacts {
+    color: white;
+}
+
+.footr-social-icons {
+    display: flex;
+    /* Aligns icons horizontally */
+    justify-content: center;
+    /* Centers icons horizontally */
+    align-items: center;
+    /* Centers icons vertically */
+    gap: 1rem;
+    /* Adds spacing between icons */
+}
+
+.footr-social-icons a {
+    display: inline-block;
+    /* Ensures the anchor is treated as a block for alignment */
+    line-height: 0;
+    /* Removes extra spacing around the image */
+}
+
+.footr-social-icons img {
+    width: 30px;
+    /* Ensures uniform size */
+    height: 30px;
+    display: block;
+    /* Removes any inline image spacing issues */
+}
+
+.footr-footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: black;
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+
+    /* Adjust footer container to stack items vertically */
+    .footr-footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Adjust footer sections for better alignment and spacing on mobile */
+    .footr-footer-section {
+        text-align: center;
+        min-width: 100%;
+        padding: 10px;
+    }
+
+    /* Adjust social icons size */
+    .footr-social-icons img {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Adjust footer logo size */
+    .footr-footer-logo {
+        width: 150px;
+    }
+
+    /* Smaller font size for footer bottom text */
+    .footr-footer-bottom {
+        font-size: 0.8rem;
+        padding: 10px 0;
+    }
+}
+
+/* Mobile Small Screen Adjustments (up to 480px) */
+@media (max-width: 480px) {
+    .footr-footer-section h3 {
+        font-size: 1rem;
+    }
+
+    .footr-footer-section p {
+        font-size: 0.9rem;
+    }
+
+    .footr-footer-logo {
+        width: 120px;
+    }
+
+    .footr-social-icons img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footr-footer-bottom {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* Welcome Page Styles */
+.welcome-page-container {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    color: #2c3e50;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-page-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2ecc71;
+}
+
+.welcome-page-header h1 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 5em;
+    font-family: Brush Script MT;
+    text-shadow: 2px 2px lightgray;
+}
+
+.welcome-page-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.6;
+    gap: 20px;
+}
+
+.img-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.para-container p {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    color: black;
+}
+
+.welcome-page-image {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .desktopmenu {
+        display: none;
+    }
+
+    .desktopmenuListitem {
+        font-size: 7px;
+        margin: none;
+        padding: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .navMenu {
+        display: block;
+
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Welcome Page Styles */
+.welcome-page-container {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    color: #2c3e50;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-page-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2ecc71;
+}
+
+.welcome-page-header h1 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 5em;
+    font-family: Brush Script MT;
+    text-shadow: 2px 2px lightgray;
+}
+
+.welcome-page-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.6;
+    gap: 20px;
+}
+
+.img-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.para-container p {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    color: black;
+}
+
+.welcome-page-image {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+
+    .desktopmenu-navbar,
+    .desktopbooknow {
+        display: none;
+    }
+
+
+    .desktopmenu {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .navMenu {
+        display: block;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .navbar img {
+        height: 40px;
+    }
+
+    .mobile-menu-icon {
+        font-size: 25px;
+    }
+
+    .navMenu {
+        width: 180px;
+    }
+
+    .mobilemenuListitem {
+        font-size: 14px;
+    }
+
+    .welcome-page-header h1 {
+        font-size: 2em;
+    }
+
+    .welcome-page-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .para-container {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-page-header h1 {
+        font-size: 1.8em;
+    }
+
+    .welcome-page-content {
+        line-height: 1.4;
+    }
+
+    .para-container {
+        margin-top: 10px;
+    }
+}
+
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/back.jpg') no-repeat fixed center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+
+.hero-content p {
+    font-size: 0.9rem;
+}
+
+.hero-content h1 {
+    font-size: 1.5rem;
+}
+
+
+
+
+/* Feature container */
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 items per row by default */
+    gap: 150px;
+    /* Consistent spacing between items */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center container */
+    box-sizing: border-box;
+}
+
+/* Feature item */
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Feature image */
+.feature-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Feature text */
+.feature p {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .feature-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 items per row on medium screens */
+        gap: 15px;
+    }
+
+    .feature-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .feature p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        /* Ensures content is above the background image */
+        color: #fff;
+        /* Ensure text is visible on the image */
+        padding: 20px 20px;
+        /* Add padding to prevent content from touching the edges */
+    }
+
+
+    .hero-content h1 span {
+        font-size: 1rem;
+    }
+
+    .dots-container {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 0px;
+        z-index: 2;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 1;
+        transition: opacity 0.3s;
+        box-shadow: 0.2px 0.2px rgb(121, 121, 121);
+    }
+
+    .dot.active {
+        opacity: 1;
+        transform: scale(1.2);
+        background-color: rgb(105, 100, 100);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    .hero-section {
+        width: 100%;
+        height: 60vh;
+        /* Full viewport height */
+        background-size: cover;
+        /* Stretch image to fill both width and height */
+        background-position: center;
+        /* Keep the focus on the center of the image */
+        background-repeat: no-repeat;
+        /* Prevent repeating the image */
+        margin-top: 110px;
+    }
+
+    .feature-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 items per row on smaller screens */
+        gap: 10px;
+    }
+
+    .feature-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .feature p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* Ensure 2 items per row on very small screens */
+        gap: 8px;
+    }
+
+    .feature-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .feature p {
+        font-size: 0.85rem;
+    }
+
+}
+
+/* card container style */
+.card-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+}
+
+/* Card style */
+.card2 {
+    border: 1px solid #ccc;
+    padding: 50px;
+    /* Increased padding */
+    width: 350px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(228, 226, 226, 0.671);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on card */
+.card2:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Title styling */
+.card2 h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Styling for list items */
+.card2 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.card2 li {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #555;
+    font-weight: 400;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .card2-container2 {
+        justify-content: center;
+    }
+
+    .card2 {
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .desktopmenu-navbar,
+    .desktopbooknow {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .navMenu {
+        display: none;
+        /* Initially hidden */
+    }
+}
+
+
+@media (max-width: 480px) {
+    .card2-container2 {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .card2 {
+        width: 90%;
+        margin: 15px 0;
+        padding: 20px;
+    }
+
+    .card2 h3 {
+        font-size: 20px;
+    }
+
+    .card2 li {
+        font-size: 16px;
+    }
+}
+
+.app2 {
+    padding: 20px;
+}
+
+.app2 .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+
+.app2 .card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.app2 .card {
+    border: 1px solid #ccc;
+    border-radius: 40px 0px 40px 0px;
+    overflow: hidden;
+    width: 350px;
+    height: 500px;
+    margin: 20px;
+    box-shadow: 15px 15px 10px gray;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app2 .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.app2 .see-features {
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+}
+
+.app2 .card-image-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.app2 .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.app2 .card-content {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.app2 .card-title2 {
+    color: black;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.app2 .card-price {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.app2 .add-to-cart {
+    background-color: #99775C;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.app2 .add-to-cart:hover {
+    background-color: #e9d7c0;
+}
+
+
+
+/* Book Now Button */
+.app2 .book-now-btn {
+    background-color: #99775C;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(to right, #d6ad8b 50%, #99775C 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
+    position: relative;
+    /* Required for positioning pseudo-elements */
+}
+
+.app2 .book-now-btn:hover {
+    background-color: #ae7b51;
+    background-position: left bottom;
+    transform: scale(1.1);
+
+    padding: 0.8rem 2rem 0.8rem 0.7rem;
+}
+
+/* Add symbol on hover */
+.app2 .book-now-btn::after {
+    content: "➔";
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    /* color: black; */
+}
+
+.app2 .book-now-btn:hover::after {
+    opacity: 1;
+
+
+}
+
+.app2 .book-now-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Popup Styles */
+.app2 .pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.app2 .pop-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.app2 .close-pop {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 500;
+}
+
+.section-heading {
+    text-align: center;
+}
+
+.app2 .disabled-button {
+    background-color: #c5bfbb;
+}
+
+/* Responsive Design */
+@media (max-width: 728px) {
+    .app2 .card {
+        width: 45%;
+        height: 400px;
+    }
+
+    .app2 .add-to-cart {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+
+    .app2 .book-now-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .app2 .card {
+        width: 90%;
+        height: 70vh;
+        margin: 10px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app2 .card {
+        width: 90%;
+        height: 55vh;
+        margin: 10px 0;
+    }
+
+    .section-heading {
+        text-align: center;
+    }
+
+    .app2 .card-container {
+        gap: 1.5rem;
+    }
+
+    .app2 .add-to-cart {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .app2 .book-now-btn {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .app2 .card-image-container {
+        width: 100%;
+        height: 47%;
+        overflow: hidden;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-top: 1rem;
+    }
+}
+
+/* General Facility Page Styles */
+.facility-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    /* padding: 2rem; */
+}
+
+
+
+/* Facilities Section */
+.facility-section {
+    padding: 5rem;
+    margin-bottom: 5rem;
+}
+
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    /* padding-left: 70px; */
+}
+
+.facility-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    /* max-width: 350px; */
+    height: 500px;
+    margin: auto;
+}
+
+
+.facility-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.facility-info {
+    padding: 1rem;
+}
+
+.facility-title {
+    font-size: 1.5rem;
+    color: #004d40;
+    margin-bottom: 0.5rem;
+}
+
+.facility-description {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+
+/* Schedule Section */
+.schedule-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+    text-align: center;
+}
+
+.schedule-section h1 {
+    /* margin-top: 100px;
+  margin-bottom: 100px; */
+    width: 100%;
+
+}
+
+.schedule-image {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Counter Section */
+.counter-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.counter-section h1 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.counter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.counter-card {
+    padding: 1rem;
+    text-align: center;
+    max-width: 200px;
+    border: none;
+}
+
+.counter-value {
+    font-size: 2rem;
+    color: #004d40;
+}
+
+.counter-label {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Reviews Section */
+.reviews-section {
+    text-align: center;
+    /* padding: 2rem; */
+    background-color: #f9f9f9;
+}
+
+.section-heading {
+    width: 100%;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    color: #333;
+    padding: 2rem;
+}
+
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding: 50px;
+    background-color: rgb(245, 238, 228);
+}
+
+.review-box {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    height: 300px;
+    text-align: left;
+}
+
+.review-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.review-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.review-stars {
+    font-size: 1.2rem;
+    color: #ffc107;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .facility-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+    }
+
+    .facility-card {
+        max-width: 100%;
+    }
+
+    .counter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .facility-section {
+        padding: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .facility-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        /* padding-left: 10px; */
+    }
+
+    .facility-card {
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .counter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 15rem;
+        margin: auto;
+        text-align: center;
+        /* margin-left: -42px; */
+    }
+
+    .counter-card {
+        padding: 0rem;
+        text-align: center;
+        max-width: 200px;
+        border: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-heading {
+        font-size: 1.5rem;
+        padding: 0;
+    }
+
+    .facility-title {
+        font-size: 1.2rem;
+    }
+
+    .facility-description {
+        font-size: 0.9rem;
+    }
+
+    .counter-value {
+        font-size: 1.5rem;
+    }
+
+    .counter-label {
+        font-size: 0.9rem;
+    }
+
+    .review-name {
+        font-size: 1rem;
+    }
+
+    .review-text {
+        font-size: 0.9rem;
+    }
+
+    .review-stars {
+        font-size: 1rem;
+    }
+
+    .review-box {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        text-align: center;
+        /* margin-left: -42px; */
+    }
+
+    .facility-section {
+        padding: 1rem;
+    }
+
+    .facility-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        margin-bottom: 1rem;
+        gap: 1rem;
+        /* height: 60vh; */
+        /* padding-left: 10px; */
+    }
+
+    .facility-card {
+        max-width: 100%;
+        margin: auto;
+        height: 400px;
+    }
+
+    .facility-card-image {
+        width: 100%;
+        height: 65%;
+        object-fit: cover;
+        object-position: top;
+        overflow: hidden;
+    }
+
+    .facility-info {
+        padding: 20px;
+        align-content: center;
+        align-items: center;
+    }
+
+    .facility-title {
+        font-size: 15px;
+    }
+
+    .facility-description {
+        font-size: 11px;
+    }
+
+
+
+    .slideshow-container {
+        position: relative;
+        width: 100%;
+        /* max-width: 350px; */
+        height: 300px;
+        overflow: hidden;
+        border-radius: 10px 0px 0px 0px;
+    }
+
+    .counter-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    }
+
+}
+
+@media (max-width: 360px) {
+    .section-heading {
+        font-size: 1.5rem;
+        padding: 0;
+    }
+
+    .facility-title {
+        font-size: 1.2rem;
+    }
+
+    .facility-description {
+        font-size: 0.9rem;
+    }
+
+    .counter-value {
+        font-size: 1.5rem;
+    }
+
+    .counter-label {
+        font-size: 0.9rem;
+    }
+
+    .review-name {
+        font-size: 1rem;
+    }
+
+    .review-text {
+        font-size: 0.9rem;
+    }
+
+    .review-stars {
+        font-size: 1rem;
+    }
+
+    .review-box {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        text-align: center;
+        /* margin-left: -42px; */
+    }
+
+    .facility-section {
+        padding: 1rem;
+    }
+
+    .facility-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        margin-bottom: 1rem;
+        /* gap: 1rem; */
+        /* height: 60vh; */
+        /* padding-left: 10px; */
+    }
+
+    .facility-card {
+        max-width: 100%;
+        margin: auto;
+    }
+
+    .facility-title {
+        font-size: 15px;
+    }
+
+    .facility-description {
+        font-size: 11px;
+    }
+
+    .counter-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    }
+
+
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    /* max-width: 350px; */
+    height: 65%;
+    overflow: hidden;
+    border-radius: 10px 0px 0px 0px;
+}
+
+.slideshow-slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+
+
+.slideshow-slide.show {
+    display: block;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* General Navbar Styles------------------------------------------------------------------------- */
+.nav-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 80px;
+    padding: 1rem 2rem;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    margin-bottom: 80px;
+}
+
+#nav-logo {
+    height: 50px;
+    cursor: pointer;
+}
+
+.nav-main-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Desktop Menu Styles */
+.nav-desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-desktop-menu-list-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-desktop-menu-list-item:hover {
+    color: #ffeb3b;
+}
+
+.nav-desktop-book-now .nav-book-now-btn {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(to right, #6b5441 50%, #99775c 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
+    position: relative;
+    /* Required for positioning pseudo-elements */
+}
+
+.nav-desktop-book-now .nav-book-now-btn:hover {
+    background-color: #ae7b51;
+    background-position: left bottom;
+    transform: scale(1);
+    padding: 0.8rem 2rem 0.8rem 0.7rem;
+}
+
+/* Add symbol on hover */
+.nav-book-now-btn::after {
+    content: "➔";
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    /* color: black; */
+}
+
+.nav-book-now-btn:hover::after {
+    opacity: 1;
+}
+
+.nav-book-now-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Active Tab Styles */
+.nav-active {
+    font-weight: bold;
+    color: #d9d418;
+}
+
+/* Mobile Menu Icon */
+.nav-mobile-menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile Menu Styles */
+.nav-mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: black;
+    width: 100%;
+    padding: 1rem 0;
+    display: none;
+}
+
+.nav-mobile-menu-list-item {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.nav-mobilemenuListitem:hover {
+    background-color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .nav-navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-desktop-menu {
+        display: none;
+    }
+
+    .nav-mobile-menu-icon {
+        display: block;
+    }
+
+    .nav-mobile-gallery-dropdown {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-mobile-dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        font-size: 15px;
+        /* text-decoration: underline; */
+    }
+
+}
+
+
+/* Mobile menu: Show when active */
+.nav-mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mobile dropdown: Show when open */
+.nav-mobile-dropdown-menu.open {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Dropdown Menu for Desktop */
+.nav-gallery-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+.nav-dropdown-menu {
+
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    flex-direction: column;
+    width: 200px;
+}
+
+.nav-dropdown-item {
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.nav-dropdown-item:hover {
+    background-color: #555;
+}
+
+.nav-gallery-dropdown:hover .nav-dropdown-menu {
+    right: 0;
+    transform: translateX(-45%);
+    display: flex;
+    /* Display dropdown when hovered */
+}
+
+.nav-dropdown-menu {
+    max-width: 300px;
+}
+
+.nav-down-arrow {
+    margin-left: 5px;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.nav-gallery-dropdown:hover .nav-down-arrow {
+    transform: rotate(180deg);
+}
+
+/* Mobile Dropdown Styles */
+.nav-mobile-dropdown-menu {
+    display: none;
+}
+
+.nav-mobile-dropdown-item {
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-mobile-dropdown-item.nav-active {
+    background-color: #555;
+}
+
+.nav-gallery-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .nav-mobile-dropdown-menu {
+        display: flex;
+    }
+}

@@ -3,60 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-
+  <title>Signup</title>
+  
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
   <style>
-/* General Styles */
-/* General Styles */
+
+ /* General Styles */
 body {
   font-family: 'Arial', sans-serif; /* Specify a font */
   margin: 0;
   padding: 0;
   background-color: #f8f8f8; /* Light gray background */
-  display: flex; /* Center the login container */
+  display: flex; /* Center the signup container */
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Ensure full viewport height */
 }
 
-.login-mainn {
+.sign-mainn {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('assets/loginbg.jpg') no-repeat fixed center center/cover;
   width: 100%;
   height: 100%;
   overflow: hidden; /* Hide content overflowing the viewport */
 }
 
-.login-container {
+.signup-container {
   display: flex;
-  width: 100%;
-  /* max-width: 1000px; Set a maximum width for responsiveness */
+  /* max-width: 800px; Set a maximum width for responsiveness */
   margin: 0 auto; /* Center the container */
-  gap: 2rem;
-  padding: 4rem; /* Add padding around the container */
+  padding: 2rem; /* Add padding around the container */
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 /* Image Section */
-.login-image {
+.signup-image {
   width: 60%; /* Adjust width for responsiveness */
   height: 80vh; /* Maintain aspect ratio for responsiveness */
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden; /* Keep images within the container */
+  /* margin-right: 2rem; Add margin between image and form */
 }
 
-.login-image img {
+.signup-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-
 /* Form Section */
-.login-form {
+.signup-form {
   width: 30%; /* Adjust width for responsiveness */
   padding: 3rem; /* Increased padding for better spacing */
   border-radius: 20px;
@@ -71,6 +72,107 @@ h2 {
   font-size: 2rem;
 }
 
+.signup-button {
+    width: 95%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  .signup-button:hover {
+    background-color: #0056b3;
+  }
+
+  .google-signup {
+    width: 95%;
+    padding: 7px;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin: auto;
+  }
+
+  .google-signup img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .google-signup:hover {
+    background-color: #f1f1f1;
+  }
+
+  .facebook-signup {
+    width: 95%;
+    padding: 7px;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin: auto;
+  }
+
+  .facebook-signup img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .facebook-signup:hover {
+    background-color: #f1f1f1;
+  }
+
+
+.signup-with{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.social-button{
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+
+}
+
+.social-button img{
+    width: 20px;
+    height: 20px;
+}
+
+.social-button:hover{
+    background-color: #f1f1f1;
+}
+
+
 .form-group {
   margin-bottom: 1.5rem;
 }
@@ -83,9 +185,10 @@ label {
 }
 
 input {
-  width: 100%; /* Adjust for padding */
+  /* width: calc(100% - 20px); Adjust for padding */
+  width: 100%;
   padding: 10px;
-  border: 1px solid #fff4f4;
+  border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 0.5rem; /* Reduced margin */
   box-sizing: border-box;
@@ -97,12 +200,11 @@ input {
   margin-top: 0.2rem; /* Reduced margin */
 }
 
-.login-button {
+.signup-button {
   width: 100%;
   padding: 1rem; /* Increased padding for better button size */
-  /* background-color: #007bff; Blue button color */
-  background-color:#a18012;
-  color: rgb(255, 252, 252);
+  background-color: #a18012; /* Blue button color */
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -110,60 +212,46 @@ input {
   margin-top: 1.5rem;
 }
 
-.login-button:hover {
+.signup-button:hover {
   background-color: #ecd96c;
 }
 
 
-.links {
-  display: flex;
-  justify-content: space-between;
+.go-to-login-container {
   margin-top: 1.5rem;
+  text-align: center;
 }
 
-.links a {
+.link-to-login-page {
   text-decoration: none;
   color: #ffd9009a;
-  font-size: 0.9rem;
+  cursor: pointer;
 }
 
-.links a:hover {
+.link-to-login-page:hover {
   text-decoration: underline;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .login-container {
+  .signup-container {
     flex-direction: column-reverse; /* Stack image and form vertically */
     align-items: center;
-    justify-content: space-evenly;
-    gap: 3rem;
   }
 
-  .login-image {
+  .signup-image {
     width: 100%;
     height: 30vh; /* Adjust height for smaller screens */
-    /* margin-bottom: 2rem; */
+    margin-bottom: 2rem;
+    margin-right: 0; /* Remove margin on smaller screens */
   }
 
-  .login-form {
-    width: 100%;
+  .signup-form {
+    width: 90%;
     padding: 2rem;
   }
-
-   .login-form input {
-        width: calc(100% - 20px);
-    }
-  .links {
-        flex-direction: column;
-    align-items: center;
-  }
-
-  .links a {
-        margin-bottom: 0.5rem;
-    }
 }
-
 
 
      /* Navbar Styles */
@@ -326,29 +414,34 @@ input {
       background-color: #575757;
     }
 
-
-
   </style>
 </head>
 <body>
 
-  
-  <div class="login-mainn">
-    <div class="login-container">
-      <!-- Slideshow for images -->
-      <div class="login-image">
-        <img src="assets/camping.jpg" alt="Slide 1" class="active">
-        <!-- <img src="assets/camping2.jpg" alt="Slide 2" class="active">
-        <img src="assets/night.jpg" alt="Slide 3" class="active"> -->
+ 
+
+  <div class="sign-mainn">
+    <div class="signup-container">
+      <div class="signup-image">
+        <img src="assets/camping.jpg" alt="Camping">
       </div>
+      <div class="signup-form">
+        <form id="signup-form">
+          <h2>Sign Up</h2>
+          
+          <div class="signup-with">
+            <button type="button" class="facebook-signup">
+              <img src="assets/logo (2).png" alt=""> Sign Up with Facebook
+            </button>
+            <button type="button" class="google-signup">
+              <img src="assets/google.png" alt=""> Sign Up with Google
+            </button>
+          </div>
   
-      <!-- Login form -->
-      <div class="login-form">
-        <div class="form1">
-        <form id="login-form">
-          <h2>Log In</h2>
+          <hr />
+  
           <div class="form-group">
-            <label for="email">Contact / Email</label> <br />
+            <label for="email">Contact/Email</label>
             <input
               type="email"
               id="email"
@@ -358,7 +451,7 @@ input {
             <span id="email-error" class="error"></span>
           </div>
           <div class="form-group">
-            <label for="password">Password</label> <br />
+            <label for="password">Password</label>
             <input
               type="password"
               id="password"
@@ -367,109 +460,149 @@ input {
             />
             <span id="password-error" class="error"></span>
           </div>
-          <div class="links">
-            <a href="#">Forgot password?</a>
-            <a href="Signup.html" class="create-account-link">Sign-Up</a>
+          <div class="form-group">
+            <label for="confirmPassword">Re-enter Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Re-enter your password"
+            />
+            <span id="confirmPassword-error" class="error"></span>
           </div>
-          <button type="submit" class="login-button">Log In</button>
+          <button type="submit" class="signup-button">Sign Up</button>
+  
+          <div class="go-to-login-container">
+            <a href="Login.html" class="link-to-login-page"> 
+              <span>Already have an account?</span> <br /><span>Go to Login Page</span>
+            </a>
+          </div>
         </form>
       </div>
     </div>
-  
-    
-    </div>
   </div>
-  
 
-  <script>
-    // Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyA1NpNJhL6250_l0CTo7qoIk5N_idKWwio",
-      authDomain: "pawana-4ff91.firebaseapp.com",
-      projectId: "pawana-4ff91",
-      storageBucket: "pawana-4ff91.firebasestorage.app",
-      messagingSenderId: "687329671670",
-      appId: "1:687329671670:web:111c0794f64c2930b5afd7",
-      measurementId: "G-BVE6S7FGQF",
-    };
-  
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const dbRef = firebase.database().ref("users");
-  
-    // Form submission functionality
-    const form = document.getElementById("login-form");
+  <!-- <script>
+    const form = document.getElementById("signup-form");
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-  
+
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
       const emailError = document.getElementById("email-error");
       const passwordError = document.getElementById("password-error");
-  
+      const confirmPasswordError = document.getElementById("confirmPassword-error");
+
       emailError.textContent = "";
       passwordError.textContent = "";
-  
+      confirmPasswordError.textContent = "";
+
+      let hasError = false;
+
       if (!email) {
         emailError.textContent = "Email is required";
-        return;
+        hasError = true;
       }
-  
+
       if (!password) {
         passwordError.textContent = "Password is required";
-        return;
+        hasError = true;
       }
-  
-      try {
-        // Fetch all users from Firebase
-        const snapshot = await dbRef.once("value");
-        const users = snapshot.val();
-  
-        if (!users) {
-          emailError.textContent = "No users found in the database.";
-          return;
-        }
-  
-        let emailExists = false;
-        let passwordMatches = false;
-  
-        // Check for email and password match
-        for (const userId in users) {
-          const user = users[userId];
-          if (user.email === email) {
-            emailExists = true;
-            if (user.password === password) {
-              passwordMatches = true;
-              break;
-            }
-          }
-        }
-  
-        if (!emailExists) {
-          emailError.textContent = "Invalid email!";
-        } else if (!passwordMatches) {
-          passwordError.textContent = "Invalid password!";
-        } else {
-          // Clear any existing error messages
-          emailError.textContent = "";
-          passwordError.textContent = "";
-  
-          alert("Login successful!");
-  
-          // Store login status in localStorage
-          localStorage.setItem("isLoggedIn", "true");
-  
-          // Navigate to homed.html after successful login
-          window.location.href = "index.html";
-        }
-      } catch (error) {
-        emailError.textContent = "An error occurred: " + error.message;
+
+      if (password !== confirmPassword) {
+        confirmPasswordError.textContent = "Passwords do not match";
+        hasError = true;
+      }
+
+      if (!hasError) {
+        // Simulate saving to Firestore or backend
+        alert("Signup successful!");
+        window.location.href = "Login.html";
       }
     });
-  </script>
-  
-  
-  
+  </script> -->
+
+<script>
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA1NpNJhL6250_l0CTo7qoIk5N_idKWwio",
+    authDomain: "pawana-4ff91.firebaseapp.com",
+    projectId: "pawana-4ff91",
+    storageBucket: "pawana-4ff91.firebasestorage.app",
+    messagingSenderId: "687329671670",
+    appId: "1:687329671670:web:111c0794f64c2930b5afd7",
+    measurementId: "G-BVE6S7FGQF"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const dbRef = firebase.database().ref("users");
+
+  // Handle form submission
+  const form = document.getElementById("signup-form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const emailError = document.getElementById("email-error");
+    const passwordError = document.getElementById("password-error");
+    const confirmPasswordError = document.getElementById("confirmPassword-error");
+
+    // Reset errors
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    confirmPasswordError.textContent = "";
+
+    let hasError = false;
+
+    // Validate email
+    if (!email) {
+      emailError.textContent = "Email is required";
+      hasError = true;
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      emailError.textContent = "Invalid email format";
+      hasError = true;
+    }
+
+    // Validate password
+    if (!password) {
+      passwordError.textContent = "Password is required";
+      hasError = true;
+    } else if (password.length < 6) {
+      passwordError.textContent = "Password must be at least 6 characters long";
+      hasError = true;
+    }
+
+    // Validate confirm password
+    if (password !== confirmPassword) {
+      confirmPasswordError.textContent = "Passwords do not match";
+      hasError = true;
+    }
+
+    // Save to Firebase if no errors
+    if (!hasError) {
+      const userData = {
+        email,
+        password, // It's not secure to store plain-text passwords; use Firebase Authentication for proper handling
+        createdAt: new Date().toISOString()
+      };
+
+      try {
+        await dbRef.push(userData);
+        alert("Signup successful!");
+        form.reset();
+        window.location.href = "Login.html";
+      } catch (error) {
+        alert("Error saving data to Firebase: " + error.message);
+      }
+    }
+  });
+</script>
 
 
 

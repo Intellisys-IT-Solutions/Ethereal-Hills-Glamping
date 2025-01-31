@@ -8,18 +8,23 @@
 </head>
 <body>
 
-  
   <!-- NAVBAR------------------------------------------------------------------ -->
 
   <nav class="nav-navbar">
-    <img src="assets/logo.png" alt="Logo" id="nav-logo" />
+    
+    <div class="nav-desktop-book-now">
+      <button class="nav-book-now-btn">
+        <a href="#cardid" class="nav-book-now-link">Book Now</a>
+      </button>
+    </div>
+    <div id="image-logo-container">
+      <img src="assets/logo.png" alt="Logo" id="nav-logo" />
+    </div>
 
+    
     <div class="nav-main-nav">
-      <div class="nav-desktop-book-now">
-        <button class="nav-book-now-btn">
-          <a href="Login.html" class="nav-book-now-link">Book Now</a>
-        </button>
-      </div>
+      
+
       <div class="nav-desktop-menu">
         <a href="index.html" class="nav-desktop-menu-list-item">Home</a>
         <a href="Contact.html" class="nav-desktop-menu-list-item">Contact Us</a>
@@ -47,15 +52,23 @@
       <a href="Contact.html" class="nav-mobile-menu-list-item">Contact Us</a>
       <a href="Aboutus.html" class="nav-mobile-menu-list-item">About Us</a>
 
-      <!-- Mobile Dropdown -->
-      <div class="nav-mobile-gallery-dropdown">
-        <span class="nav-mobile-menu-list-item nav-dropdown-toggle">
-          Gallery <span class="nav-down-arrow">▼</span>
-        </span>
-        <div class="nav-mobile-dropdown-menu">
-          <a href="Tentgallary.html" class="nav-mobile-dropdown-item">Tent Gallery</a>
-          <a href="glam.html" class="nav-mobile-dropdown-item">Glam Gallery</a>
-        </div>
+
+        <select name="Gallery" id="gallery-select" class="nav-mobile-gallery-dropdown nav-mobile-menu-list-item nav-dropdown-toggle" onchange="navigateToPage()">
+          <option value="">Gallery</option>
+          <option value="Tentgallary.html">Tent Gallery</option>
+          <option value="glam.html">Glam Gallery</option>
+      </select>
+      
+      <script>
+          function navigateToPage() {
+              const select = document.getElementById("gallery-select");
+              const selectedValue = select.value;
+              if (selectedValue) {
+                  window.location.href = selectedValue; // Redirects to the selected page
+              }
+          }
+      </script>
+        
       </div>
     </div>
   </nav>
@@ -66,35 +79,55 @@
 
 
    document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
-  const mobileMenu = document.querySelector(".nav-mobile-menu");
-  const dropdowns = document.querySelectorAll(".nav-gallery-dropdown");
+    // Mobile menu toggle
+    const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
+    const mobileMenu = document.querySelector(".nav-mobile-menu");
 
-  // Toggle mobile menu
-  mobileMenuIcon.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
-  });
+    if (mobileMenuIcon) {
+        mobileMenuIcon.addEventListener("click", () => {
+            mobileMenu.classList.toggle("active");
+        });
+    }
 
-  // Handle dropdowns for mobile
-  dropdowns.forEach((dropdown) => {
-    const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
-    const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
-    
+    // Desktop Gallery Dropdown
+    const desktopDropdown = document.querySelector(".nav-gallery-dropdown");
+    if (desktopDropdown) {
+        const desktopToggle = desktopDropdown.querySelector(".nav-dropdown-toggle");
+        const desktopMenu = desktopDropdown.querySelector(".nav-dropdown-menu");
 
-    dropdownToggle.addEventListener("click", (event) => {
-      event.preventDefault(); // Prevent default link behavior
-      dropdownMenu.classList.toggle("open");
+        desktopToggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            desktopMenu.classList.toggle("open");
+        });
 
-      // Optionally close other dropdowns when one opens
-      dropdowns.forEach((otherDropdown) => {
-        if (otherDropdown !== dropdown) {
-          const otherMenu = otherDropdown.querySelector(".nav-mobile-dropdown-menu");
-          otherMenu.classList.remove("open");
-        }
-      });
-    });
-  });
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (event) => {
+            if (!desktopDropdown.contains(event.target)) {
+                desktopMenu.classList.remove("open");
+            }
+        });
+    }
+
+    // Mobile Gallery Dropdown
+    const mobileDropdown = document.querySelector(".nav-mobile-gallery-dropdown");
+    if (mobileDropdown) {
+        const mobileToggle = mobileDropdown.querySelector(".nav-dropdown-toggle");
+        const mobileMenu = mobileDropdown.querySelector(".nav-mobile-dropdown-menu");
+
+        mobileToggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            mobileMenu.classList.toggle("open");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", (event) => {
+            if (!mobileDropdown.contains(event.target)) {
+                mobileMenu.classList.remove("open");
+            }
+        });
+    }
 });
+
 
   </script>
 
@@ -102,7 +135,7 @@
   <div class="home-page-whole">
     <div class="hero-section">
       <div class="hero-content">
-        <p>Welcome To</p>
+        
         <h1>
           Ethereal Hills<br /> <span>Camping & Glamping</span>
         </h1>
@@ -203,61 +236,61 @@
   
     <!-- Package container -->
   
-    <div class="app2">
-      <h1 class="heading">Our Packages</h1>
-      <div class="card-container">
-          <!-- Tent Stay Card -->
-          <div class="card">
-              <div class="card-image-container">
-                  <img src="assets/tent1.jpg" alt="Tent Stay" class="card-image">
-              </div>
-              <div class="card-content">
-                  <h2 class="card-title2">Tent Stay</h2>
-                  <p class="card-price">Starting From ₹1199 Per Person</p>
-                  <button class="add-to-cart" onclick="window.location.href='Book.html?stayType=Tent Stay'">
-                      BOOK NOW
-                  </button>
-                  <button class="see-features" onclick="openpop('Tent')">
-                      See Features
-                  </button>
-              </div>
-          </div>
-  
-          <!-- Cottage Stay Card -->
-          <div class="card">
-              <div class="card-image-container">
-                  <img src="assets/img5.jpg" alt="Cottage Stay" class="card-image">
-              </div>
-              <div class="card-content">
-                  <h2 class="card-title2">Cottage Stay</h2>
-                  <p class="card-price">Starting From ₹1999 Per Person</p>
-                  <button class="add-to-cart disabled-button" disabled>
-                      Coming Soon
-                  </button>
-                  <button class="see-features" onclick="openpop('Cottage')">
-                      See Features
-                  </button>
-              </div>
-          </div>
-  
-          <!-- Dome Stay Card -->
-          <div class="card">
-              <div class="card-image-container">
-                  <img src="assets/dome (3).jpg" alt="Dome Stay" class="card-image">
-              </div>
-              <div class="card-content">
-                  <h2 class="card-title2">Dome Stay</h2>
-                  <p class="card-price">Starting From ₹2999 Per Person</p>
-                  <button class="add-to-cart disabled-button" disabled>
-                      Coming Soon
-                  </button>
-                  <button class="see-features" onclick="openpop('Dome')">
-                      See Features
-                  </button>
-              </div>
-          </div>
-      </div>
-  </div>
+      <div class="app2"  id="cardid">
+        <h1 class="heading">Our Packages</h1>
+        <div class="card-container">
+            <!-- Tent Stay Card -->
+            <div class="card">
+                <div class="card-image-container">
+                    <img src="assets/tent1.jpg" alt="Tent Stay" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title2">Tent Stay</h2>
+                    <p class="card-price">Starting From ₹1199 Per Person</p>
+                    <button class="add-to-cart" onclick="window.location.href='Book.html?stayType=Tent Stay'">
+                        BOOK NOW
+                    </button>
+                    <button class="see-features " onclick="openpop('Tent')">
+                        See Features
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Cottage Stay Card -->
+            <div class="card">
+                <div class="card-image-container">
+                    <img src="assets/img5.jpg" alt="Cottage Stay" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title2">Cottage Stay</h2>
+                    <p class="card-price">Starting From ₹1999 Per Person</p>
+                    <button class="add-to-cart disabled-button" disabled>
+                        Coming Soon
+                    </button>
+                    <button class="see-features" onclick="openpop('Cottage')">
+                        See Features
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Dome Stay Card -->
+            <div class="card">
+                <div class="card-image-container">
+                    <img src="assets/dome (3).jpg" alt="Dome Stay" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title2">Dome Stay</h2>
+                    <p class="card-price">Starting From ₹2999 Per Person</p>
+                    <button class="add-to-cart disabled-button" disabled>
+                        Coming Soon
+                    </button>
+                    <button class="see-features" onclick="openpop('Dome')">
+                        See Features
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
   
@@ -265,7 +298,7 @@
   </div>
   
   <!-- Feature Cards, Initially Hidden -->
-  <div class="card-container2">
+  <div class="card-container2  popup-container"  id="feature-popup">
       <!-- Tent Stay Features, Initially Hidden -->
       <div class="card2" id="Tent" style="display:none;">
           <h3>Tent Stay</h3>
@@ -303,6 +336,14 @@
               <li><i class="fas fa-chair"></i> Bed, Sofa, Chair, Attached Bathroom</li>
               <li><i class="fas fa-utensils"></i> Candle Light Dinner</li>
           </ul>
+      </div>
+      <div className="pop">
+        <div className="pop-content">
+          <button className="close-popup" onclick="closepop()" style="position: fixed; top: 10px; right:10px;">
+            ✖
+          </button>
+          
+        </div>
       </div>
   </div>
 
@@ -408,6 +449,29 @@
       <div class="reviews-container">
         <h1 class="section-heading">What Our Guests Say</h1>
           <!-- Review 1 -->
+          
+          <div class="review-all-container">
+            <h1 class="rating-all"><span id="timer">0</span></h1>
+
+          <img src="/assets/ratingall.png" width="250px" class="rating-all-img">
+          </div>
+
+          <script>
+            let timer = 1; // Start from 1
+            const timerElement = document.getElementById("timer");
+        
+            const interval = setInterval(() => {
+              // Check if the timer is still less than or equal to 4.9
+              if (timer <= 4.9) {
+                // Round to 1 decimal place and update the timer
+                timerElement.textContent = timer.toFixed(1); // Display the timer with 1 decimal place
+                timer += 0.1; // Increment by 0.1
+              } else {
+                clearInterval(interval); // Stop the interval once it reaches 4.9
+              }
+            }, 50); // Update every 100 milliseconds
+          </script>
+
           <div class="review-box">
               <h3 class="review-name">Incredible Experience!</h3>
               <p class="review-text">
@@ -526,12 +590,11 @@
     </div>
 
     <div class="footr-footer-bottom">
-      Copyright © 2025. All Rights Reserved By Ethereal Hills Glamping And Clamping.
+      Copyright © 2024. All Rights Reserved.
     </div>
-    <div class="credits">
-      Designed by <a href="https://www.intellisysitsolutions.com/">Team INTELLISYS</a>
+    <div>
+      <a href="https://www.intellisysitsolutions.com/" style="text-decoration: underline; color: #fff; font-size: 0.8rem;">Designed by Intellisys IT Solutions PVT LTD.</a>
     </div>
-
   </footer>
 
   <script>
@@ -551,45 +614,38 @@
   <script>
 
 
-    function handleBookNowClick(stayType) {
-        // Handle booking logic here
-        window.location.href = `/package-details?stayType=${stayType}`;
-    }
-
-    function openpop(type) {
-        document.getElementById('popup-container').style.display = 'flex';
-        // Load the features dynamically based on the stayType
-        const featureContent = document.getElementById('feature-content');
-        featureContent.innerHTML = `<h3>Features of ${type} Stay</h3><p>Here are the features for ${type}.</p>`;
-    }
-
-    function closepop() {
-        document.getElementById('popup-container').style.display = 'none';
-    }
-
-
-// Function to open the popup and display the respective features
 function openpop(stayType) {
-    const featureContent = document.getElementById('feature-content');
-    
-    // Hide all feature cards initially
-    const allFeatureCards = document.querySelectorAll('.card2');
-    allFeatureCards.forEach(card => card.style.display = 'none');
+  // 1. Hide all feature cards
+  const featureCards = document.querySelectorAll('.card2');
+  featureCards.forEach(card => card.style.display = 'none');
 
-    // Display the specific feature card based on stayType
-    const selectedFeatureCard = document.getElementById(stayType);
-    selectedFeatureCard.style.display = 'block';
+  // 2. Show the specific feature card based on stayType
+  const selectedCard = document.getElementById(stayType);
+  if (selectedCard) {
+    selectedCard.style.display = 'block';
+  }
 
-    // Inject the content of the selected feature card into the popup
-    featureContent.innerHTML = selectedFeatureCard.innerHTML;
+  // 3. Show the popup container
+  const popupContainer = document.getElementById('feature-popup');
+  if (popupContainer) {
+    popupContainer.style.display = 'block';
+  }
 
-    // Show the popup
-    document.getElementById('popup-container').style.display = 'flex';
+  sessionStorage.setItem('popupOpen', 'true');
+
 }
 
-// Function to close the popup
 function closepop() {
-    document.getElementById('popup-container').style.display = 'none';
+  // 1. Hide the popup container
+  const popupContainer = document.getElementById('feature-popup');
+  if (popupContainer) {
+    popupContainer.style.display = 'none';
+  }
+
+    // 2. Hide all feature cards (Optional - If you want to reset when closing)
+    const featureCards = document.querySelectorAll('.card2');
+    featureCards.forEach(card => card.style.display = 'none');
+    sessionStorage.setItem('popupOpen', 'false');
 }
 
 // Optional: Handle booking action
@@ -627,7 +683,7 @@ document.addEventListener("DOMContentLoaded", showSlides);
       { id: 6, title: "Games", description: "Enjoy all types of games: Cricket, Badminton, Archery, Carrom, Football, Chess.", images: ["Games1.jpg", "Games2.jpg", "Games3.jpg", "Games4.jpg", "Games5.jpg"] },
     ];
 
-    const facilityGrid = document.getElementById("facilityGrid");
+    const facilityGrid = document.querySelector(".facility-grid"); // Select by class
     const reviewsContainer = document.getElementById("reviewsContainer");
 
     // Populate Facilities
@@ -641,7 +697,20 @@ document.addEventListener("DOMContentLoaded", showSlides);
           <p class="facility-description">${facility.description}</p>
         </div>
       `;
-      facilityGrid.appendChild(facilityCard);
+      
+
+      // Check popup state on page load
+  const popupOpen = sessionStorage.getItem('popupOpen');
+  const popupContainer = document.getElementById('feature-popup');
+
+  if (popupContainer) {
+    if (popupOpen === 'true') {
+      popupContainer.style.display = 'block'; // Show if it was open
+    } else {
+      popupContainer.style.display = 'none';  // Hide if it was closed or not set
+    }
+  }
+
     });
 
     // Counter Animation

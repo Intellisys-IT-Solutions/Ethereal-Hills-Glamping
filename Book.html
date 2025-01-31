@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +13,26 @@
 
 
 </head>
+
 <body>
 
   <!-- NAVBAR------------------------------------------------------------------ -->
 
   <nav class="nav-navbar">
-    <img src="assets/logo.png" alt="Logo" id="nav-logo" />
+    
+    <div class="nav-desktop-book-now">
+      <button class="nav-book-now-btn">
+        <a href="index.html#cardid" class="nav-book-now-link">Book Now</a>
+      </button>
+    </div>
+    <div id="image-logo-container">
+      <img src="assets/logo.png" alt="Logo" id="nav-logo" />
+    </div>
 
+    
     <div class="nav-main-nav">
-      <div class="nav-desktop-book-now">
-        <button class="nav-book-now-btn">
-          <a href="Login.html" class="nav-book-now-link">Book Now</a>
-        </button>
-      </div>
+      
+
       <div class="nav-desktop-menu">
         <a href="index.html" class="nav-desktop-menu-list-item">Home</a>
         <a href="Contact.html" class="nav-desktop-menu-list-item">Contact Us</a>
@@ -52,302 +60,304 @@
       <a href="Contact.html" class="nav-mobile-menu-list-item">Contact Us</a>
       <a href="Aboutus.html" class="nav-mobile-menu-list-item">About Us</a>
 
-      <!-- Mobile Dropdown -->
-      <div class="nav-mobile-gallery-dropdown">
-        <span class="nav-mobile-menu-list-item nav-dropdown-toggle">
-          Gallery <span class="nav-down-arrow">▼</span>
-        </span>
-        <div class="nav-mobile-dropdown-menu">
-          <a href="Tentgallary.html" class="nav-mobile-dropdown-item">Tent Gallery</a>
-          <a href="glam.html" class="nav-mobile-dropdown-item">Glam Gallery</a>
-        </div>
+
+        <select name="Gallery" id="gallery-select" class="nav-mobile-gallery-dropdown nav-mobile-menu-list-item nav-dropdown-toggle" onchange="navigateToPage()">
+          <option value="">Gallery</option>
+          <option value="Tentgallary.html">Tent Gallery</option>
+          <option value="glam.html">Glam Gallery</option>
+      </select>
+      
+      <script>
+          function navigateToPage() {
+              const select = document.getElementById("gallery-select");
+              const selectedValue = select.value;
+              if (selectedValue) {
+                  window.location.href = selectedValue; // Redirects to the selected page
+              }
+          }
+      </script>
+        
       </div>
     </div>
   </nav>
-  
+
 
   <script>
-   
 
 
-   document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
-  const mobileMenu = document.querySelector(".nav-mobile-menu");
-  const dropdowns = document.querySelectorAll(".nav-gallery-dropdown");
 
-  // Toggle mobile menu
-  mobileMenuIcon.addEventListener("click", () => {
-    mobileMenu.classList.toggle("active");
-  });
+    document.addEventListener("DOMContentLoaded", () => {
+      const mobileMenuIcon = document.querySelector(".nav-mobile-menu-icon");
+      const mobileMenu = document.querySelector(".nav-mobile-menu");
+      const dropdowns = document.querySelectorAll(".nav-gallery-dropdown");
 
-  // Handle dropdowns for mobile
-  dropdowns.forEach((dropdown) => {
-    const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
-    const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
-    
+      // Toggle mobile menu
+      mobileMenuIcon.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
 
-    dropdownToggle.addEventListener("click", (event) => {
-      event.preventDefault(); // Prevent default link behavior
-      dropdownMenu.classList.toggle("open");
+      // Handle dropdowns for mobile
+      dropdowns.forEach((dropdown) => {
+        const dropdownToggle = dropdown.querySelector(".nav-mobile-menu-list-item");
+        const dropdownMenu = dropdown.querySelector(".nav-mobile-dropdown-menu");
 
-      // Optionally close other dropdowns when one opens
-      dropdowns.forEach((otherDropdown) => {
-        if (otherDropdown !== dropdown) {
-          const otherMenu = otherDropdown.querySelector(".nav-mobile-dropdown-menu");
-          otherMenu.classList.remove("open");
-        }
+
+        dropdownToggle.addEventListener("click", (event) => {
+          event.preventDefault(); // Prevent default link behavior
+          dropdownMenu.classList.toggle("open");
+
+          // Optionally close other dropdowns when one opens
+          dropdowns.forEach((otherDropdown) => {
+            if (otherDropdown !== dropdown) {
+              const otherMenu = otherDropdown.querySelector(".nav-mobile-dropdown-menu");
+              otherMenu.classList.remove("open");
+            }
+          });
+        });
       });
     });
-  });
-});
 
   </script>
 
-  
-  
-  
-    <div class="book-container">
-      <!-- Form Section -->
-      <div class="form-container">
-        <form id="bookingForm">
-          <div class="logo-image-header">
-            <div class="logo-container">
-              <img src="assets/tent.png" alt="Stay Type Logo" class="logo" id="stayLogo">
-            </div>
-            <div class="logo-header">
-              <h3 class="book-now-heading" id="stayTypeTitle">Book Now - Tent Glam</h3>
-            </div>
+
+
+
+  <div class="book-container">
+    <!-- Form Section -->
+    <div class="form-container">
+      <form id="bookingForm">
+        <div class="logo-image-header">
+          <div class="logo-container">
+            <img src="assets/tent.png" alt="Stay Type Logo" class="logo" id="stayLogo">
           </div>
-  
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName" class="form-label">First Name</label>
-              <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-input">
-              <p class="error-message" id="firstNameError"></p>
-            </div>
-            <div class="form-group">
-              <label for="lastName" class="form-label">Last Name</label>
-              <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-input">
-              <p class="error-message" id="lastNameError"></p>
-            </div>
+          <div class="logo-header">
+            <h3 class="book-now-heading" id="stayTypeTitle">Book Now - Tent Glam</h3>
           </div>
-  
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" name="email" id="email" placeholder="example@domain.com" class="form-input">
-              <p class="error-message" id="emailError"></p>
-            </div>
-  
-            <div class="form-group">
-              <label for="phone" class="form-label">Phone</label>
-              <input type="text" name="phone" id="phone" placeholder="1234567890" class="form-input">
-              <p class="error-message" id="phoneError"></p>
-            </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-input">
+            <p class="error-message" id="firstNameError"></p>
           </div>
-  
-          <div class="form-row">
-            <div class="form-group">
-              <label>Male</label>
-              <input type="number" name="numberOfMales" id="numberOfMales" placeholder="Number of Males" class="form-input">
-            </div>
-            <div class="form-group">
-              <label>Female</label>
-              <input type="number" name="numberOfFemales" id="numberOfFemales" placeholder="Number of Females" class="form-input">
-            </div>
+          <div class="form-group">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-input">
+            <p class="error-message" id="lastNameError"></p>
           </div>
-  
-          <div class="form-row">
-            <div class="form-group">
-              <label for="checkIn" class="form-label">Check-In</label>
-              <input type="date" name="checkIn" id="checkIn" class="form-input">
-              <p class="error-message" id="checkInError"></p>
-            </div>
-  
-            <div class="form-group">
-              <label for="checkOut" class="form-label">Check-Out</label>
-              <input type="date" name="checkOut" id="checkOut" class="form-input">
-              <p class="error-message" id="checkOutError"></p>
-            </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" placeholder="example@domain.com" class="form-input">
+            <p class="error-message" id="emailError"></p>
           </div>
-  
-          <div class="form-row">
-            <div class="form-group">
-              <label for="seatNumber" class="form-label">Selected Seats</label>
-              <input type="text" name="seatNumber" id="seatNumber" class="form-input" readonly>
-              <p class="error-message" id="selectedSeatsError"></p>
-            </div>
+
+          <!-- <div class="form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" name="phone" id="phone" placeholder="1234567890" class="form-input">
+            <p class="error-message" id="phoneError"></p>
+          </div> -->
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" name="phone" id="phone" placeholder="1234567890" class="form-input">
+            <!-- <button type="button" id="sendOtpButton">Send OTP</button> -->
+            <p class="error-message" id="phoneError"></p>
           </div>
-  
-          <button type="submit" class="submit-button">Submit</button>
-        </form>
+        </div>
+
+        <!-- <div class="form-row">
+          <div class="form-group">
+            <label for="otp" class="form-label">Enter OTP</label>
+            <input type="text" name="otp" id="otp" placeholder="Enter OTP" class="form-input">
+            <button type="button" id="verifyOtpButton">Verify OTP</button>
+          </div>
+        </div>
+
+        Invisible reCAPTCHA
+
+        <div id="recaptcha-container"></div> -->
+
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Male</label>
+            <input type="number" name="numberOfMales" id="numberOfMales" placeholder="Number of Males"
+              class="form-input">
+          </div>
+          <div class="form-group">
+            <label>Female</label>
+            <input type="number" name="numberOfFemales" id="numberOfFemales" placeholder="Number of Females"
+              class="form-input">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkIn" class="form-label">Check-In</label>
+            <input type="date" name="checkIn" id="checkIn" class="form-input">
+            <p class="error-message" id="checkInError"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="checkOut" class="form-label">Check-Out</label>
+            <input type="date" name="checkOut" id="checkOut" class="form-input">
+            <p class="error-message" id="checkOutError"></p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="seatNumber" class="form-label">Selected Seats</label>
+            <input type="text" name="seatNumber" id="seatNumber" class="form-input" readonly>
+            <p class="error-message" id="selectedSeatsError"></p>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+
+    <!-- Button Section (Seat Grid) -->
+    <div class="select-seat-container">
+      <h3>Select Seat</h3>
+      <div class="grid-container" id="seatGrid"></div>
+    </div>
+  </div>
+
+  <div class="gallery-wrapper">
+    <h2 class="gallery-title" id="gallery-title">Tent Stay Gallery</h2> <!-- Title defined here -->
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/img5.jpg" alt="Gallery 1" class="gallery-image">
       </div>
-  
-      <!-- Button Section (Seat Grid) -->
-      <div class="select-seat-container">
-        <h3>Select Seat</h3>
-        <div class="grid-container" id="seatGrid"></div>
+      <div class="gallery-item">
+        <img src="assets/tt2.jpg" alt="Gallery 2" class="gallery-image">
+      </div>
+      <div class="gallery-item highlight">
+        <img src="assets/tent3.jpg" alt="Gallery 3" class="gallery-image">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/tent4.jpg" alt="Gallery 4" class="gallery-image">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/tent5.jpg" alt="Gallery 5" class="gallery-image">
       </div>
     </div>
-  
-    <div class="gallery-wrapper">
-      <h2 class="gallery-title" id="gallery-title">Tent Stay Gallery</h2> <!-- Title defined here -->
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="assets/img5.jpg" alt="Gallery 1" class="gallery-image">
+  </div>
+
+  <div class="popup-overlay-x" id="popupOverlay" style="display: none;">
+    <div class="popup-content-x">
+      <div class="popup-headingg">
+        <h2>Payment Instructions</h2>
+      </div>
+      <div class="popup-all-payment">
+        <div class="upi">
+          <img src="assets/QR2.jpg" alt="QR Code" class="qr-code-image">
         </div>
-        <div class="gallery-item">
-          <img src="assets/tt2.jpg" alt="Gallery 2" class="gallery-image">
+        <div class="bank-acc">
+          <table class="acc-details">
+            <tr>
+              <th>Account holder name:</th>
+              <td>Narendra Atmaling Gore</td>
+            </tr>
+            <tr>
+              <th>Bank:</th>
+              <td>Bank of Baroda</td>
+            </tr>
+            <tr>
+              <th>A/c No:</th>
+              <td>04518100000979</td>
+            </tr>
+            <tr>
+              <th>IFSC Code:</th>
+              <td>BARB0SHIPOO</td>
+            </tr>
+            <tr>
+              <th>Branch:</th>
+              <td>Shivaji Nagar</td>
+            </tr>
+          </table>
         </div>
-        <div class="gallery-item highlight">
-          <img src="assets/tent3.jpg" alt="Gallery 3" class="gallery-image">
+      </div>
+
+      <div class="send-screenshot">
+        <div class="pop-1">
+          <p>Please make the payment and send a screenshot to WhatsApp number: <br><strong>+91 8452136887</strong></p>
         </div>
-        <div class="gallery-item">
-          <img src="assets/tent4.jpg" alt="Gallery 4" class="gallery-image">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/tent5.jpg" alt="Gallery 5" class="gallery-image">
+        <div class="pop-2">
+          <button class="close-popup-button" id="closePopup">Close</button>
         </div>
       </div>
     </div>
-  
-    <div class="popup-overlay-x" id="popupOverlay" style="display: none;">
-      <div class="popup-content-x">
-        <div class="popup-headingg">
-          <h2>Payment Instructions</h2>
-        </div>
-        <div class="popup-all-payment">
-          <div class="upi">
-            <img src="assets/QR2.jpg" alt="QR Code" class="qr-code-image">
-          </div>
-          <div class="bank-acc">
-            <table class="acc-details">
-              <tr>
-                <th>Account holder name:</th>
-                <td>Narendra Atmaling Gore</td>
-              </tr>
-              <tr>
-                <th>Bank:</th>
-                <td>Bank of Baroda</td>
-              </tr>
-              <tr>
-                <th>A/c No:</th>
-                <td>04518100000979</td>
-              </tr>
-              <tr>
-                <th>IFSC Code:</th>
-                <td>BARB0SHIPOO</td>
-              </tr>
-              <tr>
-                <th>Branch:</th>
-                <td>Shivaji Nagar</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-  
-        <div class="send-screenshot">
-          <div class="pop-1">
-            <p>Please make the payment and send a screenshot to WhatsApp number: <br><strong>+91 7720008787</strong></p>
-          </div>
-          <div class="pop-2">
-            <button class="close-popup-button" id="closePopup">Close</button>
-          </div>
-        </div>
+  </div>
+
+
+  <!-- Footer Section -->
+  <footer class="footr-footer">
+    <div class="footr-footer-container">
+      <!-- Logo and Mission -->
+      <div class="footr-footer-section footr-logo-mission">
+        <img src="assets/logo.png" alt="Logo" class="footr-footer-logo" />
+        <p>
+          Our mission is to inspire people to connect with nature and experience the joys of camping.
+          We aim to provide a comprehensive camping experience by offering a wide range of camping gear
+          and accessories, along with expert advice and resources to help campers plan and prepare for their trips.
+        </p>
       </div>
-    </div>
-  
-  
-     <!-- Footer Section -->
-     <footer class="footr-footer">
-      <div class="footr-footer-container">
-        <!-- Logo and Mission -->
-        <div class="footr-footer-section footr-logo-mission">
-          <img src="assets/logo.png" alt="Logo" class="footr-footer-logo" />
+
+      <!-- Quick Links -->
+      <div class="footr-footer-section footr-quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html" class="footr-desktopmenuListitem">Home</a></li>
+          <li><a href="Aboutus.html" class="footr-desktopmenuListitem">About Us</a></li>
+          <li><a href="Tentgallary.html" class="footr-dropdown-item">Glam Gallery</a></li>
+          <li><a href="Contact.html" class="footr-desktopmenuListitem">Contact Us</a></li>
+          <li><a href="" class="footr-desktopmenuListitem">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="footr-footer-section footr-contact">
+        <div class="footr-footer-contacts">
+          <h3>Contact</h3>
           <p>
-            Our mission is to inspire people to connect with nature and experience the joys of camping. 
-            We aim to provide a comprehensive camping experience by offering a wide range of camping gear 
-            and accessories, along with expert advice and resources to help campers plan and prepare for their trips.
+            <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake,
+            Lonawala Pune-Maharashtra-412108.
+          </p>
+          <p>
+            <strong>Mobile No:</strong> +91-7720008787
+          </p>
+          <p>
+            <strong>Email:</strong> etherealhillsglamping@gmail.com contact@etherealhillsglamping.com
           </p>
         </div>
-  
-        <!-- Quick Links -->
-        <div class="footr-footer-section footr-quick-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html" class="footr-desktopmenuListitem">Home</a></li>
-            <li><a href="Aboutus.html" class="footr-desktopmenuListitem">About Us</a></li>
-            <li><a href="Tentgallary.html" class="footr-dropdown-item">Glam Gallery</a></li>
-            <li><a href="Contact.html" class="footr-desktopmenuListitem">Contact Us</a></li>
-            <li><a href="" class="footr-desktopmenuListitem">Privacy Policy</a></li>
-          </ul>
-        
-        </div>
-  
-        <!-- Contact Section -->
-        <div class="footr-footer-section footr-contact">
-          <div class="footr-footer-contacts">
-            <h3>Contact</h3>
-            <p>
-              <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake, 
-              Lonawala Pune-Maharashtra-412108.
-            </p>
-            <p>
-              <strong>Mobile No:</strong> +91-7720008787
-            </p>
-            <p>
-              <strong>Email:</strong> etherealhillsglamping@gmail.com contact@etherealhillsglamping.com
-            </p>
-          </div>
-          <div class="footr-social-icons">
-            <a href="https://www.facebook.com/etherealhillsglamping">
-              <img src="assets/facebook.png" alt="Facebook" />
-            </a>
-            <a href="https://www.instagram.com/etherealhillsglamping/profilecard/?igsh=MWJrMzRzNThpbnRobw==">
-              <img src="assets/insta.png" alt="Instagram" />
-            </a>
-          </div>
+        <div class="footr-social-icons">
+          <a href="https://www.facebook.com/etherealhillsglamping">
+            <img src="assets/facebook.png" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/etherealhillsglamping/profilecard/?igsh=MWJrMzRzNThpbnRobw==">
+            <img src="assets/insta.png" alt="Instagram" />
+          </a>
         </div>
       </div>
-  
-      <div class="footr-footer-bottom">
-        Copyright © 2024. All Rights Reserved.
-      </div>
-    </footer>
-  
-    <script>
-      // Dropdown toggle logic (if needed in the future)
-      const dropdownItems = document.querySelectorAll('.footr-dropdown-item');
-  
-      dropdownItems.forEach(item => {
-        item.addEventListener('click', () => {
-          const isActive = item.classList.contains('footr-active');
-          dropdownItems.forEach(i => i.classList.remove('footr-active'));
-          if (!isActive) {
-            item.classList.add('footr-active');
-          }
-        });
-      });
-    </script>
-  
-  
-  
+    </div>
+
+    <div class="footr-footer-bottom">
+      Copyright © 2024. All Rights Reserved.
+    </div>
+    <div>
+      <a href="https://www.intellisysitsolutions.com/" style="text-decoration: underline; color: #fff; font-size: 0.8rem;">Designed by Intellisys IT Solutions PVT LTD.</a>
+    </div>
+  </footer>
+
   <script>
-    // Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyA1NpNJhL6250_l0CTo7qoIk5N_idKWwio",
-      authDomain: "pawana-4ff91.firebaseapp.com",
-      projectId: "pawana-4ff91",
-      storageBucket: "pawana-4ff91.firebasestorage.app",
-      messagingSenderId: "687329671670",
-      appId: "1:687329671670:web:111c0794f64c2930b5afd7",
-      measurementId: "G-BVE6S7FGQF"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const dbRef = firebase.database().ref("bookings");
-
     // State variables for seat selection
     let selectedTents = [];
 
@@ -375,6 +385,27 @@
         gridContainer.appendChild(button);
       }
     }
+  </script>
+
+  <script>
+    // Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBABOubBpq3Kk_x4fh2w3ItLYqV8qlMuck",
+      authDomain: "pawana-html.firebaseapp.com",
+      databaseURL: "https://pawana-html-default-rtdb.firebaseio.com",
+      projectId: "pawana-html",
+      storageBucket: "pawana-html.firebasestorage.app",
+      messagingSenderId: "661440643102",
+      appId: "1:661440643102:web:312c41314235c2d1faae0f",
+      measurementId: "G-0790Z3689K"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const dbRef = firebase.database().ref("bookings");
+
+    
 
     // Validate form and send data to Firebase
     function validateForm(e) {
@@ -449,13 +480,7 @@
       createSeatGrid();
     };
   </script>
+
 </body>
+
 </html>
-
-  
-  
-
-
-
-
- 

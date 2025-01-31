@@ -108,19 +108,22 @@ background-color: #79523c;
 }
 
 .grid-container {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); /* Or a fixed number */
+  gap: 10px;
+  width: 100%; /* Key change: Make sure the container takes full width */
+  /* height: 100%;  If needed for fixed height, but avoid if possible */
 }
 
 .grid-button {
-width: 100%;
-height: 50px;
-background-color: #ccc;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-font-size: 14px;
+  width: 100%; /* Buttons should fill their grid cell */
+  height: 50px; /* Or adjust height as needed */
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  box-sizing: border-box; /* Important: Include padding and border in width/height */
 }
 
 .grid-button.selected {
@@ -602,7 +605,7 @@ background-color: black;
       display: flex;
       flex-direction: column;
       position: absolute;
-      top: 70px;
+      top: 112px;
       right: 0;
       background-color: black;
       width: 100%;
@@ -746,4 +749,87 @@ width: 200px;
       .nav-mobile-dropdown-menu {
         display: flex;
       }
+
+      #gallery-select {
+        background-color: black;
+        color: white;
+        border: none;
+        text-align: center; /* Centers the text inside the dropdown */
+        padding: 8px 12px; /* Optional: Add some padding to make it look better */
+        width: 20%; /* Makes the dropdown fill its container (optional) */
+        font-family: sans-serif;
+        font-size: 16px;
+        margin: auto;
     }
+    
+    
+    #gallery-select option {
+        width: 50%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 16px;
+    }
+
+    }
+
+
+
+
+
+
+
+
+    /* General button styling */
+.otp-button {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px;
+  background-color: #99775C;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.otp-button:hover {
+  background-color: #79523c;
+}
+
+/* Align buttons nicely inside the form */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Adjust button spacing */
+#sendOtpButton, #verifyOtpButton {
+  margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+
+
+  #nav-logo {
+    margin-left: 0%;
+    height: 80px;
+  }
+}
+
+@media (min-width: 768px) {
+
+
+  #nav-logo {
+    margin-left: 100%;
+    height: 100px;
+
+  }
+}

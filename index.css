@@ -4,6 +4,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 h1,
@@ -29,11 +31,23 @@ p {
     line-height: 1.2rem;
     /* transition: background-image 0s ease-in-out; */
     transition: background-image 5s none;
-    position: relative;
+    
     clip-path: ellipse(100% 80% at 50% 20%);
     margin-top: 110px;
 
+    overflow: hidden; /* This prevents the video from overflowing */
+  position: relative; /* Essential for absolute positioning of the video */
+
 }
+
+.hero-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is the key!  Makes the video cover the container */
+  }
 
 .hero-content p {
     font-size: 2rem;
@@ -400,6 +414,29 @@ p {
         width: 100%;
         margin-bottom: 20px;
     }
+
+    #gallery-select {
+        background-color: black;
+        color: white;
+        border: none;
+        text-align: center; /* Centers the text inside the dropdown */
+        padding: 8px 12px; /* Optional: Add some padding to make it look better */
+        width: 30%; /* Makes the dropdown fill its container (optional) */
+        font-family: sans-serif;
+        font-size: 16px;
+        margin: auto;
+    }
+    
+    
+    #gallery-select option {
+        width: 50%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 16px;
+    }
+    
 }
 
 @media (max-width: 768px) {
@@ -436,6 +473,12 @@ p {
     .para-container {
         margin-top: 20px;
     }
+
+    #nav-logo {
+        margin-left: -80%;
+        height: 80px;
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 480px) {
@@ -452,6 +495,14 @@ p {
     }
 }
 
+@media (min-width: 768px){
+    #nav-logo {
+        
+        height: 80px;
+        cursor: pointer;
+    }
+    
+}
 
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/back.jpg') no-repeat fixed center center/cover;
@@ -482,9 +533,9 @@ p {
     /* Consistent spacing between items */
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto;       
     /* Center container */
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 /* Feature item */
@@ -631,28 +682,38 @@ p {
 
 /* card container style */
 .card-container2 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    box-sizing: border-box;
+    position: fixed;
+top: 0;
+  left: 0;
+  /* transform: translate(-50%, -50%); Key for centering */
+width: 100vw;
+height: 100vh;
+background: rgba(0, 0, 0, 0.8);
+z-index: 1000;
+   
 }
 
 /* Card style */
 .card2 {
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  transform: translate(-50%, -50%);
     border: 1px solid #ccc;
     padding: 50px;
     /* Increased padding */
     width: 350px;
     border-radius: 10px;
     text-align: center;
-    background-color: rgba(228, 226, 226, 0.671);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgb(255, 255, 255);
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
 }
 
 /* Hover effect on card */
 .card2:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* transform: translateY(-10px); */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
 /* Title styling */
@@ -749,7 +810,7 @@ p {
     border: 1px solid #ccc;
     border-radius: 40px 0px 40px 0px;
     overflow: hidden;
-    width: 350px;
+    width: 300px;
     height: 500px;
     margin: 20px;
     box-shadow: 15px 15px 10px gray;
@@ -766,6 +827,7 @@ p {
     background-color: transparent;
     border: none;
     margin-top: 10px;
+    text-decoration: underline;
 }
 
 .app2 .card-image-container {
@@ -868,27 +930,27 @@ p {
 .app2 .pop {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 1);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    /* z-index: 1000; */
 }
 
 .app2 .pop-content {
-    background: white;
+    background: rgb(0, 0, 0);
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
+    width: 100%;
     max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     position: relative;
 }
 
-.app2 .close-pop {
+.app2 .close-popup {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -939,7 +1001,7 @@ p {
 @media (max-width: 480px) {
     .app2 .card {
         width: 90%;
-        height: 55vh;
+        height: 45vh;
         margin: 10px 0;
     }
 
@@ -973,6 +1035,7 @@ p {
     }
 }
 
+
 /* General Facility Page Styles */
 .facility-page {
     font-family: Arial, sans-serif;
@@ -985,8 +1048,8 @@ p {
 
 /* Facilities Section */
 .facility-section {
-    padding: 5rem;
-    margin-bottom: 5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
 }
 
 .facility-grid {
@@ -1110,7 +1173,7 @@ p {
     justify-content: center;
     gap: 3rem;
     padding: 50px;
-    background-color: rgb(245, 238, 228);
+    background-color: rgb(236, 236, 236);
 }
 
 .review-box {
@@ -1167,7 +1230,7 @@ p {
 @media (max-width: 768px) {
     .facility-section {
         padding: 3rem;
-        margin-bottom: 5rem;
+        margin-bottom: 1rem;
     }
 
     .facility-grid {
@@ -1413,6 +1476,7 @@ p {
     animation: fadeIn 2s ease-in-out;
 }
 
+
 /* General Navbar Styles------------------------------------------------------------------------- */
 .nav-navbar {
     display: flex;
@@ -1432,7 +1496,8 @@ p {
 }
 
 #nav-logo {
-    height: 50px;
+    /* margin-left: 0%; */
+    height: 80px;
     cursor: pointer;
 }
 
@@ -1522,7 +1587,7 @@ p {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 112px;
     right: 0;
     background-color: black;
     width: 100%;
@@ -1548,7 +1613,8 @@ p {
     .nav-navbar {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        padding: 1rem 2rem;
     }
 
     .nav-desktop-menu {
@@ -1571,6 +1637,13 @@ p {
         font-size: 15px;
         /* text-decoration: underline; */
     }
+
+    .nav-desktop-book-now .nav-book-now-btn {
+        width: 4rem;
+        margin-left: -1rem;
+        margin-right: 1rem;
+    }
+    
 
 }
 
@@ -1668,4 +1741,67 @@ p {
     .nav-mobile-dropdown-menu {
         display: flex;
     }
+
+    #nav-logo {
+        margin-left: 0%;
+        height: 90px;
+    }
 }
+
+@media (min-width: 768px) {
+    
+
+    #nav-logo {
+        margin-left: 100%;
+        height: 90px;;
+        
+    }
+}
+
+.rating-all{
+    font-size: 3.5rem;
+    color: #004d40;
+}
+
+.review-all-container{
+    width: 100%;;
+}
+
+
+
+
+/* Popup Styles */
+/* .pop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .pop-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .close-popup {
+    position: absolute;
+    top: 5rem;
+    right: 5rem;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+ */

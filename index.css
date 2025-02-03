@@ -153,6 +153,11 @@ p {
 
 .footr-footer-contacts {
     color: white;
+    margin-bottom: 1rem;
+}
+
+.footr-footer-contacts p{
+    margin-bottom: 1rem;
 }
 
 .footr-social-icons {
@@ -186,6 +191,11 @@ p {
     font-size: 0.9rem;
     color: #fff;
     background-color: black;
+}
+
+#footr-phone-no{
+    font-size: 20px;
+    color: #dfd547;
 }
 
 /* Mobile Specific Styles */
@@ -421,7 +431,7 @@ p {
         border: none;
         text-align: center; /* Centers the text inside the dropdown */
         padding: 8px 12px; /* Optional: Add some padding to make it look better */
-        width: 30%; /* Makes the dropdown fill its container (optional) */
+        width: 86px; /* Makes the dropdown fill its container (optional) */
         font-family: sans-serif;
         font-size: 16px;
         margin: auto;
@@ -871,6 +881,7 @@ z-index: 1000;
     font-size: 14px;
     transition: all 0.3s ease;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 .app2 .add-to-cart:hover {

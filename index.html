@@ -132,54 +132,81 @@
   </script>
 
   <!-- Hero Section (Image Slider) -->
-  <div class="home-page-whole">
-    <div class="hero-section">
-      <div class="hero-content">
-        
-        <h1>
-          Ethereal Hills<br /> <span>Camping & Glamping</span>
-        </h1>
-      </div>
-      <div class="dots-container">
-        <div class="dot active" onclick="handleDotClick(0)" aria-label="Slide 1" title="Slide 1"></div>
-        <div class="dot" onclick="handleDotClick(1)" aria-label="Slide 2" title="Slide 2"></div>
-        <div class="dot" onclick="handleDotClick(2)" aria-label="Slide 3" title="Slide 3"></div>
-      </div>
+<div class="home-page-whole">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 id="hero-heading">
+        Ethereal Hills<br /> <span>Camping & Glamping</span>
+      </h1>
     </div>
-  
-    <script>
-      const images = ["assets/pawana1.jpg", "assets/pawana2.jpg", "assets/pac2.jpg"];
-      let currentIndex = 2;
-  
-      function preloadImages() {
-        images.forEach((image) => {
-          const img = new Image();
-          img.src = image;
-        });
-      }
-  
-      function setBackgroundImage() {
-        const heroSection = document.querySelector(".hero-section");
-        heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
-        const dots = document.querySelectorAll(".dot");
-        dots.forEach((dot, index) => {
-          dot.classList.toggle("active", index === currentIndex);
-        });
-      }
-  
-      preloadImages();
+    <div class="dots-container">
+      <div class="dot active" onclick="handleDotClick(0)" role="button" tabindex="0" aria-label="Slide 1" title="Slide 1"></div>
+      <div class="dot" onclick="handleDotClick(1)" role="button" tabindex="0" aria-label="Slide 2" title="Slide 2"></div>
+      <div class="dot" onclick="handleDotClick(2)" role="button" tabindex="0" aria-label="Slide 3" title="Slide 3"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const images = ["assets/pawana1.jpg", "assets/pawana2.jpg", "assets/pac2.jpg"];
+  let currentIndex = 0;
+  let intervalId;
+
+  function preloadImages() {
+    images.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  }
+
+  function setBackgroundImage() {
+    const heroSection = document.querySelector(".hero-section");
+    const heroHeading = document.getElementById("hero-heading");
+
+    heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
+
+    // Hide heading on first image, show on others
+    if (currentIndex === 0) {
+      heroHeading.style.display = "none";
+    } else {
+      heroHeading.style.display = "block";
+    }
+
+    document.querySelectorAll(".dot").forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentIndex);
+    });
+  }
+
+  function startAutoSlide() {
+    clearInterval(intervalId);
+    intervalId = setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
       setBackgroundImage();
-  
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % images.length;
-        setBackgroundImage();
-      }, 4000);
-  
-      function handleDotClick(index) {
-        currentIndex = index;
-        setBackgroundImage();
-      }
-    </script>
+    }, 4000);
+  }
+
+  function handleDotClick(index) {
+    currentIndex = index;
+    setBackgroundImage();
+    startAutoSlide(); // Reset auto-slide on manual selection
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    preloadImages();
+    setBackgroundImage();
+    startAutoSlide();
+    
+    // Enable keyboard navigation for dots
+    document.querySelectorAll(".dot").forEach((dot, index) => {
+      dot.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          handleDotClick(index);
+        }
+      });
+    });
+  });
+</script>
+
   </div>
   
   
@@ -247,9 +274,12 @@
                 <div class="card-content">
                     <h2 class="card-title2">Tent Stay</h2>
                     <p class="card-price">Starting From ₹1199 Per Person</p>
-                    <button class="add-to-cart" onclick="window.location.href='Book.html?stayType=Tent Stay'">
+                    <!-- <button class="add-to-cart" onclick="window.location.href='Book.html?stayType=Tent Stay'">
                         BOOK NOW
-                    </button>
+                    </button> -->
+                    <a href="Payment.html">
+                      <button class="add-to-cart">BOOK NOW</button>
+                  </a>
                     <button class="see-features " onclick="openpop('Tent')">
                         See Features
                     </button>
@@ -259,7 +289,7 @@
             <!-- Cottage Stay Card -->
             <div class="card">
                 <div class="card-image-container">
-                    <img src="assets/img5.jpg" alt="Cottage Stay" class="card-image">
+                    <img src="/assets/Cottage.jpg" alt="Cottage Stay" class="card-image">
                 </div>
                 <div class="card-content">
                     <h2 class="card-title2">Cottage Stay</h2>
@@ -310,6 +340,9 @@
               <li><i class="fas fa-compact-disc"></i> DJ Floor</li>
               <li><i class="fas fa-music"></i> Live Music</li>
           </ul>
+          <button className="close-popup" onclick="closepop()" style="position: fixed; top: 10px; right:10px;">
+            ✖
+          </button>
       </div>
   
       <!-- Cottage Stay Features, Initially Hidden -->
@@ -323,6 +356,9 @@
               <li><i class="fas fa-compact-disc"></i> DJ Floor</li>
               <li><i class="fas fa-music"></i> Live Music</li>
           </ul>
+          <button className="close-popup" onclick="closepop()" style="position: fixed; top: 10px; right:10px;">
+            ✖
+          </button>
       </div>
   
       <!-- Dome Stay Features, Initially Hidden -->
@@ -336,12 +372,15 @@
               <li><i class="fas fa-chair"></i> Bed, Sofa, Chair, Attached Bathroom</li>
               <li><i class="fas fa-utensils"></i> Candle Light Dinner</li>
           </ul>
-      </div>
-      <div className="pop">
-        <div className="pop-content">
           <button className="close-popup" onclick="closepop()" style="position: fixed; top: 10px; right:10px;">
             ✖
           </button>
+      </div>
+      <div className="pop">
+        <div className="pop-content">
+          <!-- <button className="close-popup" onclick="closepop()" style="position: fixed; top: 10px; right:10px;">
+            ✖
+          </button> -->
           
         </div>
       </div>
@@ -401,6 +440,37 @@
             <p class="facility-description">The larger and Speaceful Swimming Pool.</p>
           </div>
         </div>
+        
+        <div class="facility-card">
+          <div class="facility-card-image">
+            <img src="assets/Kayaking.jpg" alt="Boating and Kayaking" class="facility-image" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Boating and Kayaking</h2>
+            <p class="facility-description">Explore the thrill of boating and kayaking.</p>
+          </div>
+        </div>
+        <div class="facility-card">
+          <div class="facility-card-image">
+            <img src="assets/CandleLight.jpg" alt="Candle light dinner" class="facility-image" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Candle light dinner</h2>
+            <p class="facility-description">Enjoy the memorable candle light dinner with loved ones.</p>
+          </div>
+        
+        </div>
+        <div class="facility-card">
+          <div class="facility-card-image">
+            <img src="assets/Candid.jpg" alt="Candid Photoshoot" class="facility-image" />
+          </div>
+          <div class="facility-info">
+            <h2 class="facility-title">Candid Photoshoot</h2>
+            <p class="facility-description">Capture all your beautful memories.</p>
+          </div>
+        </div>
+        
+
         <div class="facility-card">
           <div class="slideshow-container">
             <img src="assets/Games1.jpg" alt="Games" class="facility-image slideshow-slide" />
@@ -571,7 +641,7 @@
             <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake, 
             Lonawala Pune-Maharashtra-412108.
           </p>
-          <p>
+          <p id="footr-phone-no">
             <strong>Mobile No:</strong> +91-7720008787
           </p>
           <p>
@@ -590,10 +660,11 @@
     </div>
 
     <div class="footr-footer-bottom">
-      Copyright © 2024. All Rights Reserved.
+      Copyright © 2025. All Rights Reserved.
     </div>
     <div>
-      <a href="https://www.intellisysitsolutions.com/" style="text-decoration: underline; color: #fff; font-size: 0.8rem;">Designed by Intellisys IT Solutions PVT LTD.</a>
+      <span style="font-size: 0.95rem;">Designed by:</span>
+      <a href="https://www.intellisysitsolutions.com/" style="text-decoration: underline; color: #fff; font-size: 0.8rem;">Intellisys IT Solutions PVT LTD.</a>
     </div>
   </footer>
 

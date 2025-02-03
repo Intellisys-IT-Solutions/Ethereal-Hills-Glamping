@@ -7,14 +7,14 @@
   <title>Gallery</title>
   <style>
     /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
-    width: 100vw;
-    overflow-x: hidden;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      width: 100vw;
+      overflow-x: hidden;
+    }
 
     .heading-glam {
       text-align: center;
@@ -193,6 +193,11 @@ body {
 
     .footr-footer-contacts {
       color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footr-footer-contacts p {
+      margin-bottom: 1rem;
     }
 
     .footr-social-icons {
@@ -226,6 +231,11 @@ body {
       font-size: 0.9rem;
       color: #fff;
       background-color: black;
+    }
+
+    #footr-phone-no {
+      font-size: 20px;
+      color: #dfd547;
     }
 
     /* Mobile Specific Styles */
@@ -533,6 +543,7 @@ body {
 
       .nav-mobile-menu-icon {
         display: block;
+        margin-right: 14px;
       }
 
       .nav-mobile-gallery-dropdown {
@@ -556,7 +567,7 @@ body {
         /* Centers the text inside the dropdown */
         padding: 8px 12px;
         /* Optional: Add some padding to make it look better */
-        width: 20%;
+        width: 86px;
         /* Makes the dropdown fill its container (optional) */
         font-family: sans-serif;
         font-size: 16px;
@@ -565,12 +576,19 @@ body {
 
 
       #gallery-select option {
-        width: 50%;
+        width: 100px;
+        margin: auto;
         background-color: black;
         color: white;
         text-align: center;
         font-family: sans-serif;
         font-size: 16px;
+      }
+
+      .nav-desktop-book-now .nav-book-now-btn {
+        width: 4rem;
+        margin-left: -1rem;
+        margin-right: 1rem;
       }
 
     }
@@ -716,7 +734,7 @@ body {
 
 
       #nav-logo {
-        margin-left: 0%;
+        margin-left: 10%;
         height: 90px;
       }
     }
@@ -739,7 +757,7 @@ body {
   <!-- NAVBAR------------------------------------------------------------------ -->
 
   <nav class="nav-navbar">
-    
+
     <div class="nav-desktop-book-now">
       <button class="nav-book-now-btn">
         <a href="index.html#cardid" class="nav-book-now-link">Book Now</a>
@@ -749,9 +767,9 @@ body {
       <img src="assets/logo.png" alt="Logo" id="nav-logo" />
     </div>
 
-    
+
     <div class="nav-main-nav">
-      
+
 
       <div class="nav-desktop-menu">
         <a href="index.html" class="nav-desktop-menu-list-item">Home</a>
@@ -781,23 +799,24 @@ body {
       <a href="Aboutus.html" class="nav-mobile-menu-list-item">About Us</a>
 
 
-        <select name="Gallery" id="gallery-select" class="nav-mobile-gallery-dropdown nav-mobile-menu-list-item nav-dropdown-toggle" onchange="navigateToPage()">
-          <option value="">Gallery</option>
-          <option value="Tentgallary.html">Tent Gallery</option>
-          <option value="glam.html">Glam Gallery</option>
+      <select name="Gallery" id="gallery-select"
+        class="nav-mobile-gallery-dropdown nav-mobile-menu-list-item nav-dropdown-toggle" onchange="navigateToPage()">
+        <option value="">Gallery</option>
+        <option value="Tentgallary.html">Tent Gallery</option>
+        <option value="glam.html">Glam Gallery</option>
       </select>
-      
+
       <script>
-          function navigateToPage() {
-              const select = document.getElementById("gallery-select");
-              const selectedValue = select.value;
-              if (selectedValue) {
-                  window.location.href = selectedValue; // Redirects to the selected page
-              }
+        function navigateToPage() {
+          const select = document.getElementById("gallery-select");
+          const selectedValue = select.value;
+          if (selectedValue) {
+            window.location.href = selectedValue; // Redirects to the selected page
           }
+        }
       </script>
-        
-      </div>
+
+    </div>
     </div>
   </nav>
 
@@ -851,21 +870,21 @@ body {
       <div class="gallery-layout">
         <!-- First row (4 images) -->
         <div class="galleryimg">
-          <img src="assets/gg3.jpg" alt="Gallery Item 1" />
+          <img src="assets/book.jpg" alt="Gallery Item 1" />
         </div>
         <div class="galleryimg">
-          <img src="assets/g2.jpeg" alt="Gallery Item 2" />
+          <img src="assets/book33.jpg" alt="Gallery Item 2" />
         </div>
         <div class="galleryimg">
-          <img src="assets/glam.jpg" alt="Gallery Item 3" />
+          <img src="assets/dome (1).png" alt="Gallery Item 3" />
         </div>
         <div class="galleryimg">
-          <img src="assets/gg4.jpg" alt="Gallery Item 4" />
+          <img src="assets/Games4.jpg" alt="Gallery Item 4" />
         </div>
 
         <!-- Vertical Image -->
         <div class="vertical-image">
-          <img src="assets/dome (4).jpg" alt="Vertical Image" />
+          <img src="assets/Cottage.jpg" alt="Vertical Image" />
         </div>
 
         <!-- Second row (3 images spanning the width of 4 images) -->
@@ -874,10 +893,10 @@ body {
             <img src="assets/g6.jpeg" alt="Gallery Item 5" />
           </div>
           <div class="galleryimg">
-            <img src="assets/glam.jpg" alt="Gallery Item 6" />
+            <img src="assets/Snacks.jpg" alt="Gallery Item 6" />
           </div>
           <div class="galleryimg">
-            <img src="assets/g7.jpeg" alt="Gallery Item 7" />
+            <img src="assets/book2.jpg" alt="Gallery Item 7" />
           </div>
         </div>
       </div>
@@ -886,16 +905,16 @@ body {
   <div class="gallery-container1">
     <!-- Image Cards -->
     <div id="image-1" class="image-card1">
-      <img src="assets/gg3.jpg" alt="Gallery 1" />
+      <img src="assets/Kayaking.jpg" alt="Gallery 1" />
     </div>
     <div id="image-2" class="image-card1">
-      <img src="assets/g2.jpeg" alt="Gallery 2" />
+      <img src="assets/tent3.jpg" alt="Gallery 2" />
     </div>
     <div id="image-3" class="image-card1">
-      <img src="assets/glam.jpg" alt="Gallery 3" />
+      <img src="assets/Candid.jpg" alt="Gallery 3" />
     </div>
     <div id="image-4" class="image-card1">
-      <img src="assets/gg4.jpg" alt="Gallery 4" />
+      <img src="assets/bb4.jpg" alt="Gallery 4" />
     </div>
     <div id="image-5" class="image-card1">
       <img src="assets/dome (4).jpg" alt="Gallery 5" />
@@ -938,7 +957,7 @@ body {
             <strong>Address:</strong> Beside Princess Vista, Khadak Gawande, Thakusrsai, Pawanalake,
             Lonawala Pune-Maharashtra-412108.
           </p>
-          <p>
+          <p id="footr-phone-no">
             <strong>Mobile No:</strong> +91-7720008787
           </p>
           <p>
@@ -957,10 +976,12 @@ body {
     </div>
 
     <div class="footr-footer-bottom">
-      Copyright © 2024. All Rights Reserved.
+      Copyright © 2025. All Rights Reserved.
     </div>
     <div>
-      <a href="https://www.intellisysitsolutions.com/" style="text-decoration: underline; color: #fff; font-size: 0.8rem;">Designed by Intellisys IT Solutions PVT LTD.</a>
+      <span style="font-size: 0.95rem;">Designed by:</span>
+      <a href="https://www.intellisysitsolutions.com/"
+        style="text-decoration: underline; color: #fff; font-size: 0.8rem;">Intellisys IT Solutions PVT LTD.</a>
     </div>
   </footer>
 

@@ -1,222 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
     <style>
-        .body {
+        body {
             font-family: sans-serif;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.05);
         }
 
-        .popup-headingg {
-            width: fit-content;
-            margin: auto;
-            font-family: sans-serif;
-        }
-
-        /* Popup styles */
         .popup-overlay-x {
+            display: grid;
+            place-items: center;
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
             background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            font-family: sans-serif;
         }
 
         .popup-content-x {
-            display: flex;
-            flex-direction: column;
-            width: 90%;
-            height: 90%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 92%;
+            max-width: 800px;
             background: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .popup-headingg {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
         .popup-all-payment {
-            display: flex;
-            flex-direction: row;
-            gap: 5rem;
-            width: 60%;
-            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
         }
 
         .qr-code-image {
-            width: 20em;
+            width: 60%;
+            /* max-width: 300px; */
             border-radius: 10px;
-            margin-bottom: 15px;
+        }
+
+        .bank-acc table {
+            width: 100%;
+            /* border-collapse: collapse; */
+        }
+
+        .bank-acc th,
+        .bank-acc td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
         }
 
         .send-screenshot {
-            display: flex;
-            flex-direction: column;
-            width: 60%;
-            margin: auto;
-            text-align: center;
+            margin-top: 10px;
         }
 
         .close-popup-button {
             background: #007bff;
             color: #fff;
             border: none;
-            width: 20%;
-            margin: auto;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .close-popup-button:hover {
             background: #ff0000;
         }
 
-        .bank-acc th,
-        .bank-acc td {
-            border: 0.1px solid black;
-            width: 200px;
-            height: 60px;
-            text-align: center;
-        }
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-
-            .logo {
-                width: 100px;
+            .popup-all-payment {
+                grid-template-columns: 1fr;
+                text-align: center;
+                max-width: 90vw;
             }
-
-            .popup-content-x {
-                width: 95%;
-                padding: 1rem;
-            }
-
             .qr-code-image {
-                max-width: 200px;
-            }
-
-            .bank-acc th,
-            .bank-acc td {
-                font-size: 12px;
-            }
-
-            .close-popup-button {
-                font-size: 14px;
-                padding: 8px 16px;
+                margin: auto;
             }
 
             .popup-headingg {
-                margin-bottom: 0px;
-            }
+            margin-bottom: 20px;
+        }
         }
 
-        @media (max-width: 480px) {
-
+        @media (min-width: 768px) {
             .popup-content-x {
-                width: 100%;
-                height: 100%;
-                padding: 0.8rem;
-                overflow: scroll;
-
+                height: 80vh;
             }
-
             .popup-all-payment {
-                flex-direction: column;
-                height: 300px;
-                gap: 2rem;
+                grid-template-columns: 1fr 2fr;     
             }
-
             .qr-code-image {
-                max-width: 200px;
+                width: 20rem;
                 margin: auto;
             }
-
-            .close-popup-button {
-                font-size: 12px;
-                padding: 6px 12px;
-                width: 30%;
-                text-align: center;
-            }
-
-            .bank-acc th,
-            .bank-acc td {
-                font-size: 12px;
-                padding: 2px;
-                height: 2em;
-            }
+            .popup-headingg {
+            font-size: 2rem;
+        }
         }
 
-        .pop-1 {
-            margin-top: 2rem;
-        }
-
-        @media (min-width: 361px) and (max-width: 768px) {
-            .qr-code-image {
-                max-width: 230px;
-                margin: auto;
-            }
-        }
     </style>
 </head>
-
 <body>
-    <div class="popup-overlay-x" id="popupOverlay">
+    <div class="popup-overlay-x">
         <div class="popup-content-x">
-            <div class="popup-headingg">
-                <h2>Payment Instructions</h2>
-            </div>
+            <div class="popup-headingg">Payment Instructions</div>
             <div class="popup-all-payment">
-                <div class="upi">
-                    <img src="assets/QR2.jpg" alt="QR Code" class="qr-code-image">
-                </div>
+                <img src="assets/QR2.jpg" alt="QR Code" class="qr-code-image">
                 <div class="bank-acc">
-                    <table class="acc-details">
-                        <tr>
-                            <th>Account holder name:</th>
-                            <td>Narendra Atmaling Gore</td>
-                        </tr>
-                        <tr>
-                            <th>Bank:</th>
-                            <td>Bank of Baroda</td>
-                        </tr>
-                        <tr>
-                            <th>A/c No:</th>
-                            <td>04518100000979</td>
-                        </tr>
-                        <tr>
-                            <th>IFSC Code:</th>
-                            <td>BARB0SHIPOO</td>
-                        </tr>
-                        <tr>
-                            <th>Branch:</th>
-                            <td>Shivaji Nagar</td>
-                        </tr>
+                    <table>
+                        <tr><th>Account holder name:</th><td>Narendra Atmaling Gore</td></tr>
+                        <tr><th>Bank:</th><td>Bank of Baroda</td></tr>
+                        <tr><th>A/c No:</th><td>04518100000979</td></tr>
+                        <tr><th>IFSC Code:</th><td>BARB0SHIPOO</td></tr>
+                        <tr><th>Branch:</th><td>Shivaji Nagar</td></tr>
                     </table>
                 </div>
             </div>
-
             <div class="send-screenshot">
-                <div class="pop-1">
-                    <p style="font-size: 0.9rem;">Please make the payment and send a screenshot to WhatsApp number:
-                        <br><strong>+91
-                            8452136887</strong></p>
-                </div>
-                <div class="pop-2">
-                    <a href="index.html#cardid">
-                        <button class="close-popup-button" id="closePopup">Close</button>
-                    </a>
-                </div>
+                <p>Please make the payment and send a screenshot to WhatsApp number: <strong>+91 8452136887</strong></p>
+                <a href="index.html#cardid">
+                    <button class="close-popup-button">Close</button>
+                </a>
             </div>
         </div>
     </div>
-
 </body>
-
 </html>

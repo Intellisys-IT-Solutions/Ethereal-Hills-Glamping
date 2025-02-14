@@ -749,6 +749,14 @@ z-index: 1000;
     font-weight: 400;
 }
 
+.couple{
+    line-height: 8px;
+}
+
+#tentcarrd{
+    line-height: 8px;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 1200px) {
     .card2-container2 {
@@ -760,7 +768,13 @@ z-index: 1000;
     }
 }
 
+
+
 @media screen and (max-width: 768px) {
+
+    .couple{
+        line-height: 7px;
+    }
 
     .desktopmenu-navbar,
     .desktopbooknow {
@@ -798,6 +812,8 @@ z-index: 1000;
         font-size: 16px;
     }
 }
+
+
 
 .app2 {
     padding: 20px;
@@ -862,7 +878,7 @@ z-index: 1000;
 .app2 .card-title2 {
     color: black;
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
 }
 
 .app2 .card-price {
@@ -1012,7 +1028,7 @@ z-index: 1000;
 @media (max-width: 480px) {
     .app2 .card {
         width: 90%;
-        height: 45vh;
+        height: 50vh;
         margin: 10px 0;
     }
 
@@ -1043,6 +1059,41 @@ z-index: 1000;
     .hero-content h1 {
         font-size: 2.5rem;
         margin-top: 1rem;
+    }
+
+    .card .card-content {
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        line-height: 30px;
+    }
+    
+}
+
+@media screen and (min-width: 374px) and (max-width: 376px) {
+    .app2 .card {
+        border: 1px solid #ccc;
+        border-radius: 40px 0px 40px 0px;
+        overflow: hidden;
+        width: 300px;
+        height: 400px;
+        /* margin: 20px; */
+        box-shadow: 15px 15px 10px gray;
+        flex-shrink: 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card .card-content {
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        line-height: 30px;
+    }
+
+    .couple{
+        line-height: 0px;
     }
 }
 
